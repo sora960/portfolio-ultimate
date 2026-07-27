@@ -1,0 +1,13 @@
+[
+  {
+    "id": "exp-01",
+    "role": "Software & IT Engineering Graduate",
+    "period": "Recent",
+    "highlights": [
+      "Developed backend APIs and integrated network data pipelines",
+      "Focused on low-level memory management and core data structures",
+      "Practiced diagnostic logging and network troubleshooting protocols"
+    ],
+    "skills": ["C/C++", "Python", "REST APIs", "Networking"]
+  }
+]

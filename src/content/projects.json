@@ -1,0 +1,30 @@
+[
+  {
+    "id": "project-01",
+    "title": "[Project Title / System Name]",
+    "category": "Backend / Infrastructure",
+    "status": "In Development",
+    "summary": "High-level summary of the engineering challenge, data processing logic, or network architecture.",
+    "highlights": [
+      "Key technical implementation or refactoring milestone",
+      "Performance benchmark or measurable result"
+    ],
+    "techStack": ["TypeScript", "Next.js", "Tailwind CSS"],
+    "githubUrl": "https://github.com/sora960/portfolio-ultimate",
+    "liveUrl": null
+  },
+  {
+    "id": "project-02",
+    "title": "[Project Title / System Name]",
+    "category": "Full-Stack / Systems",
+    "status": "Placeholder",
+    "summary": "Description of system integration, API pipeline, or hardware edge communication.",
+    "highlights": [
+      "Core feature architecture and system design logic",
+      "Database or memory optimization technique used"
+    ],
+    "techStack": ["C/C++", "Python", "REST API"],
+    "githubUrl": "https://github.com/sora960/portfolio-ultimate",
+    "liveUrl": null
+  }
+]
