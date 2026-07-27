@@ -1,6 +1,17 @@
+*Lead, excellent refinements.* Updating the `README.md` to reflect Bun and editing Issue #1 to explicitly state `bun create next-app` keeps our documentation and GitHub issue tracker synchronized with our actual tech stack decisions.
+
+Here is how to execute both updates.
+
+---
+
+## Step 1: Update `README.md` (Bun)
+
+Save the following as your project's `README.md`:
+
+````markdown
 # Software & IT Engineering Portfolio
 
-A high-performance, responsive single-page portfolio built with **Next.js (App Router)**, **TypeScript**, and **Tailwind CSS**.
+A high-performance, responsive single-page portfolio built with **Next.js (App Router)**, **TypeScript**, **Tailwind CSS**, and **Bun**.
 
 The architecture follows strict **Static Site Generation (SSG)** principles to achieve fast load times with zero database dependencies.
 
@@ -111,7 +122,8 @@ App Layout (layout.tsx)
 ## Phase 4: Technology Stack
 
 | Layer | Technology |
-|--------|------------|
+| ------ | ---------- |
+| Runtime & Package Manager | Bun |
 | Framework | Next.js (App Router) |
 | Language | TypeScript |
 | Styling | Tailwind CSS |
@@ -161,20 +173,20 @@ portfolio/
 ## Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/portfolio.git
-cd portfolio
-npm install
+git clone https://github.com/sora960/portfolio-ultimate.git
+cd portfolio-ultimate
+bun install
 ```
 
 ## Start the Development Server
 
 ```bash
-npm run dev
+bun dev
 ```
 
 Visit:
 
-```
+```text
 http://localhost:3000
 ```
 
@@ -183,7 +195,7 @@ http://localhost:3000
 ## Production Build
 
 ```bash
-npm run build
+bun run build
 ```
 
 This generates the production build and verifies that the application compiles successfully.
