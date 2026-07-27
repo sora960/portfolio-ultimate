@@ -1,5 +1,6 @@
 import React from "react";
 import { Badge } from "./Badge";
+import { ThemeToggle } from "./ThemeToggle";
 
 export const Header: React.FC = () => {
   return (
@@ -29,15 +30,18 @@ export const Header: React.FC = () => {
           </a>
         </div>
 
-        {/* Resume Action */}
-        <a
-          href="/resume.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hidden sm:inline-flex items-center px-3 py-1.5 rounded-full text-xs font-mono font-medium text-white bg-neutral-900 dark:bg-neutral-100 dark:text-neutral-900 hover:opacity-90 transition-opacity"
-        >
-          Resume.pdf
-        </a>
+        {/* Actions: Theme Toggle & Resume */}
+        <div className="flex items-center gap-3">
+          <ThemeToggle />
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden sm:inline-flex items-center px-3 py-1.5 rounded-full text-xs font-mono font-medium text-white bg-neutral-900 dark:bg-neutral-100 dark:text-neutral-900 hover:opacity-90 transition-opacity"
+          >
+            Resume.pdf
+          </a>
+        </div>
       </nav>
     </header>
   );

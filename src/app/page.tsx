@@ -7,9 +7,12 @@ import { ContactSection } from "@/components/ContactSection";
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-screen flex flex-col items-center">
+      {/* Floating Header */}
       <Header />
-      <main className="container mx-auto space-y-12">
+
+      {/* Main Content Container with Proper Centering and Padding */}
+      <main className="w-full max-w-4xl mx-auto px-4 sm:px-6 flex flex-col space-y-16 pb-24">
         <Hero />
         <ExperienceSection />
         <SkillsSection />
