@@ -48,8 +48,12 @@ export const Hero: React.FC = () => {
         </div>
 
         {/* Architectural Highlights Pill */}
-        <div className="pt-8">
-          <Card className="max-w-xl mx-auto flex items-center justify-around text-xs font-mono text-neutral-500 dark:text-neutral-400 py-3">
+        <div className="pt-8 max-w-xl mx-auto relative group">
+          {/* Backstage Refraction Shapes */}
+          <div className="absolute top-1/2 left-6 -translate-y-1/2 w-32 h-6 bg-blue-500 rounded-full select-none pointer-events-none group-hover:scale-x-110 group-hover:-translate-x-3 transition-transform duration-500" />
+          <div className="absolute top-1/2 right-12 -translate-y-1/2 w-28 h-6 bg-emerald-500 rounded-full select-none pointer-events-none group-hover:scale-x-110 group-hover:translate-x-3 transition-transform duration-500" />
+
+          <Card className="flex items-center justify-around text-xs font-mono text-neutral-500 dark:text-neutral-400 py-3 relative z-10">
             <div>
               <span className="block text-sm font-bold text-neutral-900 dark:text-neutral-100">Next.js 16</span>
               App Router

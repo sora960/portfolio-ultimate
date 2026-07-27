@@ -22,26 +22,31 @@ export const ExperienceSection: React.FC = () => {
 
         <div className="space-y-6">
           {experiences.map((exp) => (
-            <Card key={exp.id} className="space-y-4">
-              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-neutral-200/50 dark:border-white/5 pb-3">
-                <h3 className="text-lg font-bold text-neutral-900 dark:text-neutral-100">
-                  {exp.role}
-                </h3>
-                <Badge label={exp.period} variant="active" />
-              </div>
+            <div key={exp.id} className="relative group">
+              {/* Backstage Refraction Shape */}
+              <div className="absolute top-10 left-16 w-52 h-8 bg-gradient-to-r from-violet-600 to-indigo-600 rounded-full select-none pointer-events-none group-hover:scale-x-110 group-hover:-translate-x-4 transition-transform duration-500" />
+              
+              <Card className="space-y-4 relative z-10">
+                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-neutral-200/50 dark:border-white/5 pb-3">
+                  <h3 className="text-lg font-bold text-neutral-900 dark:text-neutral-100">
+                    {exp.role}
+                  </h3>
+                  <Badge label={exp.period} variant="active" />
+                </div>
 
-              <ul className="space-y-2 text-xs sm:text-sm text-neutral-800 dark:text-neutral-200 list-disc list-inside font-sans leading-relaxed">
-                {exp.highlights.map((item, idx) => (
-                  <li key={idx}>{item}</li>
-                ))}
-              </ul>
+                <ul className="space-y-2 text-xs sm:text-sm text-neutral-800 dark:text-neutral-200 list-disc list-inside font-sans leading-relaxed">
+                  {exp.highlights.map((item, idx) => (
+                    <li key={idx}>{item}</li>
+                  ))}
+                </ul>
 
-              <div className="flex flex-wrap gap-1.5 pt-2">
-                {exp.skills.map((skill, idx) => (
-                  <Badge key={idx} label={skill} variant="default" className="text-[10px]" />
-                ))}
-              </div>
-            </Card>
+                <div className="flex flex-wrap gap-1.5 pt-2">
+                  {exp.skills.map((skill, idx) => (
+                    <Badge key={idx} label={skill} variant="default" className="text-[10px]" />
+                  ))}
+                </div>
+              </Card>
+            </div>
           ))}
         </div>
       </div>
