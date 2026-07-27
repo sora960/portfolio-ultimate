@@ -1,12 +1,14 @@
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
+import { ProjectsSection } from "@/components/ProjectsSection";
 
 export default function Home() {
   return (
     <div className="relative min-h-screen">
       <Header />
-      <main className="container mx-auto">
+      <main className="container mx-auto space-y-12">
         <Hero />
+        <ProjectsSection />
       </main>
     </div>
   );
