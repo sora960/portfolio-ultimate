@@ -1,0 +1,29 @@
+{
+  "categories": [
+    {
+      "name": "Core CS & Systems",
+      "skills": [
+        { "name": "C / C++", "status": "Active Focus" },
+        { "name": "Data Structures & Algorithms", "status": "Core Competency" },
+        { "name": "Memory Management & Pointers", "status": "Active Focus" }
+      ]
+    },
+    {
+      "name": "Backend & Infrastructure",
+      "skills": [
+        { "name": "Python", "status": "Core Competency" },
+        { "name": "RESTful API Design", "status": "Core Competency" },
+        { "name": "Linux CLI & Bash", "status": "Active Focus" },
+        { "name": "Network Admin (TCP/IP, DNS)", "status": "Active Focus" }
+      ]
+    },
+    {
+      "name": "Web & Developer Tools",
+      "skills": [
+        { "name": "Full-Stack Web Dev", "status": "Core Competency" },
+        { "name": "Git & Version Control", "status": "Core Competency" },
+        { "name": "JSON & Data Modeling", "status": "Core Competency" }
+      ]
+    }
+  ]
+}
