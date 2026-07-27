@@ -30,7 +30,7 @@ export const ExperienceSection: React.FC = () => {
                 <Badge label={exp.period} variant="active" />
               </div>
 
-              <ul className="space-y-2 text-xs sm:text-sm text-neutral-600 dark:text-neutral-300 list-disc list-inside font-sans leading-relaxed">
+              <ul className="space-y-2 text-xs sm:text-sm text-neutral-800 dark:text-neutral-200 list-disc list-inside font-sans leading-relaxed">
                 {exp.highlights.map((item, idx) => (
                   <li key={idx}>{item}</li>
                 ))}

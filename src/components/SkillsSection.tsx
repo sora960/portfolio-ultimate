@@ -29,7 +29,7 @@ export const SkillsSection: React.FC = () => {
               <ul className="space-y-2.5">
                 {cat.skills.map((skill, sIdx) => (
                   <li key={sIdx} className="flex items-center justify-between text-xs">
-                    <span className="font-sans text-neutral-700 dark:text-neutral-300">
+                    <span className="font-sans text-neutral-900 dark:text-neutral-100 font-medium">
                       {skill.name}
                     </span>
                     <Badge

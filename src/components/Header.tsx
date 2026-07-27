@@ -15,18 +15,22 @@ export const Header: React.FC = () => {
         </a>
 
         {/* Navigation Links */}
-        <div className="flex items-center gap-4 md:gap-6 text-xs font-mono tracking-wider uppercase text-neutral-600 dark:text-neutral-400">
-          <a href="#about" className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors">
+        <div className="flex items-center gap-4 md:gap-6 text-xs font-mono tracking-widest uppercase text-neutral-500 dark:text-neutral-400">
+          <a href="#about" className="relative py-1 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors group cursor-pointer">
             #about
+            <span className="absolute bottom-0 left-0 w-full h-[1px] bg-neutral-900 dark:bg-neutral-100 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
           </a>
-          <a href="#skills" className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors">
+          <a href="#skills" className="relative py-1 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors group cursor-pointer">
             #skills
+            <span className="absolute bottom-0 left-0 w-full h-[1px] bg-neutral-900 dark:bg-neutral-100 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
           </a>
-          <a href="#projects" className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors">
+          <a href="#projects" className="relative py-1 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors group cursor-pointer">
             #projects
+            <span className="absolute bottom-0 left-0 w-full h-[1px] bg-neutral-900 dark:bg-neutral-100 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
           </a>
-          <a href="#contact" className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors">
+          <a href="#contact" className="relative py-1 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors group cursor-pointer">
             #contact
+            <span className="absolute bottom-0 left-0 w-full h-[1px] bg-neutral-900 dark:bg-neutral-100 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
           </a>
         </div>
 
