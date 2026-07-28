@@ -13,18 +13,23 @@ interface ProjectsSectionProps {
 interface ProjectCardProps {
   project: Project;
   selectedSkill: string | null;
+  isFeatured?: boolean;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ project, selectedSkill }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ project, selectedSkill, isFeatured = false }) => {
   const [activeTab, setActiveTab] = useState<"overview" | "features" | "stack">("overview");
 
   const isPlaceholder = project.status === "Placeholder" || project.status === "In Development";
   const hasSelectedSkill = selectedSkill ? project.techStack.includes(selectedSkill) : false;
 
   return (
-    <div className="relative group">
-      {/* Backstage Refraction Shape - Rainbow Gradient */}
-      <div className="absolute top-1/3 left-10 w-48 h-8 bg-gradient-to-r from-blue-500 via-pink-500 to-yellow-500 rounded-full select-none pointer-events-none shadow-lg group-hover:scale-x-110 group-hover:-translate-x-3 transition-transform duration-500" />
+    <div className={`relative group ${isFeatured ? "col-span-1 md:col-span-2" : ""}`}>
+      {/* Backstage Refraction Shape - Larger shape for featured card */}
+      <div className={`absolute rounded-full select-none pointer-events-none shadow-lg transition-transform duration-500 ${
+        isFeatured 
+          ? "top-1/4 left-1/4 w-64 h-12 bg-gradient-to-r from-blue-500 via-indigo-500 to-emerald-500 group-hover:scale-x-110 group-hover:-translate-x-4"
+          : "top-1/3 left-10 w-48 h-8 bg-gradient-to-r from-blue-500 via-pink-500 to-yellow-500 group-hover:scale-x-110 group-hover:-translate-x-3"
+      }`} />
       
       <Card
         className={`flex flex-col justify-between space-y-6 relative overflow-hidden z-10 min-h-[350px] transition-all duration-500 ${
@@ -33,52 +38,52 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, selectedSkill }) => 
           hasSelectedSkill 
             ? "border-blue-500/50 dark:border-sky-400/50 ring-1 ring-blue-500/30 dark:ring-sky-400/30 shadow-[0_0_15px_rgba(59,130,246,0.15)] scale-[1.01]" 
             : selectedSkill 
-            ? "opacity-40" 
+            ? "opacity-45" 
             : ""
         }`}
       >
-        <div className="space-y-4">
-          {/* Top Row: Category & Status Badge */}
-          <div className="flex items-center justify-between gap-2">
-            <span className="text-xs font-mono uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
-              {project.category}
-            </span>
-            {isPlaceholder ? (
-              <Badge label="[BUILD IN PROGRESS]" variant="warning" />
-            ) : (
-              <Badge label="[LIVE_SYSTEM]" variant="active" />
-            )}
-          </div>
+        <div className={`flex flex-col ${isFeatured ? "md:flex-row md:gap-8 md:items-start" : "space-y-4"}`}>
+          
+          {/* Left Block: Meta & Title */}
+          <div className={isFeatured ? "md:w-1/2 space-y-4" : "space-y-4"}>
+            <div className="flex items-center justify-between gap-2">
+              <span className="text-xs font-mono uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
+                {project.category}
+              </span>
+              {isPlaceholder ? (
+                <Badge label="[BUILD IN PROGRESS]" variant="warning" />
+              ) : (
+                <Badge label="[LIVE_SYSTEM]" variant="active" />
+              )}
+            </div>
 
-          {/* Title & Summary */}
-          <div className="space-y-2">
-            <h3 className="text-xl font-bold text-neutral-900 dark:text-neutral-100 group-hover:text-emerald-500 transition-colors">
+            <h3 className="text-xl sm:text-2xl font-bold text-neutral-900 dark:text-neutral-100 group-hover:text-emerald-500 transition-colors">
               {project.title}
             </h3>
+
+            {/* Apple-style Tab Switcher */}
+            <div className="flex border-b border-neutral-200/50 dark:border-white/5 pb-1 gap-4 text-xs font-mono">
+              {(["overview", "features", "stack"] as const).map((tab) => {
+                const active = activeTab === tab;
+                return (
+                  <button
+                    key={tab}
+                    onClick={() => setActiveTab(tab)}
+                    className={`pb-1 border-b-2 transition-all cursor-pointer capitalize ${
+                      active 
+                        ? "border-neutral-950 text-neutral-950 dark:border-neutral-100 dark:text-neutral-100 font-semibold"
+                        : "border-transparent text-neutral-400 dark:text-neutral-500 hover:text-neutral-600 dark:hover:text-neutral-400"
+                    }`}
+                  >
+                    {tab}
+                  </button>
+                );
+              })}
+            </div>
           </div>
 
-          {/* Apple-style Tab Switcher */}
-          <div className="flex border-b border-neutral-200/50 dark:border-white/5 pb-1 gap-4 text-xs font-mono">
-            {(["overview", "features", "stack"] as const).map((tab) => {
-              const active = activeTab === tab;
-              return (
-                <button
-                  key={tab}
-                  onClick={() => setActiveTab(tab)}
-                  className={`pb-1 border-b-2 transition-all cursor-pointer capitalize ${
-                    active 
-                      ? "border-neutral-950 text-neutral-950 dark:border-neutral-100 dark:text-neutral-100 font-semibold"
-                      : "border-transparent text-neutral-400 dark:text-neutral-500 hover:text-neutral-600 dark:hover:text-neutral-400"
-                  }`}
-                >
-                  {tab}
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Tab contents block */}
-          <div className="min-h-[110px] py-1">
+          {/* Right Block: Content Details */}
+          <div className={isFeatured ? "md:w-1/2 md:pt-8 min-h-[120px]" : "min-h-[110px]"}>
             {activeTab === "overview" && (
               <p className="text-sm text-neutral-800 dark:text-neutral-200 leading-relaxed">
                 {project.summary}
@@ -216,9 +221,17 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ selectedSkill 
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {filteredProjects.map((project) => (
-            <ProjectCard key={project.id} project={project} selectedSkill={selectedSkill} />
-          ))}
+          {filteredProjects.map((project, index) => {
+            const isFeatured = index === 0 && filter === "all";
+            return (
+              <ProjectCard 
+                key={project.id} 
+                project={project} 
+                selectedSkill={selectedSkill} 
+                isFeatured={isFeatured}
+              />
+            );
+          })}
         </div>
       </div>
     </section>
