@@ -157,32 +157,36 @@
 }
 
 /* ─── Typography Scale ───────────────────────────────── */
-/* Display: hero name, section titles */
-.text-display {
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
-  font-weight: 900;
-  letter-spacing: -0.03em;
-  line-height: 1;
-}
+@layer components {
+  /* Display: hero name, section h2 titles */
+  .text-display {
+    font-family: var(--font-inter), sans-serif;
+    font-size: clamp(2.75rem, 5vw, 4.5rem);
+    font-weight: 900;
+    letter-spacing: -0.035em;
+    line-height: 1;
+  }
 
-/* Headline: card titles, feature headings */
-.text-headline {
-  font-size: clamp(1.5rem, 3vw, 2.25rem);
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
-}
+  /* Headline: card titles, sub-section headings */
+  .text-headline {
+    font-family: var(--font-inter), sans-serif;
+    font-size: clamp(1.25rem, 2.5vw, 2rem);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+  }
 
-/* Section label descriptor — human prose, NOT mono */
-.text-descriptor {
-  font-family: var(--font-sans);
-  font-size: 0.9375rem; /* 15px */
-  font-weight: 400;
-  color: rgb(115 115 115); /* neutral-500 */
-  line-height: 1.6;
-}
-.dark .text-descriptor {
-  color: rgb(115 115 115); /* neutral-500 */
+  /* Descriptor: section subtitles — human prose, NOT mono */
+  .text-descriptor {
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 400;
+    color: rgb(115 115 115);
+    line-height: 1.65;
+  }
+  .dark .text-descriptor {
+    color: rgb(163 163 163);
+  }
 }
 
 /* ─── Glow drift keyframe (Card internal flare) ─────── */
