@@ -32,10 +32,7 @@ export const ExperienceSection: React.FC = () => {
           {experiences.map((exp, index) => (
             <Reveal key={exp.id} delay={index * 150}>
               <div className="relative group w-full h-full">
-                {/* Backstage Refraction Shape */}
-                <div className="absolute top-10 left-16 w-52 h-8 bg-gradient-to-r from-violet-600 to-indigo-600 rounded-full select-none pointer-events-none shadow-lg border border-indigo-500/20 group-hover:scale-x-110 group-hover:-translate-x-4 transition-transform duration-500" />
-                
-                <Card className="space-y-4 relative z-10">
+                <Card glowColor="violet" className="space-y-4 relative z-10">
                   <div className="flex flex-wrap items-center justify-between gap-2 border-b border-neutral-200/50 dark:border-white/5 pb-3">
                     <h3 className="text-lg font-bold text-neutral-900 dark:text-neutral-100">
                       {exp.role}

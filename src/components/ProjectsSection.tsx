@@ -25,14 +25,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, selectedSkill, isFea
 
   return (
     <div className="relative group w-full h-full">
-      {/* Backstage Refraction Shape - Larger shape for featured card */}
-      <div className={`absolute rounded-full select-none pointer-events-none shadow-lg transition-transform duration-500 ${
-        isFeatured 
-          ? "top-1/4 left-1/4 w-64 h-12 bg-gradient-to-r from-blue-500 via-indigo-500 to-emerald-500 group-hover:scale-x-110 group-hover:-translate-x-4"
-          : "top-1/3 left-10 w-48 h-8 bg-gradient-to-r from-blue-500 via-pink-500 to-yellow-500 group-hover:scale-x-110 group-hover:-translate-x-3"
-      }`} />
-      
       <Card
+        glowColor={isFeatured ? "indigo" : project.title.includes("Portal") ? "blue" : "rose"}
         className={`flex flex-col justify-between space-y-6 relative overflow-hidden z-10 min-h-[350px] transition-all duration-500 ${
           isPlaceholder ? "opacity-70" : ""
         } ${

@@ -6,12 +6,14 @@ interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   className?: string;
   thickness?: "thin" | "regular" | "thick";
+  glowColor?: "indigo" | "emerald" | "amber" | "blue" | "violet" | "rose" | "pink";
 }
 
 export const Card: React.FC<CardProps> = ({ 
   children, 
   className = "", 
   thickness = "regular",
+  glowColor,
   ...props 
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
@@ -64,8 +66,24 @@ export const Card: React.FC<CardProps> = ({
           background: "radial-gradient(350px circle at var(--mouse-x, 0px) var(--mouse-y, 0px), var(--specular-spotlight, rgba(255, 255, 255, 0.12)), transparent 80%)",
         }}
       />
+
+      {/* Internal Glass Color Flare (simulates refractive ambient color refraction) */}
+      {glowColor && (
+        <div 
+          className={`absolute w-44 h-44 rounded-full blur-[48px] opacity-[0.25] dark:opacity-[0.14] pointer-events-none z-0 ${
+            glowColor === "indigo" ? "bg-indigo-500 -top-12 -left-12" :
+            glowColor === "emerald" ? "bg-emerald-500 -bottom-12 -right-12" :
+            glowColor === "amber" ? "bg-amber-500 -top-12 -right-12" :
+            glowColor === "blue" ? "bg-blue-500 -top-10 -left-10" :
+            glowColor === "violet" ? "bg-violet-500 -bottom-10 -left-10" :
+            glowColor === "rose" ? "bg-rose-500 -bottom-10 -right-10" :
+            glowColor === "pink" ? "bg-pink-500 -top-10 -right-10" :
+            "bg-neutral-500"
+          }`}
+        />
+      )}
       
-      {/* Relative container to keep child nodes above spotlight overlay */}
+      {/* Relative container to keep child nodes above spotlight/color overlay */}
       <div className="relative z-10 w-full h-full flex flex-col justify-between">
         {children}
       </div>
