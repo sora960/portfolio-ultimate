@@ -42,7 +42,7 @@ export const ContactSection: React.FC = () => {
         {/* Contact Card Container */}
         <div className="relative group">
           {/* Backstage Refraction Shape - Orange Rose gradient sphere */}
-          <div className="absolute -bottom-6 -right-6 w-36 h-36 bg-gradient-to-tr from-amber-500 to-rose-500 rounded-full select-none pointer-events-none group-hover:scale-110 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-500" />
+          <div className="absolute -bottom-6 -right-6 w-36 h-36 bg-gradient-to-tr from-amber-500 to-rose-500 rounded-full select-none pointer-events-none shadow-xl group-hover:scale-110 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-500" />
           
           <Card className="p-8 relative z-10">
             {status === "SUCCESS" ? (

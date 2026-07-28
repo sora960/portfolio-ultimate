@@ -29,7 +29,7 @@ export const ProjectsSection: React.FC = () => {
             return (
               <div key={project.id} className="relative group">
                 {/* Backstage Refraction Shape - Rainbow Gradient */}
-                <div className="absolute top-1/3 left-10 w-48 h-8 bg-gradient-to-r from-blue-500 via-pink-500 to-yellow-500 rounded-full select-none pointer-events-none group-hover:scale-x-110 group-hover:-translate-x-3 transition-transform duration-500" />
+                <div className="absolute top-1/3 left-10 w-48 h-8 bg-gradient-to-r from-blue-500 via-pink-500 to-yellow-500 rounded-full select-none pointer-events-none shadow-lg group-hover:scale-x-110 group-hover:-translate-x-3 transition-transform duration-500" />
                 
                 <Card
                   className={`flex flex-col justify-between space-y-6 relative overflow-hidden z-10 ${
