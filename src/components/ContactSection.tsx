@@ -15,11 +15,40 @@ export const ContactSection: React.FC = () => {
     e.preventDefault();
     setStatus("SUBMITTING");
 
-    try {
-      // Simulated 1s network request for verification
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
+
+    if (!accessKey) {
+      console.warn("NEXT_PUBLIC_WEB3FORMS_KEY is not defined. Falling back to local simulation.");
+      // Simulated 1s network request for local verification
       await new Promise((resolve) => setTimeout(resolve, 1000));
       setStatus("SUCCESS");
       setFormData({ name: "", email: "", message: "" });
+      return;
+    }
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          subject: `New Portfolio Contact from ${formData.name}`,
+        }),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        setStatus("SUCCESS");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        setStatus("ERROR");
+      }
     } catch (err) {
       setStatus("ERROR");
     }
