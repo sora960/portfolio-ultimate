@@ -9,18 +9,17 @@
 
 @layer base {
   :root {
-    --bg-mesh-light: radial-gradient(at 10% 10%, rgba(186, 230, 253, 0.85) 0px, transparent 60%),
-                     radial-gradient(at 90% 10%, rgba(244, 180, 240, 0.75) 0px, transparent 65%),
-                     radial-gradient(at 50% 90%, rgba(191, 219, 254, 0.85) 0px, transparent 60%);
-    --bg-mesh-dark:  radial-gradient(at 10% 10%, rgba(30, 27, 75, 0.65) 0px, transparent 55%),
-                     radial-gradient(at 90% 10%, rgba(88, 28, 135, 0.45) 0px, transparent 60%),
-                     radial-gradient(at 50% 90%, rgba(15, 23, 42, 0.85) 0px, transparent 55%);
+    --bg-mesh-light: url('/caustics-light.jpg');
+    --bg-mesh-dark:  url('/caustics-dark.jpg');
   }
 
   body {
     background-color: #F5F5F7;
     background-image: var(--bg-mesh-light);
     background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     color: #1D1D1F;
     min-height: 100vh;
     transition: background-color 0.3s ease, color 0.3s ease;
@@ -29,33 +28,88 @@
   .dark body {
     background-color: #000000;
     background-image: var(--bg-mesh-dark);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     color: #F5F5F7;
   }
 }
 
 /* Glassmorphism Primitives */
 .glass-card {
-  background-color: rgba(255, 255, 255, 0.14);
-  backdrop-filter: blur(18px) saturate(210%);
-  -webkit-backdrop-filter: blur(18px) saturate(210%);
-  border: 1.5px solid rgba(255, 255, 255, 0.55);
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(20px) saturate(220%);
+  -webkit-backdrop-filter: blur(20px) saturate(220%);
+  border: 1px solid transparent; /* Drawn by mask border pseudo-element */
   box-shadow: 
     0 15px 35px -5px rgba(0, 0, 0, 0.04),
     0 5px 15px -5px rgba(0, 0, 0, 0.02),
-    inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.95),
-    inset 0 -1.5px 2px 0 rgba(255, 255, 255, 0.25);
+    inset 1px 1px 3px 0 rgba(255, 255, 255, 0.98),  /* Specular top-left glare */
+    inset -1px -1px 3px 0 rgba(255, 255, 255, 0.15); /* Specular bottom-right bounce */
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+/* Chromatic Aberration Rainbow Border Rim */
+.glass-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 99, 132, 0.15),
+    rgba(255, 205, 86, 0.12),
+    rgba(75, 192, 192, 0.15),
+    rgba(54, 162, 235, 0.15)
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 2;
+  transition: opacity 0.4s ease;
+}
+
+/* Hover Reflection Gloss Sweep */
+.glass-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.25),
+    transparent
+  );
+  transform: skewX(-25deg);
+  pointer-events: none;
+  z-index: 3;
 }
 
 .dark .glass-card {
-  background-color: rgba(15, 15, 15, 0.30);
-  backdrop-filter: blur(18px) saturate(210%);
-  -webkit-backdrop-filter: blur(18px) saturate(210%);
-  border: 1.5px solid rgba(255, 255, 255, 0.12);
+  background-color: rgba(10, 10, 10, 0.35);
+  border: 1px solid transparent;
   box-shadow: 
     0 25px 50px -12px rgba(0, 0, 0, 0.55),
-    inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.2),
-    inset 0 -1.5px 1px 0 rgba(255, 255, 255, 0.05);
+    inset 1px 1px 2px 0 rgba(255, 255, 255, 0.25),  /* Specular top-left glare */
+    inset -1px -1px 2px 0 rgba(255, 255, 255, 0.05); /* Specular bottom-right bounce */
+}
+
+.dark .glass-card::before {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 99, 132, 0.25),
+    rgba(255, 205, 86, 0.20),
+    rgba(75, 192, 192, 0.25),
+    rgba(54, 162, 235, 0.25)
+  );
 }
 
 /* Premium Card hover effects */
@@ -65,19 +119,22 @@
 
 .glass-card-hover:hover {
   transform: translateY(-6px);
-  background-color: rgba(255, 255, 255, 0.32);
-  border-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.38);
   box-shadow: 
     0 30px 60px -15px rgba(0, 0, 0, 0.06),
-    inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.98);
+    inset 1.5px 1.5px 3px 0 rgba(255, 255, 255, 0.98);
+}
+
+.glass-card-hover:hover::after {
+  left: 150%;
+  transition: all 0.85s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .dark .glass-card-hover:hover {
-  background-color: rgba(25, 25, 25, 0.55);
-  border-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(20, 20, 20, 0.55);
   box-shadow: 
     0 35px 70px -15px rgba(0, 0, 0, 0.65),
-    inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.3);
+    inset 1px 1px 2px 0 rgba(255, 255, 255, 0.35);
 }
 
 /* SVG Gooey Filter Container */
