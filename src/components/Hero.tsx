@@ -1,7 +1,6 @@
 import React from "react";
 import { Badge } from "./Badge";
 import { Card } from "./Card";
-import { TerminalWidget } from "./TerminalWidget";
 
 export const Hero: React.FC = () => {
   return (
@@ -113,11 +112,6 @@ export const Hero: React.FC = () => {
               Strict Mode
             </div>
           </Card>
-        </div>
-
-        {/* Interactive NOC Terminal Console */}
-        <div className="pt-10 max-w-xl mx-auto">
-          <TerminalWidget />
         </div>
       </div>
     </section>
