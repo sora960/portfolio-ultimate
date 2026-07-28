@@ -13,20 +13,20 @@ export const Hero: React.FC = () => {
         {/* Status Badge */}
         <div className="inline-flex items-center gap-2">
           <Badge label="SYSTEM_ONLINE" variant="active" />
-          <Badge label="Information Technology Graduate" variant="default" />
+          <Badge label="Software Developer" variant="default" />
         </div>
 
         {/* Headline */}
         <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-neutral-900 dark:text-neutral-50 leading-tight">
-          Software & IT Engineer <br className="hidden sm:inline" />
+          Jairzon <br className="hidden sm:inline" />
           <span className="bg-gradient-to-r from-blue-600 via-indigo-500 to-emerald-500 dark:from-sky-400 dark:via-indigo-400 dark:to-emerald-400 bg-clip-text text-transparent">
-            System Design & Backend
+            Software Developer
           </span>
         </h1>
 
         {/* Value Proposition */}
         <p className="max-w-2xl mx-auto text-base sm:text-lg text-neutral-600 dark:text-neutral-300 font-sans leading-relaxed">
-          Building reliable web applications, backend APIs, and connected IoT systems grounded in strong computer science fundamentals.
+          Building clean, reliable web applications and software systems built for performance and pleasure.
         </p>
 
         {/* CTA Buttons */}

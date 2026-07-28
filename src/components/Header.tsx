@@ -6,12 +6,10 @@ export const Header: React.FC = () => {
   return (
     <header className="fixed top-4 inset-x-0 z-50 flex justify-center px-4">
       <nav className="glass-card flex items-center justify-between gap-6 px-6 py-3 rounded-full max-w-4xl w-full border border-white/40 dark:border-white/10 shadow-lg">
-        {/* Brand / Monogram */}
-        <a href="#hero" className="flex items-center gap-2 group">
+        <a href="#hero" className="flex items-center gap-2 group cursor-pointer">
           <span className="font-mono text-sm font-bold tracking-tight text-neutral-900 dark:text-neutral-100 group-hover:text-emerald-500 transition-colors">
-            sora960<span className="text-emerald-500">.dev</span>
+            Jairzon
           </span>
-          <Badge label="v1.0" variant="active" className="hidden sm:inline-flex" />
         </a>
 
         {/* Navigation Links */}
