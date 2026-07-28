@@ -155,3 +155,48 @@
 .liquid-goo-container {
   filter: url(#liquid-goo);
 }
+
+/* ─── Typography Scale ───────────────────────────────── */
+/* Display: hero name, section titles */
+.text-display {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+/* Headline: card titles, feature headings */
+.text-headline {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+/* Section label descriptor — human prose, NOT mono */
+.text-descriptor {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem; /* 15px */
+  font-weight: 400;
+  color: rgb(115 115 115); /* neutral-500 */
+  line-height: 1.6;
+}
+.dark .text-descriptor {
+  color: rgb(115 115 115); /* neutral-500 */
+}
+
+/* ─── Glow drift keyframe (Card internal flare) ─────── */
+@keyframes glow-drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(10px, -8px) scale(1.05); }
+  66%       { transform: translate(-6px, 12px) scale(0.96); }
+}
+
+.animate-glow-drift {
+  animation: glow-drift 22s ease-in-out infinite;
+}
+
+/* ─── GPU performance hints ─────────────────────────── */
+.glass-card {
+  will-change: transform;
+}

@@ -21,11 +21,11 @@ export const Hero: React.FC = () => {
             glowColor="emerald"
             className="w-full h-full rounded-full flex flex-col justify-center items-center text-center p-4 cursor-pointer"
           >
-            <span className="text-emerald-600 dark:text-emerald-400 font-bold block text-sm">
+            <span className="text-emerald-600 dark:text-emerald-400 font-black block text-sm tracking-tight">
               Clean Code
             </span>
-            <span className="text-[9px] font-mono text-neutral-400 dark:text-neutral-500 uppercase tracking-widest block mt-1.5 leading-relaxed">
-              Type-Safe<br />Systems
+            <span className="text-[11px] font-sans text-neutral-500 dark:text-neutral-500 block mt-1 leading-snug">
+              Type-Safe Systems
             </span>
           </Card>
         </div>
@@ -37,11 +37,11 @@ export const Hero: React.FC = () => {
             glowColor="blue"
             className="w-full h-full rounded-full flex flex-col justify-center items-center text-center p-4 cursor-pointer"
           >
-            <span className="text-blue-600 dark:text-sky-400 font-bold block text-sm">
+            <span className="text-blue-600 dark:text-sky-400 font-black block text-sm tracking-tight">
               Full-Stack
             </span>
-            <span className="text-[9px] font-mono text-neutral-400 dark:text-neutral-500 uppercase tracking-widest block mt-1.5 leading-relaxed">
-              Web Application<br />Architect
+            <span className="text-[11px] font-sans text-neutral-500 dark:text-neutral-500 block mt-1 leading-snug">
+              Web Architect
             </span>
           </Card>
         </div>
@@ -72,10 +72,10 @@ export const Hero: React.FC = () => {
 
             {/* Core Brand / Title */}
             <div className="space-y-3">
-              <h1 className="text-4xl font-extrabold tracking-tight text-neutral-900 dark:text-neutral-50 leading-none">
+              <h1 className="text-display text-neutral-900 dark:text-neutral-50 font-sans">
                 Jairzon
               </h1>
-              <p className="max-w-md text-sm text-neutral-600 dark:text-neutral-300 font-sans leading-relaxed">
+              <p className="max-w-sm text-[15px] text-neutral-500 dark:text-neutral-400 font-sans leading-relaxed">
                 Building clean, reliable web applications and software systems built for performance and pleasure.
               </p>
             </div>

@@ -14,110 +14,110 @@ interface ProjectsSectionProps {
 interface ProjectCardProps {
   project: Project;
   selectedSkill: string | null;
-  isFeatured?: boolean;
+  size?: "featured" | "wide" | "tall" | "compact";
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ project, selectedSkill, isFeatured = false }) => {
+const glowMap: Record<string, "indigo" | "blue" | "rose" | "emerald" | "violet"> = {
+  "iPages Smart Agriculture & AI Platform": "indigo",
+  "Zkript Solutions Developer Portal": "blue",
+  "Freelance Custom Web Applications": "rose",
+};
+
+const ProjectCard: React.FC<ProjectCardProps> = ({ project, selectedSkill, size = "compact" }) => {
   const isPlaceholder = project.status === "Placeholder" || project.status === "In Development";
   const hasSelectedSkill = selectedSkill ? project.techStack.includes(selectedSkill) : false;
+  const glow = glowMap[project.title] ?? "indigo";
+
+  const sizeClasses = {
+    featured: "col-span-2 row-span-1 min-h-[300px] p-8 rounded-[40px]",
+    wide:     "col-span-2 min-h-[240px] p-7 rounded-[36px]",
+    tall:     "col-span-1 min-h-[340px] p-7 rounded-[36px]",
+    compact:  "col-span-1 min-h-[260px] p-6 rounded-[28px]",
+  };
 
   return (
-    <div className="relative group w-full h-full">
-      <Card
-        glowColor={isFeatured ? "indigo" : project.title.includes("Portal") ? "blue" : "rose"}
-        className={`flex flex-col justify-between space-y-6 relative overflow-hidden z-10 min-h-[350px] rounded-[45px] p-8 transition-all duration-500 ${
-          isPlaceholder ? "opacity-75" : ""
-        } ${
-          hasSelectedSkill 
-            ? "border-blue-500/50 dark:border-sky-400/50 ring-1 ring-blue-500/30 dark:ring-sky-400/30 shadow-[0_0_15px_rgba(59,130,246,0.15)] scale-[1.01]" 
-            : selectedSkill 
-            ? "opacity-45" 
-            : ""
-        }`}
-      >
-        <div className={`flex flex-col ${isFeatured ? "md:flex-row md:gap-8 md:items-start" : "space-y-4"}`}>
-          
-          {/* Left Block: Meta & Title & Summary */}
-          <div className={isFeatured ? "md:w-1/2 space-y-3" : "space-y-3"}>
-            <div className="flex items-center justify-between gap-2">
-              <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
-                {project.category}
-              </span>
-              {isPlaceholder ? (
-                <Badge label="[BUILD IN PROGRESS]" variant="warning" className="text-[8px]" />
-              ) : (
-                <Badge label="[LIVE_SYSTEM]" variant="active" className="text-[8px]" />
-              )}
-            </div>
+    <Card
+      glowColor={glow}
+      className={`flex flex-col justify-between transition-all duration-500 overflow-hidden ${sizeClasses[size]} ${
+        isPlaceholder ? "opacity-75" : ""
+      } ${
+        hasSelectedSkill
+          ? "ring-1 ring-blue-500/40 dark:ring-sky-400/40 shadow-[0_0_18px_rgba(59,130,246,0.15)] scale-[1.01]"
+          : selectedSkill
+          ? "opacity-45"
+          : ""
+      }`}
+    >
+      {/* Top meta row */}
+      <div className="flex items-center justify-between gap-2 mb-3">
+        <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 dark:text-neutral-500">
+          {project.category}
+        </span>
+        {isPlaceholder
+          ? <Badge label="In Development" variant="warning" className="text-[8px]" />
+          : <Badge label="Live" variant="active" className="text-[8px]" />
+        }
+      </div>
 
-            <h3 className="text-xl sm:text-2xl font-extrabold text-neutral-900 dark:text-neutral-50 group-hover:text-emerald-500 transition-colors">
-              {project.title}
-            </h3>
+      {/* Title */}
+      <div className="space-y-2 flex-1">
+        <h3 className="text-headline font-sans text-neutral-900 dark:text-neutral-50 group-hover:text-emerald-500 transition-colors">
+          {project.title}
+        </h3>
 
-            <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-300 font-sans leading-relaxed">
-              {project.summary}
-            </p>
+        {/* Summary only on larger cards */}
+        {(size === "featured" || size === "wide" || size === "tall") && (
+          <p className="text-sm font-sans text-neutral-500 dark:text-neutral-400 leading-relaxed">
+            {project.summary}
+          </p>
+        )}
+
+        {/* Top highlight bullet — always shown */}
+        {project.highlights[0] && (
+          <div className="flex items-start gap-2 text-xs font-sans text-neutral-500 dark:text-neutral-400 leading-relaxed pt-1">
+            <span className="text-emerald-500 mt-0.5 shrink-0">→</span>
+            <span>{project.highlights[0]}</span>
           </div>
+        )}
+      </div>
 
-          {/* Right Block: Highlights & Badges */}
-          <div className={isFeatured ? "md:w-1/2 space-y-4 md:pt-4" : "space-y-4"}>
-            {/* Highlights bullets (limit to max 2 items to prevent text bogging) */}
-            <ul className="space-y-2 text-xs text-neutral-600 dark:text-neutral-400 font-sans leading-relaxed">
-              {project.highlights.slice(0, 2).map((highlight, idx) => (
-                <li key={idx} className="flex items-start gap-2">
-                  <span className="text-emerald-500 font-mono select-none mt-0.5">→</span>
-                  <span>{highlight}</span>
-                </li>
-              ))}
-            </ul>
-
-            {/* Badges Cluster */}
-            <div className="flex flex-wrap gap-1">
-              {project.techStack.map((tech, idx) => {
-                const isHighlighted = selectedSkill === tech;
-                return (
-                  <Badge 
-                    key={idx} 
-                    label={tech} 
-                    variant={isHighlighted ? "active" : "default"} 
-                    className={`text-[9px] py-0 px-1.5 transition-transform duration-300 ${
-                      isHighlighted ? "scale-105 font-bold" : ""
-                    }`}
-                  />
-                );
-              })}
-            </div>
-          </div>
+      {/* Footer */}
+      <div className="pt-4 mt-3 border-t border-neutral-200/40 dark:border-white/5 flex items-center justify-between flex-wrap gap-2">
+        {/* Tech stack badges */}
+        <div className="flex flex-wrap gap-1">
+          {project.techStack.slice(0, size === "compact" ? 3 : 5).map((tech, idx) => (
+            <Badge
+              key={idx}
+              label={tech}
+              variant={selectedSkill === tech ? "active" : "default"}
+              className="text-[9px] py-0 px-1.5"
+            />
+          ))}
         </div>
 
-        {/* Footer actions row */}
-        <div className="pt-4 border-t border-neutral-200/50 dark:border-white/5 w-full flex items-center justify-between text-xs font-mono">
+        {/* CTA links */}
+        <div className="flex items-center gap-3 text-xs font-mono">
           <a
             href={project.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-neutral-600 dark:text-neutral-300 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors font-semibold flex items-center gap-1 cursor-pointer"
+            className="text-neutral-500 hover:text-emerald-500 transition-colors font-semibold"
           >
-            Source Code →
+            Code →
           </a>
-
-          {project.liveUrl && !isPlaceholder ? (
+          {project.liveUrl && !isPlaceholder && (
             <a
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-emerald-600 dark:text-emerald-400 hover:underline font-semibold cursor-pointer"
+              className="text-emerald-600 dark:text-emerald-400 hover:underline font-semibold"
             >
-              Live Demo ↗
+              Demo ↗
             </a>
-          ) : (
-            <span className="text-neutral-400 dark:text-neutral-600 cursor-not-allowed flex items-center gap-1 select-none">
-              Live Demo (N/A)
-            </span>
           )}
         </div>
-      </Card>
-    </div>
+      </div>
+    </Card>
   );
 };
 
@@ -125,73 +125,80 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ selectedSkill 
   const projects = projectsData as Project[];
   const [filter, setFilter] = useState<"all" | "software" | "iot">("all");
 
-  const filteredProjects = projects.filter((project) => {
+  const filteredProjects = projects.filter((p) => {
     if (filter === "all") return true;
-    if (filter === "iot") return project.category.toLowerCase().includes("iot");
-    if (filter === "software") return !project.category.toLowerCase().includes("iot");
-    return true;
+    if (filter === "iot") return p.category.toLowerCase().includes("iot");
+    return !p.category.toLowerCase().includes("iot");
   });
 
+  // Assign staggered sizes for magazine layout
+  const sizeMap = (index: number, total: number): "featured" | "wide" | "tall" | "compact" => {
+    if (index === 0 && filter === "all") return "featured";
+    if (index === 1) return "tall";
+    if (index === 2) return "wide";
+    return "compact";
+  };
+
   return (
-    <section id="projects" className="py-20 px-4">
-      <div className="max-w-4xl mx-auto space-y-8">
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-neutral-200/30 dark:border-white/5 pb-6">
-          <div className="space-y-2">
-            <Badge label="projects" variant="default" />
-            <h2 className="text-3xl font-bold tracking-tight text-neutral-900 dark:text-neutral-50">
-              Featured Systems & Engineering Works
-            </h2>
-            <p className="text-sm font-mono text-neutral-500 dark:text-neutral-400">
-              A curated collection of my software applications, hardware systems, and web projects.
-            </p>
-          </div>
+    <section id="projects" className="py-20">
+      <div className="max-w-5xl mx-auto space-y-8">
 
-          {/* Apple-style Glass Segmented Control Filter */}
-          <div className="glass-card p-1 rounded-full flex gap-1 bg-black/5 dark:bg-white/5 border border-white/20 dark:border-white/5 shadow-sm max-w-[280px] w-full self-start md:self-auto">
-            {(["all", "software", "iot"] as const).map((opt) => {
-              const labelMap = {
-                all: "All",
-                software: "Software",
-                iot: "IoT"
-              };
-              const isActive = filter === opt;
-              return (
-                <button
-                  key={opt}
-                  onClick={() => setFilter(opt)}
-                  className={`flex-1 py-1 rounded-full text-[10px] font-mono tracking-wider uppercase transition-all duration-300 cursor-pointer ${
-                    isActive 
-                      ? "bg-neutral-950 text-white dark:bg-white dark:text-neutral-950 font-bold shadow-sm"
-                      : "text-neutral-400 dark:text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-300"
-                  }`}
-                >
-                  {labelMap[opt]}
-                </button>
-              );
-            })}
-          </div>
-        </div>
+        {/* Section header — asymmetric: left-aligned with filter on same row */}
+        <Reveal>
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 border-b border-neutral-200/30 dark:border-white/5">
+            <div className="space-y-1.5">
+              <Badge label="projects" variant="default" />
+              <h2 className="text-display font-sans text-neutral-900 dark:text-neutral-50">
+                Works
+              </h2>
+              <p className="text-descriptor max-w-xs">
+                Software applications, hardware systems, and web projects.
+              </p>
+            </div>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Filter control */}
+            <div className="glass-card glass-thickness-thin p-1 rounded-full flex gap-1 self-start sm:self-auto shrink-0">
+              {(["all", "software", "iot"] as const).map((opt) => {
+                const labels = { all: "All", software: "Software", iot: "IoT" };
+                const isActive = filter === opt;
+                return (
+                  <button
+                    key={opt}
+                    onClick={() => setFilter(opt)}
+                    className={`px-4 py-1.5 rounded-full text-[11px] font-sans font-medium transition-all duration-300 cursor-pointer ${
+                      isActive
+                        ? "bg-neutral-950 text-white dark:bg-white dark:text-neutral-950 shadow-sm"
+                        : "text-neutral-400 dark:text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-300"
+                    }`}
+                  >
+                    {labels[opt]}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </Reveal>
+
+        {/* Staggered Magazine Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 auto-rows-auto">
           {filteredProjects.map((project, index) => {
-            const isFeatured = index === 0 && filter === "all";
+            const size = sizeMap(index, filteredProjects.length);
             return (
-              <Reveal 
-                key={project.id} 
-                delay={index * 150}
-                className={isFeatured ? "col-span-1 md:col-span-2" : ""}
+              <Reveal
+                key={project.id}
+                delay={index * 120}
+                className={size === "featured" || size === "wide" ? "sm:col-span-2" : ""}
               >
-                <ProjectCard 
-                  project={project} 
-                  selectedSkill={selectedSkill} 
-                  isFeatured={isFeatured}
+                <ProjectCard
+                  project={project}
+                  selectedSkill={selectedSkill}
+                  size={size}
                 />
               </Reveal>
             );
           })}
         </div>
+
       </div>
     </section>
   );

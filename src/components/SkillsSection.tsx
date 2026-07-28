@@ -14,8 +14,7 @@ interface SkillsSectionProps {
 
 export const SkillsSection: React.FC<SkillsSectionProps> = ({ selectedSkill, onSelectSkill }) => {
   const categories = skillsData.categories as SkillCategory[];
-  const [activeCategoryIdx, setActiveCategoryIdx] = useState<number>(0);
-  const [animateProgress, setAnimateProgress] = useState(false);
+  const [activeCategoryIdx, setActiveCategoryIdx] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   const activeCategory = categories[activeCategoryIdx];
@@ -37,97 +36,88 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ selectedSkill, onS
     "Hardware Diagnostics & IT Support": 90
   };
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setAnimateProgress(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.1 }
-    );
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
+  const glowColors = ["blue", "emerald", "violet"] as const;
+  const glowColor = glowColors[activeCategoryIdx] ?? "blue";
 
   return (
-    <section id="skills" ref={sectionRef} className="py-20 px-4">
-      <div className="max-w-4xl mx-auto space-y-12">
-        
-        {/* Section Header */}
-        <Reveal>
-          <div className="space-y-2 text-center">
+    <section id="skills" ref={sectionRef} className="py-20">
+      {/* ── Command Panel: vertical left tabs + right bubble cloud ── */}
+      <div className="max-w-5xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
+
+        {/* LEFT: Sticky section header + vertical category tabs */}
+        <div className="lg:sticky lg:top-28 lg:w-64 shrink-0 space-y-6">
+          <Reveal>
             <Badge label="skills" variant="default" />
-            <h2 className="text-3xl font-bold tracking-tight text-neutral-900 dark:text-neutral-50">
-              Technical Proficiencies
+            <h2 className="text-display font-sans text-neutral-900 dark:text-neutral-50 mt-3">
+              Skills
             </h2>
-            <p className="text-sm font-mono text-neutral-500 dark:text-neutral-400">
-              Select categories to filter skill bubbles. Click a skill bubble to locate related projects.
+            <p className="text-descriptor mt-3 max-w-[200px]">
+              Click a skill to find related projects below.
             </p>
-          </div>
-        </Reveal>
+          </Reveal>
 
-        {/* Category Capsule Filter Bar */}
-        <Reveal delay={100}>
-          <div className="flex flex-wrap justify-center gap-2">
-            {categories.map((cat, idx) => {
-              const isActive = activeCategoryIdx === idx;
-              return (
-                <button
-                  key={idx}
-                  onClick={() => setActiveCategoryIdx(idx)}
-                  className={`px-5 py-2 rounded-full text-xs font-mono tracking-wider transition-all duration-300 cursor-pointer border ${
-                    isActive
-                      ? "bg-neutral-950 text-white dark:bg-white dark:text-neutral-950 font-bold border-neutral-950 dark:border-white shadow-md scale-105"
-                      : "bg-white/40 dark:bg-white/5 border-neutral-200/50 dark:border-white/5 text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200"
-                  }`}
-                >
-                  {cat.name}
-                </button>
-              );
-            })}
-          </div>
-        </Reveal>
+          {/* Vertical category tabs */}
+          <Reveal delay={100}>
+            <div className="flex flex-row lg:flex-col gap-2 flex-wrap">
+              {categories.map((cat, idx) => {
+                const isActive = activeCategoryIdx === idx;
+                return (
+                  <button
+                    key={idx}
+                    onClick={() => setActiveCategoryIdx(idx)}
+                    className={`relative text-left px-4 py-2.5 rounded-2xl text-sm font-sans font-medium transition-all duration-300 cursor-pointer ${
+                      isActive
+                        ? "bg-neutral-950 text-white dark:bg-white dark:text-neutral-950 shadow-md"
+                        : "text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200 hover:bg-black/5 dark:hover:bg-white/5"
+                    }`}
+                  >
+                    {/* Active bar indicator on left edge */}
+                    {isActive && (
+                      <span className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-5 rounded-full bg-violet-500 dark:bg-violet-400" />
+                    )}
+                    <span className="ml-1">{cat.name}</span>
+                  </button>
+                );
+              })}
+            </div>
+          </Reveal>
+        </div>
 
-        {/* Bubble Cluster Layout */}
-        <Reveal delay={200}>
-          <div className="flex flex-wrap justify-center gap-4 max-w-3xl mx-auto">
+        {/* RIGHT: Flowing bubble cloud */}
+        <Reveal delay={150} className="flex-1">
+          <div className="flex flex-wrap gap-3">
             {activeCategory.skills.map((skill, sIdx) => {
-              const score = skillScores[skill.name] || 80;
+              const score = skillScores[skill.name] ?? 80;
               const isSelected = selectedSkill === skill.name;
-              
-              // Color theme mapping based on category for rich glass styling
-              const glowColor = activeCategoryIdx === 0 ? "blue" : activeCategoryIdx === 1 ? "emerald" : "violet";
 
               return (
                 <Card
-                  key={sIdx}
+                  key={`${activeCategoryIdx}-${sIdx}`}
                   thickness="regular"
                   glowColor={glowColor}
                   onClick={() => onSelectSkill(isSelected ? null : skill.name)}
-                  className={`rounded-full py-3.5 px-6 flex items-center gap-3 cursor-pointer transition-all duration-300 select-none border ${
+                  className={`rounded-full py-3 px-5 flex items-center gap-2.5 cursor-pointer select-none transition-all duration-300 ${
                     isSelected
-                      ? "border-blue-500/50 dark:border-sky-400/50 ring-1 ring-blue-500/30 dark:ring-sky-400/30 shadow-[0_0_15px_rgba(59,130,246,0.15)] scale-105"
-                      : "border-neutral-200/30 dark:border-white/5 hover:border-neutral-400/40 dark:hover:border-white/20"
+                      ? "ring-1 ring-blue-500/40 dark:ring-sky-400/40 shadow-[0_0_14px_rgba(59,130,246,0.15)] scale-105"
+                      : "hover:scale-[1.03]"
                   }`}
                 >
-                  {/* Circular proficiency index badge */}
-                  <span className="w-6 h-6 rounded-full bg-neutral-950/5 dark:bg-white/10 flex items-center justify-center text-[10px] font-mono font-bold text-neutral-800 dark:text-neutral-200">
+                  {/* Score badge */}
+                  <span className="w-8 h-8 rounded-full bg-neutral-950/[0.06] dark:bg-white/10 flex items-center justify-center text-[11px] font-black font-mono text-neutral-700 dark:text-neutral-200 shrink-0">
                     {score}
                   </span>
-                  
-                  {/* Skill Label */}
-                  <span className="text-xs sm:text-sm font-sans font-semibold text-neutral-900 dark:text-neutral-100 flex items-center gap-1.5">
+
+                  {/* Skill name */}
+                  <span className="text-sm font-sans font-semibold text-neutral-900 dark:text-neutral-100 flex items-center gap-1.5">
                     {isSelected && (
-                      <span className="w-1.5 h-1.5 rounded-full bg-blue-500 dark:bg-sky-400 animate-pulse" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-blue-500 dark:bg-sky-400 animate-pulse shrink-0" />
                     )}
                     {skill.name}
                   </span>
 
-                  {/* Core badge indicator (small dot) */}
+                  {/* Core competency dot */}
                   {skill.status === "Core Competency" && (
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" title="Core Competency" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
                   )}
                 </Card>
               );

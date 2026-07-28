@@ -14,8 +14,19 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Software & IT Engineering Portfolio",
-  description: "High-performance portfolio built with Next.js, TypeScript, and Tailwind CSS.",
+  title: "Jairzon — Software Developer",
+  description: "Portfolio of Jairzon Gimeno, a full-stack web developer and software engineer specializing in clean, type-safe web applications and systems.",
+  authors: [{ name: "Jairzon Gimeno" }],
+  openGraph: {
+    title: "Jairzon — Software Developer",
+    description: "Full-stack developer portfolio showcasing clean web applications, systems engineering, and open source work.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Jairzon — Software Developer",
+    description: "Full-stack developer portfolio showcasing clean web applications, systems engineering, and open source work.",
+  },
 };
 
 export default function RootLayout({

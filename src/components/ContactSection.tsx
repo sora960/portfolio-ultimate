@@ -19,7 +19,6 @@ export const ContactSection: React.FC = () => {
 
     if (!accessKey) {
       console.warn("NEXT_PUBLIC_WEB3FORMS_KEY is not defined. Falling back to local simulation.");
-      // Simulated 1s network request for local verification
       await new Promise((resolve) => setTimeout(resolve, 1000));
       setStatus("SUCCESS");
       setFormData({ name: "", email: "", message: "" });
@@ -29,10 +28,7 @@ export const ContactSection: React.FC = () => {
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
           access_key: accessKey,
           name: formData.name,
@@ -41,7 +37,6 @@ export const ContactSection: React.FC = () => {
           subject: `New Portfolio Contact from ${formData.name}`,
         }),
       });
-
       const result = await response.json();
       if (result.success) {
         setStatus("SUCCESS");
@@ -49,52 +44,85 @@ export const ContactSection: React.FC = () => {
       } else {
         setStatus("ERROR");
       }
-    } catch (err) {
+    } catch {
       setStatus("ERROR");
     }
   };
 
   return (
-    <section id="contact" className="py-20 px-4">
-      <div className="max-w-2xl mx-auto space-y-12">
-        {/* Section Header */}
-        <Reveal>
-          <div className="space-y-2 text-center">
-            <Badge label="contact" variant="default" />
-            <h2 className="text-3xl font-bold tracking-tight text-neutral-900 dark:text-neutral-50">
-              Get in Touch
-            </h2>
-            <p className="text-sm font-mono text-neutral-500 dark:text-neutral-400">
-              Let's build something together. Drop a message below to get in touch.
-            </p>
-          </div>
-        </Reveal>
+    <section id="contact" className="py-20">
+      <div className="max-w-5xl mx-auto">
+        {/* ── Split Invitation: left identity + right form ── */}
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
 
-        {/* Contact Card Container */}
-        <Reveal delay={150}>
-          <div className="relative group max-w-xl mx-auto">
-            <Card glowColor="rose" className="p-8 relative z-10 rounded-[45px]">
+          {/* LEFT: Identity + availability — no card, raw text on background */}
+          <Reveal className="lg:w-80 shrink-0 space-y-6 lg:sticky lg:top-28">
+            <div className="space-y-2">
+              <Badge label="contact" variant="default" />
+              <h2 className="text-display font-sans text-neutral-900 dark:text-neutral-50">
+                Let's Talk
+              </h2>
+            </div>
+
+            <p className="text-descriptor max-w-[240px]">
+              I'm currently open for new projects, collaborations, and full-time opportunities.
+            </p>
+
+            {/* Availability indicator */}
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              <span className="text-sm font-sans font-medium text-emerald-600 dark:text-emerald-400">
+                Available now
+              </span>
+            </div>
+
+            {/* Social links — vertical stack */}
+            <div className="flex flex-col gap-3 pt-2 border-t border-neutral-200/40 dark:border-white/5">
+              {[
+                { label: "GitHub", href: "https://github.com/sora960", tag: "@sora960" },
+                { label: "LinkedIn", href: "https://linkedin.com/in/jairzon-gimeno", tag: "Jairzon Gimeno" },
+                { label: "Indeed", href: "https://indeed.com", tag: "Open Profile" },
+              ].map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center justify-between py-1"
+                >
+                  <span className="text-sm font-sans font-medium text-neutral-500 dark:text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-neutral-100 transition-colors">
+                    {link.label}
+                  </span>
+                  <span className="text-xs font-mono text-neutral-400 dark:text-neutral-500 group-hover:text-neutral-600 dark:group-hover:text-neutral-300 transition-colors">
+                    {link.tag} →
+                  </span>
+                </a>
+              ))}
+            </div>
+          </Reveal>
+
+          {/* RIGHT: Glass squircle form card */}
+          <Reveal delay={150} className="flex-1 w-full">
+            <Card glowColor="rose" className="rounded-[36px] p-7 sm:p-8 w-full">
               {status === "SUCCESS" ? (
-                <div className="text-center py-8 space-y-4">
+                <div className="text-center py-10 space-y-4">
                   <Badge label="Message Sent" variant="active" />
-                  <h3 className="text-xl font-bold text-neutral-900 dark:text-neutral-100">
-                    Thank You
-                  </h3>
-                  <p className="text-sm text-neutral-600 dark:text-neutral-400 font-sans">
-                    Thank you for reaching out. I will respond to your inquiry shortly.
+                  <h3 className="text-headline font-sans text-neutral-900 dark:text-neutral-100">Thank You</h3>
+                  <p className="text-sm font-sans text-neutral-500 dark:text-neutral-400">
+                    I'll respond to your message shortly.
                   </p>
                   <button
                     onClick={() => setStatus("IDLE")}
-                    className="mt-4 px-4 py-2 rounded-full text-xs font-mono bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-900"
+                    className="mt-2 px-5 py-2.5 rounded-full text-sm font-sans font-medium bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-900 hover:opacity-90 transition-opacity"
                   >
-                    Send Another Message
+                    Send Another
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  {/* Name Input */}
-                  <div className="space-y-2">
-                    <label className="block text-xs font-mono uppercase tracking-wider text-neutral-800 dark:text-neutral-300 pl-2">
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  {/* Name */}
+                  <div className="space-y-1.5">
+                    <label className="block text-[11px] font-mono uppercase tracking-widest text-neutral-400 dark:text-neutral-500 pl-1">
                       Name
                     </label>
                     <input
@@ -104,13 +132,13 @@ export const ContactSection: React.FC = () => {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="e.g. Alex Mercer"
-                      className="w-full px-6 py-3 rounded-full bg-black/5 dark:bg-white/5 border border-neutral-200/50 dark:border-white/10 text-neutral-900 dark:text-neutral-100 text-sm placeholder-neutral-400 dark:placeholder-neutral-500 focus:outline-none focus:bg-white/60 dark:focus:bg-black/40 focus:border-neutral-400 dark:focus:border-white/30 disabled:opacity-50 transition-all"
+                      className="w-full px-5 py-3 rounded-full text-sm font-sans bg-black/5 dark:bg-white/5 border border-neutral-200/50 dark:border-white/10 text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 dark:placeholder-neutral-600 focus:outline-none focus:border-neutral-400 dark:focus:border-white/30 focus:bg-white/60 dark:focus:bg-black/40 disabled:opacity-50 transition-all"
                     />
                   </div>
 
-                  {/* Email Input */}
-                  <div className="space-y-2">
-                    <label className="block text-xs font-mono uppercase tracking-wider text-neutral-800 dark:text-neutral-300 pl-2">
+                  {/* Email */}
+                  <div className="space-y-1.5">
+                    <label className="block text-[11px] font-mono uppercase tracking-widest text-neutral-400 dark:text-neutral-500 pl-1">
                       Email
                     </label>
                     <input
@@ -120,13 +148,13 @@ export const ContactSection: React.FC = () => {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="alex@company.com"
-                      className="w-full px-6 py-3 rounded-full bg-black/5 dark:bg-white/5 border border-neutral-200/50 dark:border-white/10 text-neutral-900 dark:text-neutral-100 text-sm placeholder-neutral-400 dark:placeholder-neutral-500 focus:outline-none focus:bg-white/60 dark:focus:bg-black/40 focus:border-neutral-400 dark:focus:border-white/30 disabled:opacity-50 transition-all"
+                      className="w-full px-5 py-3 rounded-full text-sm font-sans bg-black/5 dark:bg-white/5 border border-neutral-200/50 dark:border-white/10 text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 dark:placeholder-neutral-600 focus:outline-none focus:border-neutral-400 dark:focus:border-white/30 focus:bg-white/60 dark:focus:bg-black/40 disabled:opacity-50 transition-all"
                     />
                   </div>
 
-                  {/* Message Input */}
-                  <div className="space-y-2">
-                    <label className="block text-xs font-mono uppercase tracking-wider text-neutral-800 dark:text-neutral-300 pl-2">
+                  {/* Message */}
+                  <div className="space-y-1.5">
+                    <label className="block text-[11px] font-mono uppercase tracking-widest text-neutral-400 dark:text-neutral-500 pl-1">
                       Message
                     </label>
                     <textarea
@@ -135,75 +163,43 @@ export const ContactSection: React.FC = () => {
                       disabled={status === "SUBMITTING"}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      placeholder="Briefly describe project scope, technical requirements, or opportunity..."
-                      className="w-full px-6 py-4 rounded-[24px] bg-black/5 dark:bg-white/5 border border-neutral-200/50 dark:border-white/10 text-neutral-900 dark:text-neutral-100 text-sm placeholder-neutral-400 dark:placeholder-neutral-500 focus:outline-none focus:bg-white/60 dark:focus:bg-black/40 focus:border-neutral-400 dark:focus:border-white/30 disabled:opacity-50 transition-all resize-none"
+                      placeholder="Describe your project, opportunity, or question..."
+                      className="w-full px-5 py-4 rounded-[20px] text-sm font-sans bg-black/5 dark:bg-white/5 border border-neutral-200/50 dark:border-white/10 text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 dark:placeholder-neutral-600 focus:outline-none focus:border-neutral-400 dark:focus:border-white/30 focus:bg-white/60 dark:focus:bg-black/40 disabled:opacity-50 transition-all resize-none"
                     />
                   </div>
 
-                  {/* Error Banner */}
                   {status === "ERROR" && (
-                    <p className="text-xs font-mono text-rose-500">
-                      Unable to send message. Please try again.
-                    </p>
+                    <p className="text-xs font-mono text-rose-500">Unable to send message. Please try again.</p>
                   )}
 
-                  {/* Submit CTA Button */}
                   <button
                     type="submit"
                     disabled={status === "SUBMITTING"}
-                    className="w-full py-3.5 rounded-full font-mono text-xs uppercase tracking-wider font-semibold text-white bg-neutral-900 dark:bg-neutral-100 dark:text-neutral-900 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-md"
+                    className="w-full py-3.5 rounded-full text-sm font-sans font-semibold text-white bg-neutral-900 dark:bg-neutral-100 dark:text-neutral-900 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 transition-all duration-300 cursor-pointer shadow-md"
                   >
-                    {status === "SUBMITTING" ? (
-                      <span>Sending...</span>
-                    ) : (
-                      <span>Send Message →</span>
-                    )}
+                    {status === "SUBMITTING" ? "Sending..." : "Send Message →"}
                   </button>
                 </form>
               )}
             </Card>
-          </div>
-        </Reveal>
+          </Reveal>
+        </div>
 
-        {/* Minimal Footer */}
-        <footer className="mt-24 pt-8 border-t border-neutral-200/50 dark:border-white/5 w-full flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-neutral-400 dark:text-neutral-500">
+        {/* Footer */}
+        <footer className="mt-20 pt-8 border-t border-neutral-200/40 dark:border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-neutral-400 dark:text-neutral-500">
           <p>© 2026 Jairzon. All rights reserved.</p>
-          <div className="flex items-center gap-4">
-            <a
-              href="https://github.com/sora960"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
-            >
-              [GITHUB]
-            </a>
-            <span>/</span>
-            <a
-              href="https://linkedin.com/in/jairzon-gimeno"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
-            >
-              [LINKEDIN]
-            </a>
-            <span>/</span>
-            <a
-              href="https://jobstreet.com.ph"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
-            >
-              [JOBSTREET]
-            </a>
-            <span>/</span>
-            <a
-              href="https://indeed.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
-            >
-              [INDEED]
-            </a>
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
+            {[
+              { label: "[GITHUB]", href: "https://github.com/sora960" },
+              { label: "[LINKEDIN]", href: "https://linkedin.com/in/jairzon-gimeno" },
+              { label: "[JOBSTREET]", href: "https://jobstreet.com.ph" },
+              { label: "[INDEED]", href: "https://indeed.com" },
+            ].map((l) => (
+              <a key={l.label} href={l.href} target="_blank" rel="noopener noreferrer"
+                className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors py-1">
+                {l.label}
+              </a>
+            ))}
           </div>
         </footer>
       </div>
