@@ -12,7 +12,7 @@ export const Hero: React.FC = () => {
       <div className="max-w-4xl w-full text-center space-y-8 z-10">
         {/* Status Badge */}
         <div className="inline-flex items-center gap-2">
-          <Badge label="SYSTEM_ONLINE" variant="active" />
+          <Badge label="Open for Opportunities" variant="active" />
           <Badge label="Software Developer" variant="default" />
         </div>
 
@@ -98,18 +98,18 @@ export const Hero: React.FC = () => {
 
           <Card className="flex items-center justify-around text-xs font-mono text-neutral-500 dark:text-neutral-400 py-3 relative z-10">
             <div>
-              <span className="block text-sm font-bold text-neutral-900 dark:text-neutral-100">Next.js 16</span>
-              App Router
+              <span className="block text-sm font-bold text-neutral-900 dark:text-neutral-100">Full-Stack</span>
+              Web Development
             </div>
             <div className="h-6 w-px bg-neutral-300 dark:bg-neutral-700" />
             <div>
-              <span className="block text-sm font-bold text-neutral-900 dark:text-neutral-100">SSG Export</span>
-              Sub-1.0s FCP
+              <span className="block text-sm font-bold text-neutral-900 dark:text-neutral-100">Clean Code</span>
+              Type-Safe Systems
             </div>
             <div className="h-6 w-px bg-neutral-300 dark:bg-neutral-700" />
             <div>
-              <span className="block text-sm font-bold text-neutral-900 dark:text-neutral-100">TypeScript</span>
-              Strict Mode
+              <span className="block text-sm font-bold text-neutral-900 dark:text-neutral-100">Optimization</span>
+              Fast & Responsive
             </div>
           </Card>
         </div>

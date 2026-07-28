@@ -12,12 +12,12 @@ export const ProjectsSection: React.FC = () => {
       <div className="max-w-4xl mx-auto space-y-8">
         {/* Section Header */}
         <div className="space-y-2">
-          <Badge label="#projects" variant="default" />
+          <Badge label="projects" variant="default" />
           <h2 className="text-3xl font-bold tracking-tight text-neutral-900 dark:text-neutral-50">
             Featured Systems & Engineering Works
           </h2>
           <p className="text-sm font-mono text-neutral-500 dark:text-neutral-400">
-            Decoupled content pipeline driven by /src/content/projects.json
+            A curated collection of my software applications, hardware systems, and web projects.
           </p>
         </div>
 

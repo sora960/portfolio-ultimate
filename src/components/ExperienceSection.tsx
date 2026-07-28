@@ -11,12 +11,12 @@ export const ExperienceSection: React.FC = () => {
     <section id="about" className="py-20 px-4">
       <div className="max-w-4xl mx-auto space-y-8">
         <div className="space-y-2">
-          <Badge label="#about" variant="default" />
+          <Badge label="about" variant="default" />
           <h2 className="text-3xl font-bold tracking-tight text-neutral-900 dark:text-neutral-50">
             Background & Engineering Journey
           </h2>
           <p className="text-sm font-mono text-neutral-500 dark:text-neutral-400">
-            Academic foundation and specialized IT competencies
+            Academic milestones, internships, and professional software development history.
           </p>
         </div>
 

@@ -30,12 +30,12 @@ export const ContactSection: React.FC = () => {
       <div className="max-w-2xl mx-auto space-y-8">
         {/* Section Header */}
         <div className="space-y-2 text-center">
-          <Badge label="#contact" variant="default" />
+          <Badge label="contact" variant="default" />
           <h2 className="text-3xl font-bold tracking-tight text-neutral-900 dark:text-neutral-50">
-            Initiate Contact
+            Get in Touch
           </h2>
           <p className="text-sm font-mono text-neutral-500 dark:text-neutral-400">
-            Direct communication pipeline with client-side state machine
+            Let's build something together. Drop a message below to get in touch.
           </p>
         </div>
 
@@ -47,9 +47,9 @@ export const ContactSection: React.FC = () => {
           <Card className="p-8 relative z-10">
             {status === "SUCCESS" ? (
               <div className="text-center py-8 space-y-4">
-                <Badge label="TRANSMISSION_RECEIVED" variant="active" />
+                <Badge label="Message Sent" variant="active" />
                 <h3 className="text-xl font-bold text-neutral-900 dark:text-neutral-100">
-                  Message Received
+                  Thank You
                 </h3>
                 <p className="text-sm text-neutral-600 dark:text-neutral-400 font-sans">
                   Thank you for reaching out. I will respond to your inquiry shortly.
@@ -114,7 +114,7 @@ export const ContactSection: React.FC = () => {
                 {/* Error Banner */}
                 {status === "ERROR" && (
                   <p className="text-xs font-mono text-rose-500">
-                    [ERROR] Failed to send message. Please try again.
+                    Unable to send message. Please try again.
                   </p>
                 )}
 
@@ -125,7 +125,7 @@ export const ContactSection: React.FC = () => {
                   className="w-full py-3.5 rounded-xl font-mono text-xs uppercase tracking-wider font-semibold text-white bg-neutral-900 dark:bg-neutral-100 dark:text-neutral-900 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-md"
                 >
                   {status === "SUBMITTING" ? (
-                    <span>[TRANSMITTING...]</span>
+                    <span>Sending...</span>
                   ) : (
                     <span>Send Message →</span>
                   )}

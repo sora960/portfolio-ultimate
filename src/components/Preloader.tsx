@@ -216,7 +216,7 @@ export const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
           Jairzon
         </span>
         <p className="text-[10px] font-mono text-neutral-400 dark:text-neutral-600 tracking-wider">
-          INITIALIZING CORE SYSTEM...
+          Loading...
         </p>
       </div>
     </div>
