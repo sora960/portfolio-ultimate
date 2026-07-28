@@ -1,6 +1,7 @@
 import React from "react";
 import { Badge } from "./Badge";
 import { Card } from "./Card";
+import { TerminalWidget } from "./TerminalWidget";
 
 export const Hero: React.FC = () => {
   return (
@@ -91,8 +92,10 @@ export const Hero: React.FC = () => {
         {/* Architectural Highlights Pill */}
         <div className="pt-8 max-w-xl mx-auto relative group">
           {/* Backstage Refraction Shapes */}
-          <div className="absolute top-1/2 left-6 -translate-y-1/2 w-32 h-6 bg-blue-500 rounded-full select-none pointer-events-none shadow-md border border-blue-400/20 group-hover:scale-x-110 group-hover:-translate-x-3 transition-transform duration-500" />
-          <div className="absolute top-1/2 right-12 -translate-y-1/2 w-28 h-6 bg-emerald-500 rounded-full select-none pointer-events-none shadow-md border border-emerald-400/20 group-hover:scale-x-110 group-hover:translate-x-3 transition-transform duration-500" />
+          <div className="absolute inset-0 liquid-goo-container pointer-events-none select-none">
+            <div className="absolute top-1/2 left-6 -translate-y-1/2 w-32 h-6 bg-blue-500 rounded-full shadow-md border border-blue-400/20 group-hover:scale-x-110 group-hover:-translate-x-3 transition-transform duration-500" />
+            <div className="absolute top-1/2 right-12 -translate-y-1/2 w-28 h-6 bg-emerald-500 rounded-full shadow-md border border-emerald-400/20 group-hover:scale-x-110 group-hover:translate-x-3 transition-transform duration-500" />
+          </div>
 
           <Card className="flex items-center justify-around text-xs font-mono text-neutral-500 dark:text-neutral-400 py-3 relative z-10">
             <div>
@@ -110,6 +113,11 @@ export const Hero: React.FC = () => {
               Strict Mode
             </div>
           </Card>
+        </div>
+
+        {/* Interactive NOC Terminal Console */}
+        <div className="pt-10 max-w-xl mx-auto">
+          <TerminalWidget />
         </div>
       </div>
     </section>
