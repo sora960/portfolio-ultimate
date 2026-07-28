@@ -97,7 +97,7 @@ export const Hero: React.FC = () => {
             <div className="absolute top-1/2 right-12 -translate-y-1/2 w-28 h-6 bg-emerald-500 rounded-full shadow-md border border-emerald-400/20 group-hover:scale-x-110 group-hover:translate-x-3 transition-transform duration-500" />
           </div>
 
-          <Card className="flex items-center justify-around text-xs font-mono text-neutral-500 dark:text-neutral-400 py-3 relative z-10">
+          <Card thickness="thick" className="flex items-center justify-around text-xs font-mono text-neutral-500 dark:text-neutral-400 py-3 relative z-10">
             <div>
               <span className="block text-sm font-bold text-neutral-900 dark:text-neutral-100">Full-Stack</span>
               Web Development

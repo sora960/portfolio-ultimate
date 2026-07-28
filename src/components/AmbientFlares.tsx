@@ -49,29 +49,37 @@ export const AmbientFlares: React.FC = () => {
         }
       `}} />
 
+      {/* Fixed Ambient Key Light - Top-Left (anchors illumination depth, especially in dark mode) */}
+      <div 
+        className="absolute -top-[15%] -left-[15%] w-[600px] h-[600px] bg-blue-400/20 dark:bg-sky-500/10 blur-[140px] rounded-full"
+        style={{
+          animation: "float-slow-1 36s ease-in-out infinite"
+        }}
+      />
+
       {/* Floating Flare 1 - Ambient Soft Indigo */}
       <div 
-        className="absolute top-[20%] left-[10%] w-[350px] h-[350px] bg-indigo-500/10 dark:bg-indigo-500/5 blur-[120px] rounded-full"
+        className="absolute top-[25%] left-[5%] w-[450px] h-[450px] bg-indigo-500/10 dark:bg-indigo-500/5 blur-[130px] rounded-full"
         style={{
-          animation: "float-slow-1 16s ease-in-out infinite"
+          animation: "float-slow-1 28s ease-in-out infinite"
         }}
       />
 
       {/* Floating Flare 2 - Ambient Soft Emerald */}
       <div 
-        className="absolute bottom-[30%] right-[15%] w-[300px] h-[300px] bg-emerald-500/10 dark:bg-emerald-500/5 blur-[110px] rounded-full"
+        className="absolute bottom-[20%] right-[10%] w-[400px] h-[400px] bg-emerald-500/10 dark:bg-emerald-500/5 blur-[120px] rounded-full"
         style={{
-          animation: "float-slow-2 20s ease-in-out infinite"
+          animation: "float-slow-2 32s ease-in-out infinite"
         }}
       />
 
       {/* Mouse Tracking Interactive Liquid Flare (Desktops Only) */}
       {!isMobile && (
         <div 
-          className="absolute w-[240px] h-[240px] bg-sky-500/10 dark:bg-sky-500/5 blur-[80px] rounded-full transition-all duration-300 ease-out"
+          className="absolute w-[280px] h-[280px] bg-sky-500/10 dark:bg-sky-500/5 blur-[90px] rounded-full transition-all duration-300 ease-out"
           style={{
-            left: `${mousePos.x - 120}px`,
-            top: `${mousePos.y - 120}px`,
+            left: `${mousePos.x - 140}px`,
+            top: `${mousePos.y - 140}px`,
             transform: "translate3d(0,0,0)"
           }}
         />
