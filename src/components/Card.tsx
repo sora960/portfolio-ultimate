@@ -84,7 +84,7 @@ export const Card: React.FC<CardProps> = ({
       )}
       
       {/* Relative container to keep child nodes above spotlight/color overlay */}
-      <div className="relative z-10 w-full h-full flex flex-col justify-between">
+      <div className="relative z-10 w-full h-full">
         {children}
       </div>
     </div>

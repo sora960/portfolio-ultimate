@@ -5,41 +5,33 @@ import { Badge } from "./Badge";
 import { Card } from "./Card";
 
 /**
- * GlassLabel — a text label that feels embedded inside the glass material.
- * 
- * Technique:
- *  - Slightly reduced opacity (0.85) so color bleeds into the glass underneath
- *  - A soft matching color glow via text-shadow (acts like refracted light)
- *  - Letter-spacing tightened so the text feels compact/dense, like it's
- *    pressed into the surface rather than floating above it
+ * GlassLabel — text that feels embedded inside the glass material.
+ * Uses a color-matched text-shadow glow so the letters look like they're
+ * refracting light from inside the glass, not painted on the surface.
  */
 interface GlassLabelProps {
   title: string;
   subtitle: string;
-  titleColor: string;  // Tailwind text color class e.g. "text-emerald-600"
-  glowRgb: string;     // raw rgb for text-shadow glow e.g. "5,150,105"
+  titleColor: string;
+  glowRgb: string;
 }
 
 const GlassLabel: React.FC<GlassLabelProps> = ({ title, subtitle, titleColor, glowRgb }) => (
-  <div className="flex flex-col items-center justify-center text-center gap-1.5">
-    {/* Title — glass-embedded: reduced opacity + matching soft color glow */}
+  <div className="flex flex-col items-center justify-center text-center gap-2">
     <span
-      className={`${titleColor} font-black text-[15px] tracking-tight leading-none block`}
+      className={`${titleColor} font-black text-[18px] tracking-tight leading-none block`}
       style={{
-        opacity: 0.88,
-        textShadow: `0 0 18px rgba(${glowRgb}, 0.55), 0 1px 3px rgba(255,255,255,0.35)`,
+        opacity: 0.9,
+        textShadow: `0 0 20px rgba(${glowRgb}, 0.6), 0 1px 3px rgba(255,255,255,0.4)`,
       }}
     >
       {title}
     </span>
-
-    {/* Sub-label — frosted, like text etched into the glass surface */}
     <span
-      className="font-sans text-[11px] leading-snug block"
+      className="font-sans text-[12px] leading-snug block font-medium"
       style={{
-        color: `rgba(${glowRgb}, 0.5)`,
-        textShadow: `0 1px 2px rgba(255,255,255,0.6), 0 0 8px rgba(${glowRgb}, 0.2)`,
-        letterSpacing: "0.01em",
+        color: `rgba(${glowRgb}, 0.6)`,
+        textShadow: `0 1px 2px rgba(255,255,255,0.7), 0 0 10px rgba(${glowRgb}, 0.25)`,
       }}
     >
       {subtitle}
@@ -58,11 +50,11 @@ export const Hero: React.FC = () => {
       <div className="hidden md:block w-full max-w-4xl h-[650px] relative z-10 mx-auto">
 
         {/* Left Bubble — Clean Code */}
-        <div className="absolute top-[200px] left-[40px] w-[180px] h-[180px] z-30">
+        <div className="absolute top-[200px] left-[40px] w-[190px] h-[190px] z-30">
           <Card
             thickness="thick"
             glowColor="emerald"
-            className="w-full h-full rounded-full flex items-center justify-center cursor-pointer"
+            className="w-full h-full rounded-full flex items-center justify-center cursor-pointer p-6"
           >
             <GlassLabel
               title="Clean Code"
@@ -74,11 +66,11 @@ export const Hero: React.FC = () => {
         </div>
 
         {/* Top-Right Bubble — Full-Stack */}
-        <div className="absolute top-[40px] right-[80px] w-[200px] h-[200px] z-30">
+        <div className="absolute top-[40px] right-[80px] w-[210px] h-[210px] z-30">
           <Card
             thickness="thick"
             glowColor="blue"
-            className="w-full h-full rounded-full flex items-center justify-center cursor-pointer"
+            className="w-full h-full rounded-full flex items-center justify-center cursor-pointer p-6"
           >
             <GlassLabel
               title="Full-Stack"
@@ -89,24 +81,21 @@ export const Hero: React.FC = () => {
           </Card>
         </div>
 
-        {/* Bottom Pill — Availability */}
-        <div className="absolute bottom-[90px] right-[100px] w-[300px] h-[100px] z-30">
+        {/* Bottom Pill — "Hire Me" CTA */}
+        <div className="absolute bottom-[90px] right-[100px] w-[280px] h-[90px] z-30">
           <Card
             thickness="thick"
             glowColor="pink"
-            className="w-full h-full rounded-[50px] flex flex-col items-center justify-center gap-2 cursor-pointer px-6"
+            className="w-full h-full rounded-[50px] flex items-center justify-center cursor-pointer"
           >
-            {/* Badge contained fully inside the pill */}
-            <Badge label="Open for Opportunities" variant="active" />
             <span
-              className="font-sans text-[11px] leading-none block"
+              className="font-black text-[22px] tracking-tight leading-none"
               style={{
-                color: "rgba(219,39,119,0.55)",
-                textShadow: "0 1px 2px rgba(255,255,255,0.6), 0 0 8px rgba(219,39,119,0.2)",
-                letterSpacing: "0.02em",
+                color: "rgba(219,39,119,0.85)",
+                textShadow: "0 0 24px rgba(219,39,119,0.5), 0 1px 4px rgba(255,255,255,0.5)",
               }}
             >
-              Ready to deploy
+              Hire Me
             </span>
           </Card>
         </div>
@@ -126,7 +115,7 @@ export const Hero: React.FC = () => {
               <h1
                 className="text-display font-sans text-neutral-900 dark:text-neutral-50"
                 style={{
-                  textShadow: "0 2px 12px rgba(99,102,241,0.15), 0 1px 0 rgba(255,255,255,0.5)",
+                  textShadow: "0 2px 14px rgba(99,102,241,0.18), 0 1px 0 rgba(255,255,255,0.5)",
                 }}
               >
                 Jairzon
@@ -149,7 +138,7 @@ export const Hero: React.FC = () => {
                 </a>
                 <a
                   href="#contact"
-                  className="glass-card px-6 py-2.5 rounded-full text-[13px] font-sans font-semibold text-neutral-700 dark:text-neutral-200 hover:bg-white/60 dark:hover:bg-white/10 transition-colors cursor-pointer"
+                  className="glass-card glass-thickness-thin px-6 py-2.5 rounded-full text-[13px] font-sans font-semibold text-neutral-700 dark:text-neutral-200 hover:bg-white/60 dark:hover:bg-white/10 transition-colors cursor-pointer"
                 >
                   Get in Touch
                 </a>
@@ -168,41 +157,30 @@ export const Hero: React.FC = () => {
 
       {/* ── MOBILE LAYOUT ──────────────────────────────────────────── */}
       <div className="md:hidden w-full max-w-sm mx-auto space-y-4 z-10 flex flex-col items-center px-4">
-
-        {/* Main Card */}
-        <Card thickness="thick" glowColor="indigo" className="p-7 text-center space-y-5 w-full rounded-[36px]">
-          <div className="flex flex-col items-center gap-2">
-            <Badge label="Open for Opportunities" variant="active" />
+        <Card thickness="thick" glowColor="indigo" className="p-7 flex flex-col justify-between items-center text-center gap-5 w-full rounded-[36px] min-h-[360px]">
+          <Badge label="software engineer" variant="default" />
+          <div className="space-y-3">
             <h1
               className="text-4xl font-black tracking-tighter text-neutral-900 dark:text-neutral-50 leading-none"
               style={{ textShadow: "0 2px 12px rgba(99,102,241,0.12), 0 1px 0 rgba(255,255,255,0.4)" }}
             >
               Jairzon
             </h1>
-            <span className="text-xs font-sans font-medium text-neutral-400 dark:text-neutral-500 tracking-wide">
-              Software Developer
-            </span>
+            <p className="text-sm text-neutral-500 dark:text-neutral-400 font-sans leading-relaxed">
+              Building clean, reliable web applications and software systems built for performance and pleasure.
+            </p>
           </div>
-          <p className="text-sm text-neutral-500 dark:text-neutral-400 font-sans leading-relaxed">
-            Building clean, reliable web applications and software systems built for performance and pleasure.
-          </p>
           <div className="flex flex-col gap-2.5 w-full">
-            <a
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full py-3 rounded-full text-sm font-sans font-semibold text-center text-white bg-neutral-900 dark:bg-neutral-100 dark:text-neutral-900 hover:opacity-90 shadow-sm"
-            >
+            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer"
+              className="w-full py-3 rounded-full text-sm font-sans font-semibold text-center text-white bg-neutral-900 dark:bg-neutral-100 dark:text-neutral-900 hover:opacity-90 shadow-sm">
               View Resume
             </a>
-            <a
-              href="#contact"
-              className="glass-card w-full py-3 rounded-full text-sm font-sans font-semibold text-center text-neutral-700 dark:text-neutral-200 hover:bg-white/60 dark:hover:bg-white/10"
-            >
+            <a href="#contact"
+              className="glass-card glass-thickness-thin w-full py-3 rounded-full text-sm font-sans font-semibold text-center text-neutral-700 dark:text-neutral-200">
               Get in Touch
             </a>
           </div>
-          <div className="flex items-center justify-center gap-4 text-[10px] font-mono text-neutral-400 dark:text-neutral-500 pt-1.5 border-t border-neutral-200/40 dark:border-white/5">
+          <div className="flex items-center justify-center gap-4 text-[10px] font-mono text-neutral-400 dark:text-neutral-500 pt-1.5 border-t border-neutral-200/40 dark:border-white/5 w-full">
             <a href="https://github.com/sora960" target="_blank" rel="noopener noreferrer">[GITHUB]</a>
             <a href="https://linkedin.com/in/jairzon-gimeno" target="_blank" rel="noopener noreferrer">[LINKEDIN]</a>
             <a href="https://indeed.com" target="_blank" rel="noopener noreferrer">[INDEED]</a>
@@ -211,11 +189,13 @@ export const Hero: React.FC = () => {
 
         {/* Mobile bubble row */}
         <div className="flex gap-3 w-full">
-          <Card thickness="regular" glowColor="emerald" className="flex-1 aspect-square rounded-full flex items-center justify-center">
+          <Card thickness="regular" glowColor="emerald" className="flex-1 aspect-square rounded-full flex items-center justify-center p-4">
             <GlassLabel title="Clean Code" subtitle="Type-Safe" titleColor="text-emerald-600 dark:text-emerald-400" glowRgb="5,150,105" />
           </Card>
-          <Card thickness="regular" glowColor="blue" className="flex-1 aspect-square rounded-full flex items-center justify-center">
-            <GlassLabel title="Full-Stack" subtitle="Dev" titleColor="text-blue-600 dark:text-sky-400" glowRgb="37,99,235" />
+          <Card thickness="regular" glowColor="pink" className="flex-1 aspect-square rounded-full flex items-center justify-center p-4">
+            <span className="font-black text-[20px] tracking-tight" style={{ color: "rgba(219,39,119,0.85)", textShadow: "0 0 18px rgba(219,39,119,0.4), 0 1px 3px rgba(255,255,255,0.5)" }}>
+              Hire Me
+            </span>
           </Card>
         </div>
       </div>
