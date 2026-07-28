@@ -32,15 +32,15 @@ export const ExperienceSection: React.FC = () => {
         </div>
 
         {/* RIGHT: Scrolling timeline cards */}
-        <div className="flex-1 relative space-y-5">
-          {/* Timeline vertical thread (desktop) */}
-          <div className="absolute left-0 top-0 bottom-0 w-px bg-neutral-200/60 dark:bg-neutral-800/60 hidden lg:block -translate-x-6" />
+        <div className="flex-1 relative space-y-5 pl-4 lg:pl-0">
+          {/* Timeline vertical thread (visible on all screens) */}
+          <div className="absolute left-0 lg:-translate-x-6 top-2 bottom-2 w-px bg-neutral-300/80 dark:bg-neutral-800/80" />
 
           {experiences.map((exp, index) => (
             <Reveal key={exp.id} delay={index * 150}>
               <div className="relative group">
-                {/* Timeline dot (desktop) */}
-                <div className="absolute -left-6 top-7 hidden lg:flex items-center justify-center -translate-x-1/2">
+                {/* Timeline dot */}
+                <div className="absolute -left-4 lg:-left-6 top-7 flex items-center justify-center -translate-x-1/2">
                   <span className="w-2.5 h-2.5 rounded-full bg-violet-500 dark:bg-violet-400 block relative">
                     <span className="absolute inset-0 rounded-full bg-violet-400 dark:bg-violet-500 animate-ping opacity-50" />
                   </span>

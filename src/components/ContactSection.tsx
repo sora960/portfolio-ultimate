@@ -103,7 +103,7 @@ export const ContactSection: React.FC = () => {
 
           {/* RIGHT: Glass squircle form card */}
           <Reveal delay={150} className="flex-1 w-full">
-            <Card glowColor="rose" className="rounded-[36px] p-7 sm:p-8 w-full">
+            <Card glowColor="rose" className="rounded-[28px] sm:rounded-[36px] p-5 sm:p-8 w-full">
               {status === "SUCCESS" ? (
                 <div className="text-center py-10 space-y-4">
                   <Badge label="Message Sent" variant="active" />
@@ -113,7 +113,7 @@ export const ContactSection: React.FC = () => {
                   </p>
                   <button
                     onClick={() => setStatus("IDLE")}
-                    className="mt-2 px-5 py-2.5 rounded-full text-sm font-sans font-medium bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-900 hover:opacity-90 transition-opacity"
+                    className="mt-2 px-5 py-2.5 rounded-full text-sm font-sans font-medium bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-900 hover:opacity-90 transition-opacity min-h-[44px]"
                   >
                     Send Another
                   </button>
@@ -132,7 +132,7 @@ export const ContactSection: React.FC = () => {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="e.g. Alex Mercer"
-                      className="w-full px-5 py-3 rounded-full text-sm font-sans bg-black/5 dark:bg-white/5 border border-neutral-200/50 dark:border-white/10 text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 dark:placeholder-neutral-600 focus:outline-none focus:border-neutral-400 dark:focus:border-white/30 focus:bg-white/60 dark:focus:bg-black/40 disabled:opacity-50 transition-all"
+                      className="w-full px-4 sm:px-5 py-3 rounded-full text-sm font-sans bg-black/5 dark:bg-white/5 border border-neutral-200/50 dark:border-white/10 text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 dark:placeholder-neutral-600 focus:outline-none focus:border-neutral-400 dark:focus:border-white/30 focus:bg-white/60 dark:focus:bg-black/40 disabled:opacity-50 transition-all min-h-[44px]"
                     />
                   </div>
 
@@ -148,7 +148,7 @@ export const ContactSection: React.FC = () => {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="alex@company.com"
-                      className="w-full px-5 py-3 rounded-full text-sm font-sans bg-black/5 dark:bg-white/5 border border-neutral-200/50 dark:border-white/10 text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 dark:placeholder-neutral-600 focus:outline-none focus:border-neutral-400 dark:focus:border-white/30 focus:bg-white/60 dark:focus:bg-black/40 disabled:opacity-50 transition-all"
+                      className="w-full px-4 sm:px-5 py-3 rounded-full text-sm font-sans bg-black/5 dark:bg-white/5 border border-neutral-200/50 dark:border-white/10 text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 dark:placeholder-neutral-600 focus:outline-none focus:border-neutral-400 dark:focus:border-white/30 focus:bg-white/60 dark:focus:bg-black/40 disabled:opacity-50 transition-all min-h-[44px]"
                     />
                   </div>
 
@@ -164,7 +164,7 @@ export const ContactSection: React.FC = () => {
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder="Describe your project, opportunity, or question..."
-                      className="w-full px-5 py-4 rounded-[20px] text-sm font-sans bg-black/5 dark:bg-white/5 border border-neutral-200/50 dark:border-white/10 text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 dark:placeholder-neutral-600 focus:outline-none focus:border-neutral-400 dark:focus:border-white/30 focus:bg-white/60 dark:focus:bg-black/40 disabled:opacity-50 transition-all resize-none"
+                      className="w-full px-4 sm:px-5 py-4 rounded-[20px] text-sm font-sans bg-black/5 dark:bg-white/5 border border-neutral-200/50 dark:border-white/10 text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 dark:placeholder-neutral-600 focus:outline-none focus:border-neutral-400 dark:focus:border-white/30 focus:bg-white/60 dark:focus:bg-black/40 disabled:opacity-50 transition-all resize-none min-h-[100px]"
                     />
                   </div>
 
@@ -175,7 +175,7 @@ export const ContactSection: React.FC = () => {
                   <button
                     type="submit"
                     disabled={status === "SUBMITTING"}
-                    className={`w-full py-3.5 rounded-full text-sm font-sans font-semibold text-white bg-neutral-900 dark:bg-neutral-100 dark:text-neutral-900 transition-all duration-500 cursor-pointer shadow-md flex items-center justify-center gap-2 ${
+                    className={`w-full py-3.5 rounded-full text-sm font-sans font-semibold text-white bg-neutral-900 dark:bg-neutral-100 dark:text-neutral-900 transition-all duration-500 cursor-pointer shadow-md flex items-center justify-center gap-2 min-h-[44px] ${
                       status === "SUBMITTING"
                         ? "opacity-90 scale-95"
                         : status === "ERROR"
@@ -214,7 +214,7 @@ export const ContactSection: React.FC = () => {
               { label: "[INDEED]", href: "https://indeed.com" },
             ].map((l) => (
               <a key={l.label} href={l.href} target="_blank" rel="noopener noreferrer"
-                className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors py-1">
+                className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors py-2 px-1 inline-flex items-center min-h-[44px]">
                 {l.label}
               </a>
             ))}

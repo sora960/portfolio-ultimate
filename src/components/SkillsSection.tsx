@@ -124,7 +124,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ selectedSkill, onS
                   <button
                     key={idx}
                     onClick={() => handleCategorySwitch(idx)}
-                    className={`relative text-left px-4 py-2.5 rounded-2xl text-sm font-sans font-medium transition-all duration-300 cursor-pointer ${
+                    className={`relative text-left px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-sans font-medium transition-all duration-300 cursor-pointer min-h-[44px] flex items-center ${
                       isActive
                         ? "bg-neutral-950 text-white dark:bg-white dark:text-neutral-950 shadow-md"
                         : "text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200 hover:bg-black/5 dark:hover:bg-white/5"
@@ -143,9 +143,9 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ selectedSkill, onS
         </div>
 
         {/* RIGHT: Flowing bubble cloud */}
-        <Reveal delay={150} className="flex-1">
+        <Reveal delay={150} className="flex-1 w-full">
           <div
-            className={`flex flex-wrap gap-3 transition-all duration-300 ${
+            className={`flex flex-wrap gap-2.5 sm:gap-3 transition-all duration-300 ${
               isSwapping ? "opacity-0 scale-95" : "opacity-100 scale-100"
             }`}
           >
@@ -159,19 +159,19 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ selectedSkill, onS
                   thickness="regular"
                   glowColor={glowColor}
                   onClick={() => onSelectSkill(isSelected ? null : skill.name)}
-                  className={`rounded-full py-3 px-5 flex items-center gap-2.5 cursor-pointer select-none transition-all duration-300 ${
+                  className={`rounded-full py-2.5 px-4 sm:py-3 sm:px-5 flex items-center gap-2 sm:gap-2.5 cursor-pointer select-none transition-all duration-300 ${
                     isSelected
                       ? "ring-1 ring-blue-500/40 dark:ring-sky-400/40 shadow-[0_0_14px_rgba(59,130,246,0.15)] scale-105"
                       : "hover:scale-[1.03]"
                   }`}
                 >
                   {/* Score badge with CountUp animation */}
-                  <span className="w-8 h-8 rounded-full bg-neutral-950/[0.06] dark:bg-white/10 flex items-center justify-center text-[11px] font-black font-mono text-neutral-700 dark:text-neutral-200 shrink-0">
+                  <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-neutral-950/[0.06] dark:bg-white/10 flex items-center justify-center text-[10px] sm:text-[11px] font-black font-mono text-neutral-700 dark:text-neutral-200 shrink-0">
                     <ScoreCounter targetScore={score} delayMs={sIdx * 40} />
                   </span>
 
                   {/* Skill name */}
-                  <span className="text-sm font-sans font-semibold text-neutral-900 dark:text-neutral-100 flex items-center gap-1.5">
+                  <span className="text-xs sm:text-sm font-sans font-semibold text-neutral-900 dark:text-neutral-100 flex items-center gap-1.5">
                     {isSelected && (
                       <span className="w-1.5 h-1.5 rounded-full bg-blue-500 dark:bg-sky-400 animate-pulse shrink-0" />
                     )}

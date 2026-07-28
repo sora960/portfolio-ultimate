@@ -29,10 +29,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, selectedSkill, size 
   const glow = glowMap[project.title] ?? "indigo";
 
   const sizeClasses = {
-    featured: "col-span-2 row-span-1 min-h-[300px] p-8 rounded-[40px]",
-    wide:     "col-span-2 min-h-[240px] p-7 rounded-[36px]",
-    tall:     "col-span-1 min-h-[340px] p-7 rounded-[36px]",
-    compact:  "col-span-1 min-h-[260px] p-6 rounded-[28px]",
+    featured: "col-span-1 sm:col-span-2 row-span-1 min-h-0 sm:min-h-[300px] p-5 sm:p-8 rounded-[28px] sm:rounded-[40px]",
+    wide:     "col-span-1 sm:col-span-2 min-h-0 sm:min-h-[240px] p-5 sm:p-7 rounded-[28px] sm:rounded-[36px]",
+    tall:     "col-span-1 min-h-0 sm:min-h-[340px] p-5 sm:p-7 rounded-[28px] sm:rounded-[36px]",
+    compact:  "col-span-1 min-h-0 sm:min-h-[260px] p-5 sm:p-6 rounded-[28px]",
   };
 
   return (
@@ -95,13 +95,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, selectedSkill, size 
           ))}
         </div>
 
-        {/* CTA links */}
+        {/* CTA links with 44px min tap area */}
         <div className="flex items-center gap-3 text-xs font-mono">
           <a
             href={project.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-neutral-500 hover:text-emerald-500 transition-colors font-semibold"
+            className="text-neutral-500 hover:text-emerald-500 transition-colors font-semibold py-2 px-1 inline-flex items-center min-h-[44px]"
           >
             Code →
           </a>
@@ -110,7 +110,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, selectedSkill, size 
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-emerald-600 dark:text-emerald-400 hover:underline font-semibold"
+              className="text-emerald-600 dark:text-emerald-400 hover:underline font-semibold py-2 px-1 inline-flex items-center min-h-[44px]"
             >
               Demo ↗
             </a>

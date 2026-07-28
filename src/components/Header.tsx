@@ -7,6 +7,7 @@ export const Header: React.FC = () => {
   const [visible, setVisible] = useState(true);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [activeSection, setActiveSection] = useState<string>("hero");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,6 +22,7 @@ export const Header: React.FC = () => {
       } else {
         // Scrolling down -> hide
         setVisible(false);
+        setMobileMenuOpen(false);
       }
       
       setPrevScrollPos(currentScrollPos);
@@ -67,19 +69,19 @@ export const Header: React.FC = () => {
 
   return (
     <header 
-      className={`fixed top-4 inset-x-0 z-50 flex justify-center px-4 transition-transform duration-500 ease-in-out ${
+      className={`fixed top-4 inset-x-0 z-50 flex flex-col items-center px-4 transition-transform duration-500 ease-in-out ${
         visible ? "translate-y-0" : "-translate-y-24"
       }`}
     >
-      <nav className="glass-card glass-thickness-thin flex items-center justify-between gap-6 px-6 py-3 rounded-full max-w-4xl w-full shadow-lg">
-        <a href="#hero" className="flex items-center gap-2 group cursor-pointer">
+      <nav className="glass-card glass-thickness-thin flex items-center justify-between gap-4 px-5 sm:px-6 py-3 rounded-full max-w-4xl w-full shadow-lg relative z-20">
+        <a href="#hero" className="flex items-center gap-2 group cursor-pointer min-h-[44px]">
           <span className="font-mono text-sm font-bold tracking-tight text-neutral-900 dark:text-neutral-100 group-hover:text-emerald-500 transition-colors">
             Jairzon
           </span>
         </a>
 
-        {/* Navigation Links */}
-        <div className="flex items-center gap-5 md:gap-7 text-[13px] font-sans font-medium tracking-wide text-neutral-500 dark:text-neutral-400">
+        {/* Desktop Navigation Links */}
+        <div className="hidden md:flex items-center gap-5 md:gap-7 text-[13px] font-sans font-medium tracking-wide text-neutral-500 dark:text-neutral-400">
           {navItems.map((item) => {
             const isActive = activeSection === item.id;
             return (
@@ -103,19 +105,70 @@ export const Header: React.FC = () => {
           })}
         </div>
 
-        {/* Actions: Theme Toggle & Resume */}
+        {/* Actions: Theme Toggle, Resume & Mobile Hamburger Button */}
         <div className="flex items-center gap-3">
           <ThemeToggle />
           <a
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:inline-flex items-center px-3 py-1.5 rounded-full text-xs font-mono font-medium text-white bg-neutral-900 dark:bg-neutral-100 dark:text-neutral-900 hover:opacity-90 transition-opacity"
+            className="hidden sm:inline-flex items-center px-3.5 py-2 rounded-full text-xs font-mono font-medium text-white bg-neutral-900 dark:bg-neutral-100 dark:text-neutral-900 hover:opacity-90 transition-opacity min-h-[36px]"
           >
             Resume.pdf
           </a>
+
+          {/* Mobile Hamburger Toggle Button */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle Navigation Menu"
+            className="md:hidden p-2 rounded-full text-neutral-700 dark:text-neutral-200 hover:bg-black/5 dark:hover:bg-white/10 min-h-[44px] min-w-[44px] flex items-center justify-center transition-colors"
+          >
+            {mobileMenuOpen ? (
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
+          </button>
         </div>
       </nav>
+
+      {/* Mobile Drawer Dropdown Menu */}
+      {mobileMenuOpen && (
+        <div className="md:hidden mt-2 w-full max-w-4xl glass-card glass-thickness-regular rounded-[24px] p-4 flex flex-col space-y-2 shadow-xl border border-white/20 dark:border-white/10 animate-entrance-squircle">
+          {navItems.map((item) => {
+            const isActive = activeSection === item.id;
+            return (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                onClick={() => setMobileMenuOpen(false)}
+                className={`w-full min-h-[44px] px-4 rounded-xl flex items-center justify-between text-sm font-sans font-medium transition-colors ${
+                  isActive
+                    ? "bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 font-bold"
+                    : "text-neutral-600 dark:text-neutral-300 hover:bg-black/5 dark:hover:bg-white/5"
+                }`}
+              >
+                <span>{item.label}</span>
+                <span className="text-xs font-mono opacity-60">→</span>
+              </a>
+            );
+          })}
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setMobileMenuOpen(false)}
+            className="w-full min-h-[44px] px-4 rounded-xl flex items-center justify-between text-sm font-mono font-medium text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/20"
+          >
+            <span>Download Resume</span>
+            <span>PDF ↗</span>
+          </a>
+        </div>
+      )}
     </header>
   );
 };

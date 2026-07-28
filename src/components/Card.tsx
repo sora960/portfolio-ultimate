@@ -19,6 +19,9 @@ export const Card: React.FC<CardProps> = ({
   const cardRef = useRef<HTMLDivElement>(null);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    // Skip 3D tilt on touch/coarse pointer devices to prevent scroll jank
+    if (typeof window !== "undefined" && window.matchMedia("(pointer: coarse)").matches) return;
+
     const card = cardRef.current;
     if (!card) return;
     const rect = card.getBoundingClientRect();
