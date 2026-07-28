@@ -6,6 +6,7 @@ import { ThemeToggle } from "./ThemeToggle";
 export const Header: React.FC = () => {
   const [visible, setVisible] = useState(true);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [activeSection, setActiveSection] = useState<string>("hero");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,6 +30,41 @@ export const Header: React.FC = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [prevScrollPos]);
 
+  useEffect(() => {
+    const sectionIds = ["hero", "about", "skills", "projects", "contact"];
+    const observers: IntersectionObserver[] = [];
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setActiveSection(id);
+            }
+          });
+        },
+        { threshold: 0.3 }
+      );
+
+      observer.observe(el);
+      observers.push(observer);
+    });
+
+    return () => {
+      observers.forEach((obs) => obs.disconnect());
+    };
+  }, []);
+
+  const navItems = [
+    { id: "about", label: "About" },
+    { id: "skills", label: "Skills" },
+    { id: "projects", label: "Projects" },
+    { id: "contact", label: "Contact" },
+  ];
+
   return (
     <header 
       className={`fixed top-4 inset-x-0 z-50 flex justify-center px-4 transition-transform duration-500 ease-in-out ${
@@ -44,22 +80,27 @@ export const Header: React.FC = () => {
 
         {/* Navigation Links */}
         <div className="flex items-center gap-5 md:gap-7 text-[13px] font-sans font-medium tracking-wide text-neutral-500 dark:text-neutral-400">
-          <a href="#about" className="relative py-1 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors group cursor-pointer">
-            About
-            <span className="absolute bottom-0 left-0 w-full h-[1px] bg-neutral-900 dark:bg-neutral-100 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
-          </a>
-          <a href="#skills" className="relative py-1 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors group cursor-pointer">
-            Skills
-            <span className="absolute bottom-0 left-0 w-full h-[1px] bg-neutral-900 dark:bg-neutral-100 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
-          </a>
-          <a href="#projects" className="relative py-1 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors group cursor-pointer">
-            Projects
-            <span className="absolute bottom-0 left-0 w-full h-[1px] bg-neutral-900 dark:bg-neutral-100 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
-          </a>
-          <a href="#contact" className="relative py-1 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors group cursor-pointer">
-            Contact
-            <span className="absolute bottom-0 left-0 w-full h-[1px] bg-neutral-900 dark:bg-neutral-100 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
-          </a>
+          {navItems.map((item) => {
+            const isActive = activeSection === item.id;
+            return (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                className={`relative py-1 transition-colors group cursor-pointer ${
+                  isActive
+                    ? "text-neutral-950 dark:text-white font-semibold"
+                    : "hover:text-neutral-900 dark:hover:text-neutral-100"
+                }`}
+              >
+                {item.label}
+                <span
+                  className={`absolute bottom-0 left-0 w-full h-[1.5px] bg-neutral-950 dark:bg-white origin-left transition-transform duration-300 ${
+                    isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                  }`}
+                />
+              </a>
+            );
+          })}
         </div>
 
         {/* Actions: Theme Toggle & Resume */}

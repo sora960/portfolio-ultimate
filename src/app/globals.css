@@ -200,6 +200,65 @@
   animation: glow-drift 22s ease-in-out infinite;
 }
 
+/* ─── Hero Satellite Passive Float Loops ────────────── */
+@keyframes float-orbit-left {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(-1.5deg); }
+}
+
+@keyframes float-orbit-right {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(1.5deg); }
+}
+
+@keyframes float-orbit-pill {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-8px) scale(1.02); }
+}
+
+.animate-orbit-left {
+  animation: float-orbit-left 6s ease-in-out infinite;
+}
+
+.animate-orbit-right {
+  animation: float-orbit-right 7s ease-in-out infinite;
+}
+
+.animate-orbit-pill {
+  animation: float-orbit-pill 5.5s ease-in-out infinite;
+}
+
+/* ─── Hero Staggered Entrances ──────────────────────── */
+@keyframes entrance-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.88) translateY(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-entrance-squircle {
+  animation: entrance-pop 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-entrance-satellite-1 {
+  animation: entrance-pop 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+  opacity: 0;
+}
+
+.animate-entrance-satellite-2 {
+  animation: entrance-pop 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+  opacity: 0;
+}
+
+.animate-entrance-satellite-3 {
+  animation: entrance-pop 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.45s forwards;
+  opacity: 0;
+}
+
 /* ─── GPU performance hints ─────────────────────────── */
 .glass-card {
   will-change: transform;

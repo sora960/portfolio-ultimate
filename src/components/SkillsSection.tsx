@@ -12,9 +12,59 @@ interface SkillsSectionProps {
   onSelectSkill: (skill: string | null) => void;
 }
 
+const ScoreCounter: React.FC<{ targetScore: number; delayMs?: number }> = ({ targetScore, delayMs = 0 }) => {
+  const [score, setScore] = useState(0);
+  const [hasStarted, setHasStarted] = useState(false);
+  const ref = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setHasStarted(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!hasStarted) return;
+
+    const timer = setTimeout(() => {
+      let start = 0;
+      const duration = 800; // ms
+      const stepTime = 16; // ~60fps
+      const steps = duration / stepTime;
+      const increment = targetScore / steps;
+
+      const interval = setInterval(() => {
+        start += increment;
+        if (start >= targetScore) {
+          setScore(targetScore);
+          clearInterval(interval);
+        } else {
+          setScore(Math.floor(start));
+        }
+      }, stepTime);
+
+      return () => clearInterval(interval);
+    }, delayMs);
+
+    return () => clearTimeout(timer);
+  }, [hasStarted, targetScore, delayMs]);
+
+  return <span ref={ref}>{score}</span>;
+};
+
 export const SkillsSection: React.FC<SkillsSectionProps> = ({ selectedSkill, onSelectSkill }) => {
   const categories = skillsData.categories as SkillCategory[];
   const [activeCategoryIdx, setActiveCategoryIdx] = useState(0);
+  const [isSwapping, setIsSwapping] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   const activeCategory = categories[activeCategoryIdx];
@@ -38,6 +88,15 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ selectedSkill, onS
 
   const glowColors = ["blue", "emerald", "violet"] as const;
   const glowColor = glowColors[activeCategoryIdx] ?? "blue";
+
+  const handleCategorySwitch = (idx: number) => {
+    if (idx === activeCategoryIdx) return;
+    setIsSwapping(true);
+    setTimeout(() => {
+      setActiveCategoryIdx(idx);
+      setIsSwapping(false);
+    }, 150);
+  };
 
   return (
     <section id="skills" ref={sectionRef} className="py-20">
@@ -64,7 +123,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ selectedSkill, onS
                 return (
                   <button
                     key={idx}
-                    onClick={() => setActiveCategoryIdx(idx)}
+                    onClick={() => handleCategorySwitch(idx)}
                     className={`relative text-left px-4 py-2.5 rounded-2xl text-sm font-sans font-medium transition-all duration-300 cursor-pointer ${
                       isActive
                         ? "bg-neutral-950 text-white dark:bg-white dark:text-neutral-950 shadow-md"
@@ -85,7 +144,11 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ selectedSkill, onS
 
         {/* RIGHT: Flowing bubble cloud */}
         <Reveal delay={150} className="flex-1">
-          <div className="flex flex-wrap gap-3">
+          <div
+            className={`flex flex-wrap gap-3 transition-all duration-300 ${
+              isSwapping ? "opacity-0 scale-95" : "opacity-100 scale-100"
+            }`}
+          >
             {activeCategory.skills.map((skill, sIdx) => {
               const score = skillScores[skill.name] ?? 80;
               const isSelected = selectedSkill === skill.name;
@@ -102,9 +165,9 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ selectedSkill, onS
                       : "hover:scale-[1.03]"
                   }`}
                 >
-                  {/* Score badge */}
+                  {/* Score badge with CountUp animation */}
                   <span className="w-8 h-8 rounded-full bg-neutral-950/[0.06] dark:bg-white/10 flex items-center justify-center text-[11px] font-black font-mono text-neutral-700 dark:text-neutral-200 shrink-0">
-                    {score}
+                    <ScoreCounter targetScore={score} delayMs={sIdx * 40} />
                   </span>
 
                   {/* Skill name */}

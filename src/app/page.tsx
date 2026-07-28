@@ -9,6 +9,7 @@ import { ProjectsSection } from "@/components/ProjectsSection";
 import { ContactSection } from "@/components/ContactSection";
 import { Preloader } from "@/components/Preloader";
 import { AmbientFlares } from "@/components/AmbientFlares";
+import { ScrollToTop } from "@/components/ScrollToTop";
 
 export default function Home() {
   const [loaded, setLoaded] = useState(false);
@@ -39,6 +40,9 @@ export default function Home() {
           <ProjectsSection selectedSkill={selectedSkill} />
           <ContactSection />
         </main>
+
+        {/* Floating Scroll to top glass bubble */}
+        <ScrollToTop />
       </div>
     </>
   );

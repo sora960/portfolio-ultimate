@@ -175,9 +175,27 @@ export const ContactSection: React.FC = () => {
                   <button
                     type="submit"
                     disabled={status === "SUBMITTING"}
-                    className="w-full py-3.5 rounded-full text-sm font-sans font-semibold text-white bg-neutral-900 dark:bg-neutral-100 dark:text-neutral-900 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 transition-all duration-300 cursor-pointer shadow-md"
+                    className={`w-full py-3.5 rounded-full text-sm font-sans font-semibold text-white bg-neutral-900 dark:bg-neutral-100 dark:text-neutral-900 transition-all duration-500 cursor-pointer shadow-md flex items-center justify-center gap-2 ${
+                      status === "SUBMITTING"
+                        ? "opacity-90 scale-95"
+                        : status === "ERROR"
+                        ? "bg-rose-600 dark:bg-rose-500 animate-bounce"
+                        : "hover:opacity-90 hover:scale-[1.02] active:scale-[0.98]"
+                    }`}
                   >
-                    {status === "SUBMITTING" ? "Sending..." : "Send Message →"}
+                    {status === "SUBMITTING" ? (
+                      <span className="flex items-center gap-2">
+                        <svg className="animate-spin h-4 w-4 text-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        <span>Sending Message...</span>
+                      </span>
+                    ) : status === "ERROR" ? (
+                      <span>Failed — Try Again</span>
+                    ) : (
+                      <span>Send Message →</span>
+                    )}
                   </button>
                 </form>
               )}

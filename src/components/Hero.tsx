@@ -50,7 +50,8 @@ export const Hero: React.FC = () => {
       <div className="hidden md:block w-full max-w-4xl h-[650px] relative z-10 mx-auto">
 
         {/* Left Bubble — Clean Code */}
-        <div className="absolute top-[200px] left-[40px] w-[190px] h-[190px] z-30">
+        <div className="absolute top-[200px] left-[40px] w-[190px] h-[190px] z-30 animate-entrance-satellite-1">
+          <div className="w-full h-full animate-orbit-left">
           <Card
             thickness="thick"
             glowColor="emerald"
@@ -63,10 +64,12 @@ export const Hero: React.FC = () => {
               glowRgb="5,150,105"
             />
           </Card>
+          </div>
         </div>
 
         {/* Top-Right Bubble — Full-Stack */}
-        <div className="absolute top-[40px] right-[80px] w-[210px] h-[210px] z-30">
+        <div className="absolute top-[40px] right-[80px] w-[210px] h-[210px] z-30 animate-entrance-satellite-2">
+          <div className="w-full h-full animate-orbit-right">
           <Card
             thickness="thick"
             glowColor="blue"
@@ -79,10 +82,12 @@ export const Hero: React.FC = () => {
               glowRgb="37,99,235"
             />
           </Card>
+          </div>
         </div>
 
         {/* Bottom Pill — "Hire Me" CTA */}
-        <div className="absolute bottom-[90px] right-[100px] w-[280px] h-[90px] z-30">
+        <div className="absolute bottom-[90px] right-[100px] w-[280px] h-[90px] z-30 animate-entrance-satellite-3">
+          <div className="w-full h-full animate-orbit-pill">
           <Card
             thickness="thick"
             glowColor="pink"
@@ -98,10 +103,11 @@ export const Hero: React.FC = () => {
               Hire Me
             </span>
           </Card>
+          </div>
         </div>
 
         {/* Central Squircle Card */}
-        <div className="absolute top-[120px] left-1/2 -translate-x-1/2 w-[520px] h-[390px] z-20">
+        <div className="absolute top-[120px] left-1/2 -translate-x-1/2 w-[520px] h-[390px] z-20 animate-entrance-squircle">
           <Card
             thickness="thick"
             glowColor="indigo"
