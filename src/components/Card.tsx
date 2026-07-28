@@ -22,8 +22,25 @@ export const Card: React.FC<CardProps> = ({
     const rect = card.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
+    
+    // Set custom coordinates for spotlight gradients
     card.style.setProperty("--mouse-x", `${x}px`);
     card.style.setProperty("--mouse-y", `${y}px`);
+
+    // Calculate 3D tilt angles (capped at a subtle 4 degrees maximum)
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = ((centerY - y) / centerY) * 4; // range: -4 to 4
+    const rotateY = ((x - centerX) / centerX) * 4; // range: -4 to 4
+
+    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
+  };
+
+  const handleMouseLeave = () => {
+    const card = cardRef.current;
+    if (!card) return;
+    // Reset transform smoothly back to neutral
+    card.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)";
   };
 
   const thicknessClass = {
@@ -36,6 +53,7 @@ export const Card: React.FC<CardProps> = ({
     <div
       ref={cardRef}
       onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
       className={`glass-card glass-card-hover group ${thicknessClass} ${className}`}
       {...props}
     >

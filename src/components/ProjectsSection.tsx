@@ -5,6 +5,7 @@ import projectsData from "@/content/projects.json";
 import { Project } from "@/lib/types";
 import { Card } from "./Card";
 import { Badge } from "./Badge";
+import { Reveal } from "./Reveal";
 
 interface ProjectsSectionProps {
   selectedSkill: string | null;
@@ -23,7 +24,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, selectedSkill, isFea
   const hasSelectedSkill = selectedSkill ? project.techStack.includes(selectedSkill) : false;
 
   return (
-    <div className={`relative group ${isFeatured ? "col-span-1 md:col-span-2" : ""}`}>
+    <div className="relative group w-full h-full">
       {/* Backstage Refraction Shape - Larger shape for featured card */}
       <div className={`absolute rounded-full select-none pointer-events-none shadow-lg transition-transform duration-500 ${
         isFeatured 
@@ -224,12 +225,17 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ selectedSkill 
           {filteredProjects.map((project, index) => {
             const isFeatured = index === 0 && filter === "all";
             return (
-              <ProjectCard 
+              <Reveal 
                 key={project.id} 
-                project={project} 
-                selectedSkill={selectedSkill} 
-                isFeatured={isFeatured}
-              />
+                delay={index * 150}
+                className={isFeatured ? "col-span-1 md:col-span-2" : ""}
+              >
+                <ProjectCard 
+                  project={project} 
+                  selectedSkill={selectedSkill} 
+                  isFeatured={isFeatured}
+                />
+              </Reveal>
             );
           })}
         </div>
