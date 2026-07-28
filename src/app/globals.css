@@ -9,17 +9,18 @@
 
 @layer base {
   :root {
-    --bg-mesh-light: url('/caustics-light.jpg');
-    --bg-mesh-dark:  url('/caustics-dark.jpg');
+    --bg-mesh-light: radial-gradient(at 10% 10%, rgba(186, 230, 253, 0.85) 0px, transparent 60%),
+                     radial-gradient(at 90% 10%, rgba(244, 180, 240, 0.75) 0px, transparent 65%),
+                     radial-gradient(at 50% 90%, rgba(191, 219, 254, 0.85) 0px, transparent 60%);
+    --bg-mesh-dark:  radial-gradient(at 10% 10%, rgba(30, 27, 75, 0.65) 0px, transparent 55%),
+                     radial-gradient(at 90% 10%, rgba(88, 28, 135, 0.45) 0px, transparent 60%),
+                     radial-gradient(at 50% 90%, rgba(15, 23, 42, 0.85) 0px, transparent 55%);
   }
 
   body {
     background-color: #F5F5F7;
     background-image: var(--bg-mesh-light);
     background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     color: #1D1D1F;
     min-height: 100vh;
     transition: background-color 0.3s ease, color 0.3s ease;
@@ -28,10 +29,6 @@
   .dark body {
     background-color: #000000;
     background-image: var(--bg-mesh-dark);
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     color: #F5F5F7;
   }
 }
