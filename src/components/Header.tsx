@@ -1,10 +1,40 @@
-import React from "react";
-import { Badge } from "./Badge";
+"use client";
+
+import React, { useState, useEffect } from "react";
 import { ThemeToggle } from "./ThemeToggle";
 
 export const Header: React.FC = () => {
+  const [visible, setVisible] = useState(true);
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.scrollY;
+      
+      // Always show header when at/near the top of the viewport
+      if (currentScrollPos < 50) {
+        setVisible(true);
+      } else if (prevScrollPos > currentScrollPos) {
+        // Scrolling up -> show
+        setVisible(true);
+      } else {
+        // Scrolling down -> hide
+        setVisible(false);
+      }
+      
+      setPrevScrollPos(currentScrollPos);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [prevScrollPos]);
+
   return (
-    <header className="fixed top-4 inset-x-0 z-50 flex justify-center px-4">
+    <header 
+      className={`fixed top-4 inset-x-0 z-50 flex justify-center px-4 transition-transform duration-500 ease-in-out ${
+        visible ? "translate-y-0" : "-translate-y-24"
+      }`}
+    >
       <nav className="glass-card flex items-center justify-between gap-6 px-6 py-3 rounded-full max-w-4xl w-full border border-white/40 dark:border-white/10 shadow-lg">
         <a href="#hero" className="flex items-center gap-2 group cursor-pointer">
           <span className="font-mono text-sm font-bold tracking-tight text-neutral-900 dark:text-neutral-100 group-hover:text-emerald-500 transition-colors">
@@ -15,19 +45,19 @@ export const Header: React.FC = () => {
         {/* Navigation Links */}
         <div className="flex items-center gap-4 md:gap-6 text-xs font-mono tracking-widest uppercase text-neutral-500 dark:text-neutral-400">
           <a href="#about" className="relative py-1 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors group cursor-pointer">
-            #about
+            about
             <span className="absolute bottom-0 left-0 w-full h-[1px] bg-neutral-900 dark:bg-neutral-100 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
           </a>
           <a href="#skills" className="relative py-1 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors group cursor-pointer">
-            #skills
+            skills
             <span className="absolute bottom-0 left-0 w-full h-[1px] bg-neutral-900 dark:bg-neutral-100 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
           </a>
           <a href="#projects" className="relative py-1 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors group cursor-pointer">
-            #projects
+            projects
             <span className="absolute bottom-0 left-0 w-full h-[1px] bg-neutral-900 dark:bg-neutral-100 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
           </a>
           <a href="#contact" className="relative py-1 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors group cursor-pointer">
-            #contact
+            contact
             <span className="absolute bottom-0 left-0 w-full h-[1px] bg-neutral-900 dark:bg-neutral-100 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
           </a>
         </div>
