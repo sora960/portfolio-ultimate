@@ -85,9 +85,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, selectedSkill }) => 
               </p>
             )}
             {activeTab === "features" && (
-              <ul className="space-y-1.5 text-xs text-neutral-700 dark:text-neutral-300 list-disc list-inside font-sans">
+              <ul className="space-y-2.5 text-xs text-neutral-700 dark:text-neutral-300 font-sans">
                 {project.highlights.map((highlight, idx) => (
-                  <li key={idx}>{highlight}</li>
+                  <li key={idx} className="flex items-start gap-2 leading-relaxed">
+                    <span className="text-emerald-500 dark:text-emerald-400 font-mono select-none mt-0.5">
+                      →
+                    </span>
+                    <span>{highlight}</span>
+                  </li>
                 ))}
               </ul>
             )}
