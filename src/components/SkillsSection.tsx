@@ -37,12 +37,6 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ selectedSkill, onS
     "Hardware Diagnostics & IT Support": 90
   };
 
-  const categoryDescriptions: Record<number, string> = {
-    0: "Building responsive, modern, type-safe web applications from front-end user interfaces to back-end RESTful services.",
-    1: "Managing Unix/Linux operating systems, container automation pipelines, and robust git repositories.",
-    2: "Configuring local networking protocols, subnetting schemas, switches, routers, and troubleshooting server hardware."
-  };
-
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -59,114 +53,88 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ selectedSkill, onS
 
   return (
     <section id="skills" ref={sectionRef} className="py-20 px-4">
-      <div className="max-w-4xl mx-auto space-y-8">
+      <div className="max-w-4xl mx-auto space-y-12">
         
         {/* Section Header */}
         <Reveal>
-          <div className="space-y-2">
+          <div className="space-y-2 text-center">
             <Badge label="skills" variant="default" />
             <h2 className="text-3xl font-bold tracking-tight text-neutral-900 dark:text-neutral-50">
               Technical Proficiencies
             </h2>
             <p className="text-sm font-mono text-neutral-500 dark:text-neutral-400">
-              Click categories on the left to inspect detailed specifications and progress meters. Select a skill to locate related projects.
+              Select categories to filter skill bubbles. Click a skill bubble to locate related projects.
             </p>
           </div>
         </Reveal>
 
-        {/* Dashboard Card */}
-        <Reveal delay={150}>
-          <Card className="p-0 overflow-hidden flex flex-col md:flex-row min-h-[400px]">
-            
-            {/* Left Column Category Switcher */}
-            <div className="w-full md:w-1/3 bg-neutral-900/[0.02] dark:bg-white/[0.01] border-b md:border-b-0 md:border-r border-neutral-200/50 dark:border-white/5 p-6 flex flex-col gap-2">
-              <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 dark:text-neutral-500 mb-2">
-                Categories
-              </span>
-              {categories.map((cat, idx) => {
-                const isActive = activeCategoryIdx === idx;
-                return (
-                  <button
-                    key={idx}
-                    onClick={() => setActiveCategoryIdx(idx)}
-                    className={`text-left py-3 px-4 rounded-xl text-xs font-mono tracking-wide transition-all duration-300 cursor-pointer ${
-                      isActive
-                        ? "bg-neutral-950 text-white dark:bg-white dark:text-neutral-950 font-bold shadow-md scale-[1.02]"
-                        : "text-neutral-500 dark:text-neutral-400 hover:bg-neutral-200/50 dark:hover:bg-white/5 hover:text-neutral-800 dark:hover:text-neutral-200"
-                    }`}
-                  >
-                    {cat.name}
-                  </button>
-                );
-              })}
-            </div>
-
-            {/* Right Column Skills & Specifications Details */}
-            <div className="w-full md:w-2/3 p-6 flex flex-col justify-between space-y-6">
-              <div className="space-y-4">
-                <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 dark:text-neutral-500">
-                  Specifications Inspector
-                </span>
-                <p className="text-xs text-neutral-600 dark:text-neutral-400 font-sans italic">
-                  {categoryDescriptions[activeCategoryIdx]}
-                </p>
-
-                {/* Skills Progress Grid */}
-                <div className="space-y-4 pt-2">
-                  {activeCategory.skills.map((skill, sIdx) => {
-                    const score = skillScores[skill.name] || 80;
-                    const isSelected = selectedSkill === skill.name;
-                    return (
-                      <div
-                        key={sIdx}
-                        onClick={() => onSelectSkill(isSelected ? null : skill.name)}
-                        className={`group/item p-3 rounded-xl border transition-all duration-300 cursor-pointer ${
-                          isSelected
-                            ? "bg-blue-500/10 dark:bg-sky-500/10 border-blue-500/30 dark:border-sky-500/30"
-                            : "hover:bg-neutral-100/50 dark:hover:bg-white/5 border-transparent"
-                        }`}
-                      >
-                        {/* Name & Badge Row */}
-                        <div className="flex items-center justify-between text-xs mb-2">
-                          <span className="font-sans font-semibold text-neutral-900 dark:text-neutral-100 flex items-center gap-1.5">
-                            {isSelected && (
-                              <span className="w-1.5 h-1.5 rounded-full bg-blue-500 dark:bg-sky-400 animate-pulse" />
-                            )}
-                            {skill.name}
-                          </span>
-                          <div className="flex items-center gap-2">
-                            <span className="text-[10px] font-mono text-neutral-400 dark:text-neutral-500">
-                              {score}%
-                            </span>
-                            <Badge
-                              label={skill.status}
-                              variant={skill.status === "Core Competency" ? "active" : "default"}
-                              className="text-[9px] py-0 px-1.5"
-                            />
-                          </div>
-                        </div>
-
-                        {/* Volumetric Glass Progress Capsule */}
-                        <div className="h-1.5 w-full bg-neutral-200 dark:bg-neutral-800 rounded-full overflow-hidden relative border border-neutral-300/30 dark:border-white/5">
-                          <div
-                            className="h-full bg-gradient-to-r from-blue-500 to-indigo-500 dark:from-sky-400 dark:to-indigo-400 rounded-full transition-all duration-1000 ease-out"
-                            style={{ width: animateProgress ? `${score}%` : "0%" }}
-                          />
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-
-              {/* Footer Summary Info */}
-              <div className="text-[10px] font-mono text-neutral-400 dark:text-neutral-500 pt-4 border-t border-neutral-200/50 dark:border-white/5">
-                Ref: Jairzon Portfolios. Active system highlight sync enabled.
-              </div>
-            </div>
-
-          </Card>
+        {/* Category Capsule Filter Bar */}
+        <Reveal delay={100}>
+          <div className="flex flex-wrap justify-center gap-2">
+            {categories.map((cat, idx) => {
+              const isActive = activeCategoryIdx === idx;
+              return (
+                <button
+                  key={idx}
+                  onClick={() => setActiveCategoryIdx(idx)}
+                  className={`px-5 py-2 rounded-full text-xs font-mono tracking-wider transition-all duration-300 cursor-pointer border ${
+                    isActive
+                      ? "bg-neutral-950 text-white dark:bg-white dark:text-neutral-950 font-bold border-neutral-950 dark:border-white shadow-md scale-105"
+                      : "bg-white/40 dark:bg-white/5 border-neutral-200/50 dark:border-white/5 text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200"
+                  }`}
+                >
+                  {cat.name}
+                </button>
+              );
+            })}
+          </div>
         </Reveal>
+
+        {/* Bubble Cluster Layout */}
+        <Reveal delay={200}>
+          <div className="flex flex-wrap justify-center gap-4 max-w-3xl mx-auto">
+            {activeCategory.skills.map((skill, sIdx) => {
+              const score = skillScores[skill.name] || 80;
+              const isSelected = selectedSkill === skill.name;
+              
+              // Color theme mapping based on category for rich glass styling
+              const glowColor = activeCategoryIdx === 0 ? "blue" : activeCategoryIdx === 1 ? "emerald" : "violet";
+
+              return (
+                <Card
+                  key={sIdx}
+                  thickness="regular"
+                  glowColor={glowColor}
+                  onClick={() => onSelectSkill(isSelected ? null : skill.name)}
+                  className={`rounded-full py-3.5 px-6 flex items-center gap-3 cursor-pointer transition-all duration-300 select-none border ${
+                    isSelected
+                      ? "border-blue-500/50 dark:border-sky-400/50 ring-1 ring-blue-500/30 dark:ring-sky-400/30 shadow-[0_0_15px_rgba(59,130,246,0.15)] scale-105"
+                      : "border-neutral-200/30 dark:border-white/5 hover:border-neutral-400/40 dark:hover:border-white/20"
+                  }`}
+                >
+                  {/* Circular proficiency index badge */}
+                  <span className="w-6 h-6 rounded-full bg-neutral-950/5 dark:bg-white/10 flex items-center justify-center text-[10px] font-mono font-bold text-neutral-800 dark:text-neutral-200">
+                    {score}
+                  </span>
+                  
+                  {/* Skill Label */}
+                  <span className="text-xs sm:text-sm font-sans font-semibold text-neutral-900 dark:text-neutral-100 flex items-center gap-1.5">
+                    {isSelected && (
+                      <span className="w-1.5 h-1.5 rounded-full bg-blue-500 dark:bg-sky-400 animate-pulse" />
+                    )}
+                    {skill.name}
+                  </span>
+
+                  {/* Core badge indicator (small dot) */}
+                  {skill.status === "Core Competency" && (
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" title="Core Competency" />
+                  )}
+                </Card>
+              );
+            })}
+          </div>
+        </Reveal>
+
       </div>
     </section>
   );

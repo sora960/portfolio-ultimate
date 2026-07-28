@@ -16,19 +16,18 @@ export const ContactSection: React.FC = () => {
     setStatus("SUBMITTING");
 
     try {
-      // Endpoint integration point (Web3Forms/Formspree API endpoint)
-      // Simulated 1s network request for local verification
+      // Simulated 1s network request for verification
       await new Promise((resolve) => setTimeout(resolve, 1000));
       setStatus("SUCCESS");
       setFormData({ name: "", email: "", message: "" });
-    } catch {
+    } catch (err) {
       setStatus("ERROR");
     }
   };
 
   return (
     <section id="contact" className="py-20 px-4">
-      <div className="max-w-2xl mx-auto space-y-8">
+      <div className="max-w-2xl mx-auto space-y-12">
         {/* Section Header */}
         <Reveal>
           <div className="space-y-2 text-center">
@@ -44,11 +43,8 @@ export const ContactSection: React.FC = () => {
 
         {/* Contact Card Container */}
         <Reveal delay={150}>
-          <div className="relative group">
-            {/* Backstage Refraction Shape - Orange Rose gradient sphere */}
-            <div className="absolute -bottom-6 -right-6 w-36 h-36 bg-gradient-to-tr from-amber-500 to-rose-500 rounded-full select-none pointer-events-none shadow-xl group-hover:scale-110 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-500" />
-            
-            <Card className="p-8 relative z-10">
+          <div className="relative group max-w-xl mx-auto">
+            <Card glowColor="rose" className="p-8 relative z-10 rounded-[45px]">
               {status === "SUCCESS" ? (
                 <div className="text-center py-8 space-y-4">
                   <Badge label="Message Sent" variant="active" />
@@ -69,7 +65,7 @@ export const ContactSection: React.FC = () => {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Name Input */}
                   <div className="space-y-2">
-                    <label className="block text-xs font-mono uppercase tracking-wider text-neutral-800 dark:text-neutral-300">
+                    <label className="block text-xs font-mono uppercase tracking-wider text-neutral-800 dark:text-neutral-300 pl-2">
                       Name
                     </label>
                     <input
@@ -79,13 +75,13 @@ export const ContactSection: React.FC = () => {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="e.g. Alex Mercer"
-                      className="w-full px-4 py-3 rounded-xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-neutral-900 dark:text-neutral-100 text-sm placeholder-neutral-400 dark:placeholder-neutral-500 focus:outline-none focus:bg-white/60 dark:focus:bg-black/40 focus:border-neutral-400 dark:focus:border-white/30 focus:ring-1 focus:ring-neutral-400/30 dark:focus:ring-white/20 disabled:opacity-50 transition-all"
+                      className="w-full px-6 py-3 rounded-full bg-black/5 dark:bg-white/5 border border-neutral-200/50 dark:border-white/10 text-neutral-900 dark:text-neutral-100 text-sm placeholder-neutral-400 dark:placeholder-neutral-500 focus:outline-none focus:bg-white/60 dark:focus:bg-black/40 focus:border-neutral-400 dark:focus:border-white/30 disabled:opacity-50 transition-all"
                     />
                   </div>
 
                   {/* Email Input */}
                   <div className="space-y-2">
-                    <label className="block text-xs font-mono uppercase tracking-wider text-neutral-800 dark:text-neutral-300">
+                    <label className="block text-xs font-mono uppercase tracking-wider text-neutral-800 dark:text-neutral-300 pl-2">
                       Email
                     </label>
                     <input
@@ -95,13 +91,13 @@ export const ContactSection: React.FC = () => {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="alex@company.com"
-                      className="w-full px-4 py-3 rounded-xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-neutral-900 dark:text-neutral-100 text-sm placeholder-neutral-400 dark:placeholder-neutral-500 focus:outline-none focus:bg-white/60 dark:focus:bg-black/40 focus:border-neutral-400 dark:focus:border-white/30 focus:ring-1 focus:ring-neutral-400/30 dark:focus:ring-white/20 disabled:opacity-50 transition-all"
+                      className="w-full px-6 py-3 rounded-full bg-black/5 dark:bg-white/5 border border-neutral-200/50 dark:border-white/10 text-neutral-900 dark:text-neutral-100 text-sm placeholder-neutral-400 dark:placeholder-neutral-500 focus:outline-none focus:bg-white/60 dark:focus:bg-black/40 focus:border-neutral-400 dark:focus:border-white/30 disabled:opacity-50 transition-all"
                     />
                   </div>
 
                   {/* Message Input */}
                   <div className="space-y-2">
-                    <label className="block text-xs font-mono uppercase tracking-wider text-neutral-800 dark:text-neutral-300">
+                    <label className="block text-xs font-mono uppercase tracking-wider text-neutral-800 dark:text-neutral-300 pl-2">
                       Message
                     </label>
                     <textarea
@@ -111,7 +107,7 @@ export const ContactSection: React.FC = () => {
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder="Briefly describe project scope, technical requirements, or opportunity..."
-                      className="w-full px-4 py-3 rounded-xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-neutral-900 dark:text-neutral-100 text-sm placeholder-neutral-400 dark:placeholder-neutral-500 focus:outline-none focus:bg-white/60 dark:focus:bg-black/40 focus:border-neutral-400 dark:focus:border-white/30 focus:ring-1 focus:ring-neutral-400/30 dark:focus:ring-white/20 disabled:opacity-50 transition-all resize-none"
+                      className="w-full px-6 py-4 rounded-[24px] bg-black/5 dark:bg-white/5 border border-neutral-200/50 dark:border-white/10 text-neutral-900 dark:text-neutral-100 text-sm placeholder-neutral-400 dark:placeholder-neutral-500 focus:outline-none focus:bg-white/60 dark:focus:bg-black/40 focus:border-neutral-400 dark:focus:border-white/30 disabled:opacity-50 transition-all resize-none"
                     />
                   </div>
 
@@ -126,7 +122,7 @@ export const ContactSection: React.FC = () => {
                   <button
                     type="submit"
                     disabled={status === "SUBMITTING"}
-                    className="w-full py-3.5 rounded-xl font-mono text-xs uppercase tracking-wider font-semibold text-white bg-neutral-900 dark:bg-neutral-100 dark:text-neutral-900 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-md"
+                    className="w-full py-3.5 rounded-full font-mono text-xs uppercase tracking-wider font-semibold text-white bg-neutral-900 dark:bg-neutral-100 dark:text-neutral-900 hover:opacity-90 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-md"
                   >
                     {status === "SUBMITTING" ? (
                       <span>Sending...</span>
