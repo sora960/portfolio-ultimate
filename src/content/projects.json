@@ -1,30 +1,46 @@
 [
   {
-    "id": "project-01",
-    "title": "[Project Title / System Name]",
-    "category": "Backend / Infrastructure",
-    "status": "In Development",
-    "summary": "High-level summary of the engineering challenge, data processing logic, or network architecture.",
+    "id": "proj-01",
+    "title": "iPrages Smart Agriculture & AI Platform",
+    "category": "IoT & AI / Full-Stack",
+    "status": "Live",
+    "summary": "Full-stack IoT agricultural monitoring and AI computer vision pest detection system with automated instant alerts.",
     "highlights": [
-      "Key technical implementation or refactoring milestone",
-      "Performance benchmark or measurable result"
+      "Built a full-stack IoT monitoring platform using React 18, Node.js (Express), and an SQLite database with 12 relational tables.",
+      "Integrated an AI computer vision server using Python, Flask, OpenCV, and a custom YOLOv8 model to analyze camera feeds.",
+      "Programmed Arduino firmware to capture hardware sensor data (Soil, Ultrasonic, PIR) for real-time analytics.",
+      "Configured automated logic services connecting web infrastructure to Semaphore SMS and WeatherAPI for instant alerts."
     ],
-    "techStack": ["TypeScript", "Next.js", "Tailwind CSS"],
-    "githubUrl": "https://github.com/sora960/portfolio-ultimate",
+    "techStack": ["React 18", "Node.js", "Python", "Flask", "OpenCV", "YOLOv8", "Arduino", "SQLite"],
+    "githubUrl": "https://github.com/sora960",
+    "liveUrl": "https://gimeno-portfolio.onrender.com/"
+  },
+  {
+    "id": "proj-02",
+    "title": "Zkript Solutions Developer Portal",
+    "category": "Backend & DevOps",
+    "status": "Live",
+    "summary": "Refactored REST API integrations and deployment pipelines for server-side operations during developer internship.",
+    "highlights": [
+      "Migrated and refactored REST API endpoints to align with new system architecture.",
+      "Integrated automated test coverages and code deployment pipelines using GitHub Workflows."
+    ],
+    "techStack": ["Node.js", "REST APIs", "GitHub Workflows", "CI/CD"],
+    "githubUrl": "https://github.com/sora960",
     "liveUrl": null
   },
   {
-    "id": "project-02",
-    "title": "[Project Title / System Name]",
-    "category": "Full-Stack / Systems",
-    "status": "Placeholder",
-    "summary": "Description of system integration, API pipeline, or hardware edge communication.",
+    "id": "proj-03",
+    "title": "Freelance Custom Web Applications",
+    "category": "Full-Stack Web Dev",
+    "status": "Live",
+    "summary": "Custom end-to-end web applications featuring secure user authentication, database logic, and API integrations.",
     "highlights": [
-      "Core feature architecture and system design logic",
-      "Database or memory optimization technique used"
+      "Architected database schemas and built secure Firebase/REST API backend authentication.",
+      "Integrated payment processing services and messaging APIs based on specific client needs."
     ],
-    "techStack": ["C/C++", "Python", "REST API"],
-    "githubUrl": "https://github.com/sora960/portfolio-ultimate",
+    "techStack": ["React", "Firebase", "REST APIs", "Database Design", "Web Development"],
+    "githubUrl": "https://github.com/sora960",
     "liveUrl": null
   }
 ]

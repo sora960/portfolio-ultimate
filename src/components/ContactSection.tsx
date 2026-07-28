@@ -134,6 +134,48 @@ export const ContactSection: React.FC = () => {
             )}
           </Card>
         </div>
+
+        {/* Minimal Footer */}
+        <footer className="mt-24 pt-8 border-t border-neutral-200/50 dark:border-white/5 w-full flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-neutral-400 dark:text-neutral-500">
+          <p>© 2026 Jairzon. All rights reserved.</p>
+          <div className="flex items-center gap-4">
+            <a
+              href="https://github.com/sora960"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
+            >
+              [GITHUB]
+            </a>
+            <span>/</span>
+            <a
+              href="https://linkedin.com/in/jairzon-gimeno"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
+            >
+              [LINKEDIN]
+            </a>
+            <span>/</span>
+            <a
+              href="https://jobstreet.com.ph"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
+            >
+              [JOBSTREET]
+            </a>
+            <span>/</span>
+            <a
+              href="https://indeed.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
+            >
+              [INDEED]
+            </a>
+          </div>
+        </footer>
       </div>
     </section>
   );

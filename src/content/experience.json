@@ -1,13 +1,36 @@
 [
   {
     "id": "exp-01",
-    "role": "Software & IT Engineering Graduate",
-    "period": "Recent",
+    "role": "Full Stack Developer (OJT) — Zkript Solutions OPC",
+    "period": "2025 – 2026",
     "highlights": [
-      "Developed backend APIs and integrated network data pipelines",
-      "Focused on low-level memory management and core data structures",
-      "Practiced diagnostic logging and network troubleshooting protocols"
+      "Collaborated with the backend lead to debug server-side applications and optimize database performance.",
+      "Migrated and refactored REST API endpoints to align with the new system architecture.",
+      "Integrated frontend and backend data pipelines, ensuring consistent data validation and flow.",
+      "Managed code deployments and automated testing pipelines using GitHub Workflows."
     ],
-    "skills": ["C/C++", "Python", "REST APIs", "Networking"]
+    "skills": ["React", "Node.js", "REST APIs", "CI/CD", "GitHub Workflows"]
+  },
+  {
+    "id": "exp-02",
+    "role": "Freelance Software Developer",
+    "period": "2024 – Present",
+    "highlights": [
+      "Full-Lifecycle Web Development: Translated client ideas and project requirements into fully functional, custom web applications from design to deployment.",
+      "Backend & Database Architecture: Architected database schemas and built secure REST APIs/Firebase backend logic to handle business operations and user authentication.",
+      "Client System Integration: Integrated third-party web services (payment processing, messaging APIs, external datasets) based on specific client needs.",
+      "Deployment & Maintenance: Managed site deployment, domain setups, and ongoing cross-device optimizations to ensure high uptime and responsive performance."
+    ],
+    "skills": ["React", "Firebase", "REST APIs", "Database Design", "Web Development"]
+  },
+  {
+    "id": "exp-03",
+    "role": "B.S. in Information Technology — LSPU",
+    "period": "Graduated June 2026",
+    "highlights": [
+      "Major in Network Administration.",
+      "IT Specialist - Networking Certification (November 2025): Demonstrates foundational networking knowledge, including TCP/IP, networking services, topologies, and troubleshooting in wired/wireless environments."
+    ],
+    "skills": ["TCP/IP", "Networking", "Subnetting", "Routing & Switching", "DNS/DHCP"]
   }
 ]

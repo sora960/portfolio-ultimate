@@ -1,28 +1,32 @@
 {
   "categories": [
     {
-      "name": "Core CS & Systems",
+      "name": "Software & Web Development",
       "skills": [
-        { "name": "C / C++", "status": "Active Focus" },
-        { "name": "Data Structures & Algorithms", "status": "Core Competency" },
-        { "name": "Memory Management & Pointers", "status": "Active Focus" }
+        { "name": "JavaScript / TypeScript", "status": "Core Competency" },
+        { "name": "React", "status": "Core Competency" },
+        { "name": "Node.js (Express)", "status": "Core Competency" },
+        { "name": "Python & Flask", "status": "Core Competency" },
+        { "name": "RESTful APIs & Firebase", "status": "Core Competency" },
+        { "name": "SQLite", "status": "Active Focus" }
       ]
     },
     {
-      "name": "Backend & Infrastructure",
+      "name": "Systems & Infrastructure",
       "skills": [
-        { "name": "Python", "status": "Core Competency" },
-        { "name": "RESTful API Design", "status": "Core Competency" },
-        { "name": "Linux CLI & Bash", "status": "Active Focus" },
-        { "name": "Network Admin (TCP/IP, DNS)", "status": "Active Focus" }
+        { "name": "Linux Administration", "status": "Active Focus" },
+        { "name": "Git & GitHub", "status": "Core Competency" },
+        { "name": "CI/CD (GitHub Workflows)", "status": "Active Focus" },
+        { "name": "OS Deployment (Win/Linux/macOS)", "status": "Active Focus" }
       ]
     },
     {
-      "name": "Web & Developer Tools",
+      "name": "Networking & IT Support",
       "skills": [
-        { "name": "Full-Stack Web Dev", "status": "Core Competency" },
-        { "name": "Git & Version Control", "status": "Core Competency" },
-        { "name": "JSON & Data Modeling", "status": "Core Competency" }
+        { "name": "TCP/IP & DNS/DHCP", "status": "Active Focus" },
+        { "name": "Subnetting", "status": "Active Focus" },
+        { "name": "Routing & Switching", "status": "Active Focus" },
+        { "name": "Hardware Diagnostics & IT Support", "status": "Active Focus" }
       ]
     }
   ]
