@@ -1,10 +1,46 @@
-import React from "react";
+"use client";
+
+import React, { useEffect } from "react";
 import { Badge } from "./Badge";
 import { Card } from "./Card";
 
 export const Hero: React.FC = () => {
+  useEffect(() => {
+    const target = document.getElementById("hero-parallax-bg");
+    if (!target) return;
+
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrolled = window.scrollY;
+          // Very subtle offset factor (0.12) to keep the movement sophisticated and non-distracting
+          target.style.transform = `translate3d(-50%, ${scrolled * 0.12}px, 0)`;
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center pt-24 pb-12 px-4 overflow-hidden">
+      {/* 3D Glass Bubbles Parallax Background Layer */}
+      <div 
+        id="hero-parallax-bg"
+        className="absolute top-24 left-1/2 -translate-x-1/2 w-[850px] h-[650px] opacity-[0.55] dark:opacity-[0.22] pointer-events-none select-none z-0 transition-transform duration-100 ease-out"
+        style={{
+          backgroundImage: "url('/glass-hero.png')",
+          backgroundSize: "contain",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          willChange: "transform",
+        }}
+      />
+
       {/* Premium Apple Minimalist Glow Accents */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] bg-indigo-500/10 dark:bg-indigo-500/5 blur-[120px] rounded-full pointer-events-none" />
       <div className="absolute top-1/3 left-1/3 w-[250px] h-[250px] bg-emerald-500/10 dark:bg-emerald-500/5 blur-[100px] rounded-full pointer-events-none" />
