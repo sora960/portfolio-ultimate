@@ -3,7 +3,7 @@
 import React, { useRef } from "react";
 
 interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   className?: string;
   thickness?: "thin" | "regular" | "thick";
   glowColor?: "indigo" | "emerald" | "amber" | "blue" | "violet" | "rose" | "pink";
