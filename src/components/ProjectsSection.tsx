@@ -59,15 +59,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, selectedSkill, size 
 
         {/* Summary only on larger cards */}
         {(size === "featured" || size === "wide" || size === "tall") && (
-          <p className="text-sm font-sans text-neutral-500 dark:text-neutral-400 leading-relaxed">
+          <p className="text-sm font-sans font-medium text-neutral-700 dark:text-neutral-200 leading-relaxed">
             {project.summary}
           </p>
         )}
 
         {/* Top highlight bullet — always shown */}
         {project.highlights[0] && (
-          <div className="flex items-start gap-2 text-xs font-sans text-neutral-500 dark:text-neutral-400 leading-relaxed pt-1">
-            <span className="text-neutral-400 dark:text-neutral-500 mt-0.5 shrink-0">•</span>
+          <div className="flex items-start gap-2 text-xs font-sans font-medium text-neutral-600 dark:text-neutral-300 leading-relaxed pt-1">
             <span>{project.highlights[0]}</span>
           </div>
         )}
@@ -132,7 +131,6 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ selectedSkill 
         <Reveal>
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 border-b border-neutral-200/30 dark:border-white/5">
             <div className="space-y-1.5">
-              <Badge label="projects" variant="default" />
               <h2 className="text-display font-sans text-neutral-900 dark:text-neutral-50">
                 Works
               </h2>

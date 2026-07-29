@@ -63,7 +63,7 @@ export const Hero: React.FC = () => {
                 Jairzon
               </h1>
               <p className="max-w-sm text-[15px] text-neutral-600 dark:text-neutral-300 font-sans leading-relaxed">
-                Building clean, reliable web applications and software systems built for performance and pleasure.
+                Building clean, reliable web applications and software systems.
               </p>
             </div>
 
@@ -109,7 +109,7 @@ export const Hero: React.FC = () => {
               Jairzon
             </h1>
             <p className="text-sm text-neutral-600 dark:text-neutral-300 font-sans leading-relaxed">
-              Building clean, reliable web applications and software systems built for performance and pleasure.
+              Building clean, reliable web applications and software systems.
             </p>
           </div>
           <div className="flex flex-col gap-2.5 w-full">

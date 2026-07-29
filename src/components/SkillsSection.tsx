@@ -37,7 +37,6 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ selectedSkill, onS
         <Reveal>
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 border-b border-neutral-200/30 dark:border-white/5">
             <div className="space-y-1.5">
-              <Badge label="skills" variant="default" />
               <h2 className="text-display font-sans text-neutral-900 dark:text-neutral-50">
                 Skills
               </h2>

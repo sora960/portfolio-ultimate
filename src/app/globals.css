@@ -186,16 +186,16 @@
     line-height: 1.2;
   }
 
-  /* Descriptor: section subtitles — human prose, NOT mono */
+  /* Descriptor: section subtitles — human prose, heavy Apple SF Pro standard */
   .text-descriptor {
     font-family: var(--font-inter), sans-serif;
-    font-size: 0.9375rem;
-    font-weight: 400;
-    color: rgb(82 82 82);
-    line-height: 1.65;
+    font-size: 0.975rem;
+    font-weight: 500;
+    color: rgb(64 64 64);
+    line-height: 1.7;
   }
   .dark .text-descriptor {
-    color: rgb(163 163 163);
+    color: rgb(212 212 212);
   }
 }
 

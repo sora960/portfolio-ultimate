@@ -58,7 +58,6 @@ export const ContactSection: React.FC = () => {
           {/* LEFT: Identity + availability — no card, raw text on background */}
           <Reveal className="lg:w-80 shrink-0 space-y-6 lg:sticky lg:top-28">
             <div className="space-y-2">
-              <Badge label="contact" variant="default" />
               <h2 className="text-display font-sans text-neutral-900 dark:text-neutral-50">
                 Let's Talk
               </h2>

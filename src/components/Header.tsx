@@ -105,17 +105,9 @@ export const Header: React.FC = () => {
           })}
         </div>
 
-        {/* Actions: Theme Toggle, Resume & Mobile Hamburger Button */}
+        {/* Actions: Theme Toggle & Mobile Hamburger Button */}
         <div className="flex items-center gap-3">
           <ThemeToggle />
-          <a
-            href="/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden sm:inline-flex items-center px-3.5 py-2 rounded-full text-xs font-mono font-medium text-white bg-neutral-900 dark:bg-neutral-100 dark:text-neutral-900 hover:opacity-90 transition-opacity min-h-[36px]"
-          >
-            Resume.pdf
-          </a>
 
           {/* Mobile Hamburger Toggle Button */}
           <button
@@ -157,16 +149,6 @@ export const Header: React.FC = () => {
               </a>
             );
           })}
-          <a
-            href="/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => setMobileMenuOpen(false)}
-            className="w-full min-h-[44px] px-4 rounded-xl flex items-center justify-between text-sm font-mono font-medium text-neutral-900 dark:text-neutral-100 bg-black/5 dark:bg-white/10 border border-neutral-200/40 dark:border-white/10"
-          >
-            <span>Download Resume</span>
-            <span>PDF ↗</span>
-          </a>
         </div>
       )}
     </header>
