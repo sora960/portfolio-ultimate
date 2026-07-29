@@ -103,7 +103,7 @@ export const ContactSection: React.FC = () => {
 
           {/* RIGHT: Glass squircle form card */}
           <Reveal delay={150} className="flex-1 w-full">
-            <Card glowColor="rose" className="rounded-[28px] sm:rounded-[36px] p-5 sm:p-8 w-full">
+            <Card className="rounded-[28px] sm:rounded-[36px] p-5 sm:p-8 w-full">
               {status === "SUCCESS" ? (
                 <div className="text-center py-10 space-y-4">
                   <Badge label="Message Sent" variant="active" />

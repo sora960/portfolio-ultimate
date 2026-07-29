@@ -48,7 +48,6 @@ export const ExperienceSection: React.FC = () => {
 
                 <Card
                   thickness="regular"
-                  glowColor="violet"
                   className="rounded-[28px] p-6 space-y-3 w-full"
                 >
                   {/* Header row */}

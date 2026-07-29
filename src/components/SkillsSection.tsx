@@ -161,7 +161,6 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ selectedSkill, onS
                 <Card
                   key={`${activeCategoryIdx}-${sIdx}`}
                   thickness="regular"
-                  glowColor={glowColor}
                   onClick={() => onSelectSkill(isSelected ? null : skill.name)}
                   className={`rounded-full py-2.5 px-4 sm:py-3 sm:px-5 flex items-center gap-2 sm:gap-2.5 cursor-pointer select-none transition-all duration-300 ${
                     isSelected

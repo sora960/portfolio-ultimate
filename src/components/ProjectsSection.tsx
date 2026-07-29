@@ -17,16 +17,9 @@ interface ProjectCardProps {
   size?: "featured" | "wide" | "tall" | "compact";
 }
 
-const glowMap: Record<string, "indigo" | "blue" | "rose" | "emerald" | "violet"> = {
-  "iPages Smart Agriculture & AI Platform": "indigo",
-  "Zkript Solutions Developer Portal": "blue",
-  "Freelance Custom Web Applications": "rose",
-};
-
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, selectedSkill, size = "compact" }) => {
   const isPlaceholder = project.status === "Placeholder" || project.status === "In Development";
   const hasSelectedSkill = selectedSkill ? project.techStack.includes(selectedSkill) : false;
-  const glow = glowMap[project.title] ?? "indigo";
 
   const sizeClasses = {
     featured: "col-span-1 sm:col-span-2 row-span-1 min-h-0 sm:min-h-[300px] p-5 sm:p-8 rounded-[28px] sm:rounded-[40px]",
@@ -37,7 +30,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, selectedSkill, size 
 
   return (
     <Card
-      glowColor={glow}
       className={`flex flex-col justify-between transition-all duration-500 overflow-hidden ${sizeClasses[size]} ${
         isPlaceholder ? "opacity-75" : ""
       } ${
