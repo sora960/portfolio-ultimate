@@ -73,7 +73,7 @@ export const Header: React.FC = () => {
         visible ? "translate-y-0" : "-translate-y-24"
       }`}
     >
-      <nav className="glass-card glass-thickness-thin flex items-center justify-between gap-4 px-5 sm:px-6 py-3 rounded-full max-w-4xl w-full shadow-lg relative z-20">
+      <nav className="glass-card glass-thickness-thin glass-specular-edge flex items-center justify-between gap-4 px-5 sm:px-6 py-3 rounded-full max-w-4xl w-full shadow-lg relative z-20">
         <a href="#hero" className="flex items-center gap-2 group cursor-pointer min-h-[44px]">
           <span className="font-mono text-sm font-bold tracking-tight text-neutral-900 dark:text-neutral-100 group-hover:text-emerald-500 transition-colors">
             Jairzon

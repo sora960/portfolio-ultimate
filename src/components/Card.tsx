@@ -46,6 +46,14 @@ export const Card: React.FC<CardProps> = ({
     card.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)";
   };
 
+  const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    const card = cardRef.current;
+    if (!card) return;
+    const rect = card.getBoundingClientRect();
+    card.style.setProperty("--glow-x", `${((e.clientX - rect.left) / rect.width) * 100}%`);
+    card.style.setProperty("--glow-y", `${((e.clientY - rect.top) / rect.height) * 100}%`);
+  };
+
   const thicknessClass = {
     thin: "glass-thickness-thin",
     regular: "glass-thickness-regular",
@@ -57,6 +65,7 @@ export const Card: React.FC<CardProps> = ({
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
+      onPointerDown={handlePointerDown}
       className={`glass-card glass-card-hover group ${thicknessClass} ${className}`}
       {...props}
     >

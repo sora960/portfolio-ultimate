@@ -293,3 +293,35 @@
     transform: none !important;
   }
 }
+
+@media (prefers-contrast: more) {
+  .glass-thickness-thin,
+  .glass-thickness-regular,
+  .glass-thickness-thick {
+    border-width: 1.5px !important;
+    border-color: currentColor !important;
+  }
+}
+
+/* ─── Specular Highlight Edge Sweep ─────────────────────── */
+.glass-specular-edge {
+  position: relative;
+}
+.glass-specular-edge::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    115deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.15) 30%,
+    rgba(255, 255, 255, 0.05) 60%,
+    rgba(255, 255, 255, 0.6) 100%
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
