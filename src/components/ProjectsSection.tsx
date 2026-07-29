@@ -75,17 +75,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, selectedSkill, size 
 
       {/* Footer */}
       <div className="pt-4 mt-3 border-t border-neutral-200/40 dark:border-white/5 flex items-center justify-between flex-wrap gap-2">
-        {/* Tech stack badges */}
-        <div className="flex flex-wrap gap-1">
-          {project.techStack.slice(0, size === "compact" ? 3 : 5).map((tech, idx) => (
-            <Badge
-              key={idx}
-              label={tech}
-              variant={selectedSkill === tech ? "active" : "default"}
-              className="text-[9px] py-0 px-1.5"
-            />
-          ))}
-        </div>
+        {/* Tech stack metadata line */}
+        <p className="text-xs font-mono text-neutral-400 dark:text-neutral-500 tracking-wide">
+          {project.techStack.slice(0, size === "compact" ? 3 : 5).join("  •  ")}
+        </p>
 
         {/* CTA links with 44px min tap area */}
         <div className="flex items-center gap-3 text-xs font-mono">

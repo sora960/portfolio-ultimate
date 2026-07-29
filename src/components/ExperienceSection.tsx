@@ -16,61 +16,54 @@ export const ExperienceSection: React.FC = () => {
       <div className="max-w-5xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
 
         {/* LEFT: Sticky section identity column */}
-        <div className="lg:sticky lg:top-28 lg:w-72 shrink-0 space-y-4 self-start">
+        <div className="lg:sticky lg:top-24 lg:w-64 shrink-0 space-y-3 self-start">
           <Reveal>
             <Badge label="about" variant="default" />
-            <h2 className="text-display font-sans text-neutral-900 dark:text-neutral-50 mt-3">
+            <h2 className="text-display font-sans text-neutral-900 dark:text-neutral-50 mt-2">
               Background
             </h2>
-            <p className="text-descriptor mt-3 max-w-[220px]">
+            <p className="text-descriptor mt-2 max-w-[200px]">
               Academic milestones, internships, and professional engineering history.
             </p>
           </Reveal>
         </div>
 
-        {/* RIGHT: Scrolling timeline cards */}
-        <div className="flex-1 relative space-y-5 pl-4 lg:pl-0">
-          {/* Timeline vertical thread (visible on all screens) */}
-          <div className="absolute left-0 lg:-translate-x-6 top-2 bottom-2 w-px bg-neutral-300/80 dark:bg-neutral-800/80" />
-
+        {/* RIGHT: Scrolling experience cards */}
+        <div className="flex-1 space-y-5">
           {experiences.map((exp, index) => (
-            <Reveal key={exp.id} delay={index * 150}>
-              <div className="relative group">
-                {/* Timeline dot */}
-                <div className="absolute -left-4 lg:-left-6 top-7 flex items-center justify-center -translate-x-1/2">
-                  <span className="w-2 h-2 rounded-full bg-neutral-400 dark:bg-neutral-600 block" />
-                </div>
-
-                <Card
-                  thickness="regular"
-                  className="rounded-[28px] p-6 space-y-3 w-full"
-                >
-                  {/* Header row */}
-                  <div className="flex items-start justify-between gap-3 flex-wrap">
-                    <h3 className="text-headline font-sans text-neutral-900 dark:text-neutral-100">
+            <Reveal key={exp.id} delay={index * 120}>
+              <Card
+                thickness="regular"
+                className="rounded-[28px] p-6 sm:p-7 space-y-4 w-full"
+              >
+                {/* Header row */}
+                <div className="flex items-start justify-between gap-4 flex-wrap">
+                  <div className="space-y-0.5">
+                    <h3 className="text-headline font-sans text-neutral-900 dark:text-neutral-50">
                       {exp.role}
                     </h3>
-                    <Badge label={exp.period} variant="active" className="shrink-0 mt-0.5" />
                   </div>
+                  <span className="text-xs font-mono tracking-wider text-neutral-400 dark:text-neutral-500 uppercase shrink-0 pt-0.5">
+                    {exp.period}
+                  </span>
+                </div>
 
-                  {/* Highlights */}
-                  <ul className="space-y-1.5">
-                    {exp.highlights.slice(0, 2).map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-2 text-sm text-neutral-600 dark:text-neutral-300 font-sans leading-relaxed">
-                        <span className="text-neutral-400 dark:text-neutral-500 select-none mt-0.5 shrink-0">•</span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+                {/* Highlights */}
+                <ul className="space-y-2">
+                  {exp.highlights.slice(0, 2).map((item, idx) => (
+                    <li key={idx} className="text-sm sm:text-[15px] text-neutral-600 dark:text-neutral-300 font-sans leading-relaxed">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
 
-                  {/* Skill tags */}
-                  <div className="flex flex-wrap gap-1.5 pt-1 border-t border-neutral-200/40 dark:border-white/5">
-                    {exp.skills.map((skill, idx) => (
-                      <Badge key={idx} label={skill} variant="default" className="text-[9px] py-0 px-1.5" />
-                    ))}
-                  </div>
-                </Card>
-              </div>
+                {/* Tech metadata footer line (clean text, no clutter pills) */}
+                <div className="pt-3 border-t border-neutral-200/40 dark:border-white/5">
+                  <p className="text-xs font-mono text-neutral-400 dark:text-neutral-500 tracking-wide">
+                    {exp.skills.join("  •  ")}
+                  </p>
+                </div>
+              </Card>
             </Reveal>
           ))}
         </div>
