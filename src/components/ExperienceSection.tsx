@@ -12,24 +12,23 @@ export const ExperienceSection: React.FC = () => {
 
   return (
     <section id="about" className="py-20">
-      {/* ── Bento Split: sticky left header + scrolling right timeline ── */}
-      <div className="max-w-5xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
+      <div className="max-w-5xl mx-auto space-y-8">
 
-        {/* LEFT: Sticky section identity column */}
-        <div className="lg:sticky lg:top-24 lg:w-64 shrink-0 space-y-3 self-start">
-          <Reveal>
+        {/* Section header — aligned with Skills & Works layout */}
+        <Reveal>
+          <div className="pb-6 border-b border-neutral-200/30 dark:border-white/5 space-y-1.5">
             <Badge label="about" variant="default" />
-            <h2 className="text-display font-sans text-neutral-900 dark:text-neutral-50 mt-2">
+            <h2 className="text-display font-sans text-neutral-900 dark:text-neutral-50">
               Background
             </h2>
-            <p className="text-descriptor mt-2 max-w-[200px]">
+            <p className="text-descriptor max-w-sm">
               Academic milestones, internships, and professional engineering history.
             </p>
-          </Reveal>
-        </div>
+          </div>
+        </Reveal>
 
-        {/* RIGHT: Scrolling experience cards */}
-        <div className="flex-1 space-y-5">
+        {/* Experience cards stack */}
+        <div className="space-y-4">
           {experiences.map((exp, index) => (
             <Reveal key={exp.id} delay={index * 120}>
               <Card
@@ -38,11 +37,9 @@ export const ExperienceSection: React.FC = () => {
               >
                 {/* Header row */}
                 <div className="flex items-start justify-between gap-4 flex-wrap">
-                  <div className="space-y-0.5">
-                    <h3 className="text-headline font-sans text-neutral-900 dark:text-neutral-50">
-                      {exp.role}
-                    </h3>
-                  </div>
+                  <h3 className="text-headline font-sans text-neutral-900 dark:text-neutral-50">
+                    {exp.role}
+                  </h3>
                   <span className="text-xs font-mono tracking-wider text-neutral-400 dark:text-neutral-500 uppercase shrink-0 pt-0.5">
                     {exp.period}
                   </span>
@@ -57,7 +54,7 @@ export const ExperienceSection: React.FC = () => {
                   ))}
                 </ul>
 
-                {/* Tech metadata footer line (clean text, no clutter pills) */}
+                {/* Tech metadata footer line */}
                 <div className="pt-3 border-t border-neutral-200/40 dark:border-white/5">
                   <p className="text-xs font-mono text-neutral-400 dark:text-neutral-500 tracking-wide">
                     {exp.skills.join("  •  ")}
@@ -67,7 +64,9 @@ export const ExperienceSection: React.FC = () => {
             </Reveal>
           ))}
         </div>
+
       </div>
     </section>
   );
 };
+
