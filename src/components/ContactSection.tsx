@@ -70,9 +70,9 @@ export const ContactSection: React.FC = () => {
 
             {/* Availability indicator */}
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span className="text-sm font-sans font-medium text-emerald-600 dark:text-emerald-400">
-                Available now
+              <span className="w-2 h-2 rounded-full bg-neutral-900 dark:bg-white animate-pulse" />
+              <span className="text-sm font-sans font-medium text-neutral-800 dark:text-neutral-200">
+                Available for work
               </span>
             </div>
 

@@ -53,7 +53,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, selectedSkill, size 
 
       {/* Title */}
       <div className="space-y-2 flex-1">
-        <h3 className="text-headline font-sans text-neutral-900 dark:text-neutral-50 group-hover:text-emerald-500 transition-colors">
+        <h3 className="text-headline font-sans text-neutral-900 dark:text-neutral-50 transition-colors">
           {project.title}
         </h3>
 
@@ -67,7 +67,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, selectedSkill, size 
         {/* Top highlight bullet — always shown */}
         {project.highlights[0] && (
           <div className="flex items-start gap-2 text-xs font-sans text-neutral-500 dark:text-neutral-400 leading-relaxed pt-1">
-            <span className="text-emerald-500 mt-0.5 shrink-0">→</span>
+            <span className="text-neutral-400 dark:text-neutral-500 mt-0.5 shrink-0">•</span>
             <span>{project.highlights[0]}</span>
           </div>
         )}
@@ -93,7 +93,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, selectedSkill, size 
             href={project.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-neutral-500 hover:text-emerald-500 transition-colors font-semibold py-2 px-1 inline-flex items-center min-h-[44px]"
+            className="text-neutral-500 hover:text-neutral-950 dark:hover:text-white transition-colors font-semibold py-2 px-1 inline-flex items-center min-h-[44px]"
           >
             Code →
           </a>
@@ -102,7 +102,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, selectedSkill, size 
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-emerald-600 dark:text-emerald-400 hover:underline font-semibold py-2 px-1 inline-flex items-center min-h-[44px]"
+              className="text-neutral-900 dark:text-neutral-100 hover:text-neutral-600 dark:hover:text-neutral-300 font-semibold py-2 px-1 inline-flex items-center min-h-[44px] underline underline-offset-4 decoration-neutral-400/50"
             >
               Demo ↗
             </a>

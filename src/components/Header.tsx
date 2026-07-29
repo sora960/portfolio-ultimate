@@ -75,7 +75,7 @@ export const Header: React.FC = () => {
     >
       <nav className="glass-card glass-thickness-thin glass-specular-edge glass-specular-thin flex items-center justify-between gap-4 px-5 sm:px-6 py-3 rounded-full max-w-4xl w-full shadow-lg relative z-20">
         <a href="#hero" className="flex items-center gap-2 group cursor-pointer min-h-[44px]">
-          <span className="font-mono text-sm font-bold tracking-tight text-neutral-900 dark:text-neutral-100 group-hover:text-emerald-500 transition-colors">
+          <span className="font-mono text-sm font-bold tracking-tight text-neutral-900 dark:text-neutral-100 group-hover:text-neutral-500 dark:group-hover:text-neutral-400 transition-colors">
             Jairzon
           </span>
         </a>
@@ -162,7 +162,7 @@ export const Header: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setMobileMenuOpen(false)}
-            className="w-full min-h-[44px] px-4 rounded-xl flex items-center justify-between text-sm font-mono font-medium text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/20"
+            className="w-full min-h-[44px] px-4 rounded-xl flex items-center justify-between text-sm font-mono font-medium text-neutral-900 dark:text-neutral-100 bg-black/5 dark:bg-white/10 border border-neutral-200/40 dark:border-white/10"
           >
             <span>Download Resume</span>
             <span>PDF ↗</span>
