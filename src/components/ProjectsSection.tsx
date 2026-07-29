@@ -22,15 +22,15 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, selectedSkill, size 
   const hasSelectedSkill = selectedSkill ? project.techStack.includes(selectedSkill) : false;
 
   const sizeClasses = {
-    featured: "col-span-1 sm:col-span-2 row-span-1 min-h-0 sm:min-h-[300px] p-5 sm:p-8 rounded-[28px] sm:rounded-[40px]",
-    wide:     "col-span-1 sm:col-span-2 min-h-0 sm:min-h-[240px] p-5 sm:p-7 rounded-[28px] sm:rounded-[36px]",
-    tall:     "col-span-1 min-h-0 sm:min-h-[340px] p-5 sm:p-7 rounded-[28px] sm:rounded-[36px]",
-    compact:  "col-span-1 min-h-0 sm:min-h-[260px] p-5 sm:p-6 rounded-[28px]",
+    featured: "col-span-1 sm:col-span-2 row-span-1 p-5 sm:p-8 rounded-[28px] sm:rounded-[36px]",
+    wide:     "col-span-1 sm:col-span-2 p-5 sm:p-7 rounded-[28px] sm:rounded-[32px]",
+    tall:     "col-span-1 p-5 sm:p-7 rounded-[28px] sm:rounded-[32px]",
+    compact:  "col-span-1 p-5 sm:p-6 rounded-[28px]",
   };
 
   return (
     <Card
-      className={`flex flex-col justify-between transition-all duration-500 overflow-hidden ${sizeClasses[size]} ${
+      className={`flex flex-col justify-start gap-3 transition-all duration-500 overflow-hidden ${sizeClasses[size]} ${
         isPlaceholder ? "opacity-75" : ""
       } ${
         hasSelectedSkill
@@ -41,14 +41,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, selectedSkill, size 
       }`}
     >
       {/* Top meta row */}
-      <div className="flex items-center justify-between gap-2 mb-3">
-        <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 dark:text-neutral-500">
+      <div>
+        <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 dark:text-neutral-500 font-medium">
           {project.category}
         </span>
-        {isPlaceholder
-          ? <Badge label="In Development" variant="warning" className="text-[8px]" />
-          : <Badge label="Live" variant="active" className="text-[8px]" />
-        }
       </div>
 
       {/* Title */}

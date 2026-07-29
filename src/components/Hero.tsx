@@ -44,10 +44,10 @@ export const Hero: React.FC = () => {
         </div>
 
         {/* Central Squircle Card (Main Content Hub) */}
-        <div className="absolute top-[140px] left-1/2 -translate-x-1/2 w-[520px] h-[340px] z-20 animate-entrance-squircle">
+        <div className="absolute top-[120px] left-1/2 -translate-x-1/2 w-[520px] h-[390px] z-20 animate-entrance-squircle">
           <Card
             thickness="thick"
-            className="w-full h-full rounded-[60px] p-10 flex flex-col justify-center items-center text-center gap-6 shadow-2xl"
+            className="w-full h-full rounded-[60px] p-10 flex flex-col justify-between items-center text-center shadow-2xl"
           >
             {/* Top Label */}
             <span className="text-[11px] font-mono tracking-widest uppercase text-neutral-400 dark:text-neutral-500 font-medium">
@@ -55,7 +55,7 @@ export const Hero: React.FC = () => {
             </span>
 
             {/* Brand + Description */}
-            <div className="space-y-4">
+            <div className="space-y-3">
               <h1
                 className="text-display font-sans text-neutral-900 dark:text-neutral-50"
                 style={{
@@ -68,13 +68,31 @@ export const Hero: React.FC = () => {
                 Building clean, reliable web applications and software systems.
               </p>
             </div>
+
+            {/* Tinted Glass Action Buttons */}
+            <div className="flex items-center justify-center gap-4 w-full pt-1">
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="glass-card glass-thickness-thin bg-black/5 dark:bg-white/10 border border-white/40 dark:border-white/20 backdrop-blur-md px-6 py-2.5 rounded-full text-xs font-sans font-semibold text-neutral-900 dark:text-neutral-100 hover:bg-black/10 dark:hover:bg-white/20 hover:scale-105 active:scale-95 transition-all shadow-sm cursor-pointer"
+              >
+                View Resume
+              </a>
+              <a
+                href="#contact"
+                className="glass-card glass-thickness-thin bg-black/5 dark:bg-white/10 border border-white/40 dark:border-white/20 backdrop-blur-md px-6 py-2.5 rounded-full text-xs font-sans font-semibold text-neutral-900 dark:text-neutral-100 hover:bg-black/10 dark:hover:bg-white/20 hover:scale-105 active:scale-95 transition-all shadow-sm cursor-pointer"
+              >
+                Get in Touch
+              </a>
+            </div>
           </Card>
         </div>
       </div>
 
       {/* ── MOBILE LAYOUT (Clean Focused Profile Hub) ──────────────── */}
       <div className="md:hidden w-full max-w-sm mx-auto space-y-4 z-10 flex flex-col items-center px-4">
-        <Card thickness="thick" className="p-8 flex flex-col justify-center items-center text-center gap-6 w-full rounded-[36px] min-h-[280px] shadow-xl">
+        <Card thickness="thick" className="p-8 flex flex-col justify-between items-center text-center gap-6 w-full rounded-[36px] min-h-[340px] shadow-xl">
           <span className="text-[11px] font-mono tracking-widest uppercase text-neutral-400 dark:text-neutral-500 font-medium">
             software engineer
           </span>
@@ -88,6 +106,22 @@ export const Hero: React.FC = () => {
             <p className="text-base text-neutral-700 dark:text-neutral-200 font-sans font-medium leading-relaxed">
               Building clean, reliable web applications and software systems.
             </p>
+          </div>
+          <div className="flex flex-col gap-2.5 w-full">
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="glass-card glass-thickness-thin bg-black/5 dark:bg-white/10 border border-white/40 dark:border-white/20 backdrop-blur-md w-full py-3 rounded-full text-xs font-sans font-semibold text-center text-neutral-900 dark:text-neutral-100 hover:bg-black/10 dark:hover:bg-white/20 transition-all shadow-sm"
+            >
+              View Resume
+            </a>
+            <a
+              href="#contact"
+              className="glass-card glass-thickness-thin bg-black/5 dark:bg-white/10 border border-white/40 dark:border-white/20 backdrop-blur-md w-full py-3 rounded-full text-xs font-sans font-semibold text-center text-neutral-900 dark:text-neutral-100 hover:bg-black/10 dark:hover:bg-white/20 transition-all shadow-sm"
+            >
+              Get in Touch
+            </a>
           </div>
         </Card>
       </div>
