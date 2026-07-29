@@ -71,36 +71,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, selectedSkill, size 
           </div>
         )}
       </div>
-
-      {/* Footer */}
-      <div className="pt-4 mt-3 border-t border-neutral-200/40 dark:border-white/5 flex items-center justify-between flex-wrap gap-2">
-        {/* Tech stack metadata line */}
-        <p className="text-xs font-mono text-neutral-400 dark:text-neutral-500 tracking-wide">
-          {project.techStack.slice(0, size === "compact" ? 3 : 5).join("  •  ")}
-        </p>
-
-        {/* CTA links with 44px min tap area */}
-        <div className="flex items-center gap-3 text-xs font-mono">
-          <a
-            href={project.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-neutral-500 hover:text-neutral-950 dark:hover:text-white transition-colors font-semibold py-2 px-1 inline-flex items-center min-h-[44px]"
-          >
-            Code →
-          </a>
-          {project.liveUrl && !isPlaceholder && (
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-neutral-900 dark:text-neutral-100 hover:text-neutral-600 dark:hover:text-neutral-300 font-semibold py-2 px-1 inline-flex items-center min-h-[44px] underline underline-offset-4 decoration-neutral-400/50"
-            >
-              Demo ↗
-            </a>
-          )}
-        </div>
-      </div>
     </Card>
   );
 };
@@ -125,7 +95,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ selectedSkill 
 
   return (
     <section id="projects" className="py-20">
-      <div className="max-w-5xl mx-auto space-y-8">
+      <div className="max-w-5xl mx-auto space-y-12">
 
         {/* Section header — asymmetric: left-aligned with filter on same row */}
         <Reveal>

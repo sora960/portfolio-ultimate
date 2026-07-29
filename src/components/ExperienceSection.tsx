@@ -12,7 +12,7 @@ export const ExperienceSection: React.FC = () => {
 
   return (
     <section id="about" className="py-20">
-      <div className="max-w-5xl mx-auto space-y-8">
+      <div className="max-w-5xl mx-auto space-y-12">
 
         {/* Section header — aligned with Skills & Works layout */}
         <Reveal>
@@ -52,13 +52,6 @@ export const ExperienceSection: React.FC = () => {
                     </li>
                   ))}
                 </ul>
-
-                {/* Tech metadata footer line */}
-                <div className="pt-3 border-t border-neutral-200/40 dark:border-white/5">
-                  <p className="text-xs font-mono font-medium text-neutral-400 dark:text-neutral-500 tracking-wide">
-                    {exp.skills.join("  •  ")}
-                  </p>
-                </div>
               </Card>
             </Reveal>
           ))}

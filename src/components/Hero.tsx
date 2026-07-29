@@ -44,16 +44,18 @@ export const Hero: React.FC = () => {
         </div>
 
         {/* Central Squircle Card (Main Content Hub) */}
-        <div className="absolute top-[120px] left-1/2 -translate-x-1/2 w-[520px] h-[390px] z-20 animate-entrance-squircle">
+        <div className="absolute top-[140px] left-1/2 -translate-x-1/2 w-[520px] h-[340px] z-20 animate-entrance-squircle">
           <Card
             thickness="thick"
-            className="w-full h-full rounded-[60px] p-10 flex flex-col justify-between items-center text-center shadow-2xl"
+            className="w-full h-full rounded-[60px] p-10 flex flex-col justify-center items-center text-center gap-6 shadow-2xl"
           >
             {/* Top Label */}
-            <Badge label="software engineer" variant="default" className="text-[10px]" />
+            <span className="text-[11px] font-mono tracking-widest uppercase text-neutral-400 dark:text-neutral-500 font-medium">
+              software engineer
+            </span>
 
             {/* Brand + Description */}
-            <div className="space-y-3">
+            <div className="space-y-4">
               <h1
                 className="text-display font-sans text-neutral-900 dark:text-neutral-50"
                 style={{
@@ -62,36 +64,9 @@ export const Hero: React.FC = () => {
               >
                 Jairzon
               </h1>
-              <p className="max-w-sm text-[15px] text-neutral-600 dark:text-neutral-300 font-sans leading-relaxed">
+              <p className="max-w-sm text-[16px] text-neutral-700 dark:text-neutral-200 font-sans font-medium leading-relaxed">
                 Building clean, reliable web applications and software systems.
               </p>
-            </div>
-
-            {/* CTAs + Socials */}
-            <div className="space-y-4 w-full">
-              <div className="flex items-center justify-center gap-4">
-                <a
-                  href="/resume.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-6 py-2.5 rounded-full text-[13px] font-sans font-semibold text-white bg-neutral-900 dark:bg-neutral-100 dark:text-neutral-900 hover:opacity-90 transition-opacity shadow-md cursor-pointer"
-                >
-                  View Resume
-                </a>
-                <a
-                  href="#contact"
-                  className="glass-card glass-thickness-thin px-6 py-2.5 rounded-full text-[13px] font-sans font-semibold text-neutral-700 dark:text-neutral-200 hover:bg-white/60 dark:hover:bg-white/10 transition-colors cursor-pointer"
-                >
-                  Get in Touch
-                </a>
-              </div>
-              <div className="flex items-center justify-center gap-3 text-[10px] font-mono text-neutral-500 dark:text-neutral-400">
-                <a href="https://github.com/sora960" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors">[GITHUB]</a>
-                <span>/</span>
-                <a href="https://linkedin.com/in/jairzon-gimeno" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors">[LINKEDIN]</a>
-                <span>/</span>
-                <a href="https://indeed.com" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors">[INDEED]</a>
-              </div>
             </div>
           </Card>
         </div>
@@ -99,8 +74,10 @@ export const Hero: React.FC = () => {
 
       {/* ── MOBILE LAYOUT (Clean Focused Profile Hub) ──────────────── */}
       <div className="md:hidden w-full max-w-sm mx-auto space-y-4 z-10 flex flex-col items-center px-4">
-        <Card thickness="thick" className="p-7 flex flex-col justify-between items-center text-center gap-5 w-full rounded-[36px] min-h-[360px] shadow-xl">
-          <Badge label="software engineer" variant="default" />
+        <Card thickness="thick" className="p-8 flex flex-col justify-center items-center text-center gap-6 w-full rounded-[36px] min-h-[280px] shadow-xl">
+          <span className="text-[11px] font-mono tracking-widest uppercase text-neutral-400 dark:text-neutral-500 font-medium">
+            software engineer
+          </span>
           <div className="space-y-3">
             <h1
               className="text-4xl font-black tracking-tighter text-neutral-900 dark:text-neutral-50 leading-none"
@@ -108,24 +85,9 @@ export const Hero: React.FC = () => {
             >
               Jairzon
             </h1>
-            <p className="text-sm text-neutral-600 dark:text-neutral-300 font-sans leading-relaxed">
+            <p className="text-base text-neutral-700 dark:text-neutral-200 font-sans font-medium leading-relaxed">
               Building clean, reliable web applications and software systems.
             </p>
-          </div>
-          <div className="flex flex-col gap-2.5 w-full">
-            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer"
-              className="w-full py-3 rounded-full text-sm font-sans font-semibold text-center text-white bg-neutral-900 dark:bg-neutral-100 dark:text-neutral-900 hover:opacity-90 shadow-sm">
-              View Resume
-            </a>
-            <a href="#contact"
-              className="glass-card glass-thickness-thin w-full py-3 rounded-full text-sm font-sans font-semibold text-center text-neutral-700 dark:text-neutral-200">
-              Get in Touch
-            </a>
-          </div>
-          <div className="flex items-center justify-center gap-4 text-[10px] font-mono text-neutral-500 dark:text-neutral-400 pt-1.5 border-t border-neutral-200/40 dark:border-white/5 w-full">
-            <a href="https://github.com/sora960" target="_blank" rel="noopener noreferrer">[GITHUB]</a>
-            <a href="https://linkedin.com/in/jairzon-gimeno" target="_blank" rel="noopener noreferrer">[LINKEDIN]</a>
-            <a href="https://indeed.com" target="_blank" rel="noopener noreferrer">[INDEED]</a>
           </div>
         </Card>
       </div>

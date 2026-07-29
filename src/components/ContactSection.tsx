@@ -74,30 +74,6 @@ export const ContactSection: React.FC = () => {
                 Available for work
               </span>
             </div>
-
-            {/* Social links — vertical stack */}
-            <div className="flex flex-col gap-3 pt-2 border-t border-neutral-200/40 dark:border-white/5">
-              {[
-                { label: "GitHub", href: "https://github.com/sora960", tag: "@sora960" },
-                { label: "LinkedIn", href: "https://linkedin.com/in/jairzon-gimeno", tag: "Jairzon Gimeno" },
-                { label: "Indeed", href: "https://indeed.com", tag: "Open Profile" },
-              ].map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center justify-between py-1"
-                >
-                  <span className="text-sm font-sans font-medium text-neutral-500 dark:text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-neutral-100 transition-colors">
-                    {link.label}
-                  </span>
-                  <span className="text-xs font-mono text-neutral-400 dark:text-neutral-500 group-hover:text-neutral-600 dark:group-hover:text-neutral-300 transition-colors">
-                    {link.tag} →
-                  </span>
-                </a>
-              ))}
-            </div>
           </Reveal>
 
           {/* RIGHT: Glass squircle form card */}
@@ -203,21 +179,8 @@ export const ContactSection: React.FC = () => {
         </div>
 
         {/* Footer */}
-        <footer className="mt-20 pt-8 border-t border-neutral-200/40 dark:border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-neutral-400 dark:text-neutral-500">
+        <footer className="mt-20 pt-8 border-t border-neutral-200/40 dark:border-white/5 flex items-center justify-between gap-4 text-xs font-mono text-neutral-400 dark:text-neutral-500">
           <p>© 2026 Jairzon. All rights reserved.</p>
-          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
-            {[
-              { label: "[GITHUB]", href: "https://github.com/sora960" },
-              { label: "[LINKEDIN]", href: "https://linkedin.com/in/jairzon-gimeno" },
-              { label: "[JOBSTREET]", href: "https://jobstreet.com.ph" },
-              { label: "[INDEED]", href: "https://indeed.com" },
-            ].map((l) => (
-              <a key={l.label} href={l.href} target="_blank" rel="noopener noreferrer"
-                className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors py-2 px-1 inline-flex items-center min-h-[44px]">
-                {l.label}
-              </a>
-            ))}
-          </div>
         </footer>
       </div>
     </section>
