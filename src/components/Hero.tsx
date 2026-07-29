@@ -20,8 +20,6 @@ export const Hero: React.FC = () => {
               thickness="thick"
               className="w-full h-full rounded-full flex items-center justify-center cursor-pointer shadow-xl transition-transform duration-500 group-hover:scale-105"
             />
-            {/* Overlap Refraction Crescent Lens (Right edge matching Image 1) */}
-            <div className="absolute top-4 right-0 bottom-4 w-10 rounded-r-full pointer-events-none border-r-2 border-b border-white/90 dark:border-white/40 shadow-[inset_-3px_0_6px_rgba(255,255,255,0.95)] opacity-85" />
           </div>
         </div>
 
@@ -32,8 +30,6 @@ export const Hero: React.FC = () => {
               thickness="thick"
               className="w-full h-full rounded-full flex items-center justify-center cursor-pointer shadow-xl transition-transform duration-500 group-hover:scale-105"
             />
-            {/* Overlap Refraction Crescent Lens (Bottom-Left edge matching Image 1) */}
-            <div className="absolute bottom-2 left-2 w-16 h-16 rounded-full pointer-events-none border-l-2 border-b-2 border-white/90 dark:border-white/40 shadow-[inset_3px_-3px_8px_rgba(255,255,255,0.95)] opacity-85" />
           </div>
         </div>
 
@@ -44,8 +40,6 @@ export const Hero: React.FC = () => {
               thickness="thick"
               className="w-full h-full rounded-[50px] flex items-center justify-center cursor-pointer shadow-xl transition-transform duration-500 group-hover:scale-105"
             />
-            {/* Overlap Refraction Crescent Lens (Top-Left edge matching Image 1) */}
-            <div className="absolute top-0 left-4 w-20 h-10 rounded-full pointer-events-none border-t-2 border-l-2 border-white/90 dark:border-white/40 shadow-[inset_3px_3px_8px_rgba(255,255,255,0.95)] opacity-85" />
           </div>
         </div>
 
