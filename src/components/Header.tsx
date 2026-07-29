@@ -73,7 +73,7 @@ export const Header: React.FC = () => {
         visible ? "translate-y-0" : "-translate-y-24"
       }`}
     >
-      <nav className="glass-card glass-thickness-thin glass-specular-edge flex items-center justify-between gap-4 px-5 sm:px-6 py-3 rounded-full max-w-4xl w-full shadow-lg relative z-20">
+      <nav className="glass-card glass-thickness-thin glass-specular-edge glass-specular-thin flex items-center justify-between gap-4 px-5 sm:px-6 py-3 rounded-full max-w-4xl w-full shadow-lg relative z-20">
         <a href="#hero" className="flex items-center gap-2 group cursor-pointer min-h-[44px]">
           <span className="font-mono text-sm font-bold tracking-tight text-neutral-900 dark:text-neutral-100 group-hover:text-emerald-500 transition-colors">
             Jairzon
@@ -138,7 +138,7 @@ export const Header: React.FC = () => {
 
       {/* Mobile Drawer Dropdown Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden mt-2 w-full max-w-4xl glass-card glass-thickness-regular rounded-[24px] p-4 flex flex-col space-y-2 shadow-xl border border-white/20 dark:border-white/10 animate-entrance-squircle">
+        <div className="md:hidden mt-2 w-full max-w-4xl glass-card glass-thickness-regular glass-specular-edge glass-specular-regular rounded-[24px] p-4 flex flex-col space-y-2 shadow-xl animate-entrance-squircle">
           {navItems.map((item) => {
             const isActive = activeSection === item.id;
             return (

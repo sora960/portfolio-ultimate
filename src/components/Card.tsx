@@ -60,13 +60,21 @@ export const Card: React.FC<CardProps> = ({
     thick: "glass-thickness-thick"
   }[thickness];
 
+  const specularClass = {
+    thin: "glass-specular-thin",
+    regular: "glass-specular-regular",
+    thick: "glass-specular-thick"
+  }[thickness];
+
+  const hasContent = !!children;
+
   return (
     <div
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       onPointerDown={handlePointerDown}
-      className={`glass-card glass-card-hover group ${thicknessClass} ${className}`}
+      className={`glass-card glass-card-hover group ${thicknessClass} glass-specular-edge ${specularClass} ${className}`}
       {...props}
     >
       {/* Dynamic Specular Point-Light Cursor Highlight Overlay */}
@@ -77,8 +85,14 @@ export const Card: React.FC<CardProps> = ({
         }}
       />
 
-      {/* Relative container to keep child nodes above spotlight overlay */}
-      <div className="relative z-10 w-full h-full">
+      {/* Content wrapper — flat legibility scrim when content exists, pure glass when decorative */}
+      <div
+        className="relative z-10 w-full h-full"
+        style={hasContent ? {
+          background: "rgba(255, 255, 255, 0.04)",
+          borderRadius: "inherit",
+        } : undefined}
+      >
         {children}
       </div>
     </div>

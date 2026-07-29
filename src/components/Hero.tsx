@@ -17,7 +17,7 @@ export const Hero: React.FC = () => {
         <div className="absolute top-[200px] left-[40px] w-[190px] h-[190px] z-30 animate-entrance-satellite-1">
           <div className="w-full h-full animate-orbit-left relative group">
             <Card
-              thickness="thick"
+              thickness="thin"
               className="w-full h-full rounded-full flex items-center justify-center cursor-pointer shadow-xl transition-transform duration-500 group-hover:scale-105"
             />
           </div>
@@ -27,7 +27,7 @@ export const Hero: React.FC = () => {
         <div className="absolute top-[40px] right-[80px] w-[210px] h-[210px] z-30 animate-entrance-satellite-2">
           <div className="w-full h-full animate-orbit-right relative group">
             <Card
-              thickness="thick"
+              thickness="thin"
               className="w-full h-full rounded-full flex items-center justify-center cursor-pointer shadow-xl transition-transform duration-500 group-hover:scale-105"
             />
           </div>
@@ -37,7 +37,7 @@ export const Hero: React.FC = () => {
         <div className="absolute bottom-[90px] right-[100px] w-[280px] h-[90px] z-30 animate-entrance-satellite-3">
           <div className="w-full h-full animate-orbit-pill relative group">
             <Card
-              thickness="thick"
+              thickness="thin"
               className="w-full h-full rounded-[50px] flex items-center justify-center cursor-pointer shadow-xl transition-transform duration-500 group-hover:scale-105"
             />
           </div>
