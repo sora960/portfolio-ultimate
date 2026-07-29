@@ -66,8 +66,6 @@ export const Card: React.FC<CardProps> = ({
     thick: "glass-specular-thick"
   }[thickness];
 
-  const hasContent = !!children;
-
   return (
     <div
       ref={cardRef}
@@ -85,14 +83,8 @@ export const Card: React.FC<CardProps> = ({
         }}
       />
 
-      {/* Content wrapper — flat legibility scrim when content exists, pure glass when decorative */}
-      <div
-        className="relative z-10 w-full h-full"
-        style={hasContent ? {
-          background: "rgba(255, 255, 255, 0.04)",
-          borderRadius: "inherit",
-        } : undefined}
-      >
+      {/* Content wrapper */}
+      <div className="relative z-10 w-full h-full">
         {children}
       </div>
     </div>
