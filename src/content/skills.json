@@ -1,33 +1,40 @@
 {
   "categories": [
     {
-      "name": "Software & Web Development",
+      "name": "Web Development",
       "skills": [
-        { "name": "JavaScript / TypeScript", "status": "Core Competency" },
-        { "name": "React", "status": "Core Competency" },
-        { "name": "Node.js (Express)", "status": "Core Competency" },
-        { "name": "Python & Flask", "status": "Core Competency" },
-        { "name": "RESTful APIs & Firebase", "status": "Core Competency" },
-        { "name": "SQLite", "status": "Active Focus" }
+        { "name": "JavaScript / TypeScript" },
+        { "name": "React" },
+        { "name": "Node.js (Express)" },
+        { "name": "Python & Flask" },
+        { "name": "RESTful APIs & Firebase" },
+        { "name": "SQLite" }
       ]
     },
     {
-      "name": "Systems & Infrastructure",
+      "name": "System Infrastructure",
       "skills": [
-        { "name": "Linux Administration", "status": "Active Focus" },
-        { "name": "Git & GitHub", "status": "Core Competency" },
-        { "name": "CI/CD (GitHub Workflows)", "status": "Active Focus" },
-        { "name": "OS Deployment (Win/Linux/macOS)", "status": "Active Focus" }
+        { "name": "Linux Administration" },
+        { "name": "Git & GitHub" },
+        { "name": "CI/CD (GitHub Workflows)" },
+        { "name": "OS Deployment (Win/Linux/macOS)" }
       ]
     },
     {
-      "name": "Networking & IT Support",
+      "name": "Networking",
       "skills": [
-        { "name": "TCP/IP & DNS/DHCP", "status": "Active Focus" },
-        { "name": "Subnetting", "status": "Active Focus" },
-        { "name": "Routing & Switching", "status": "Active Focus" },
-        { "name": "Hardware Diagnostics & IT Support", "status": "Active Focus" }
+        { "name": "TCP/IP & DNS/DHCP" },
+        { "name": "Subnetting" },
+        { "name": "Routing & Switching" },
+        { "name": "Hardware Diagnostics" }
+      ]
+    },
+    {
+      "name": "IT Support",
+      "skills": [
+        { "name": "Hardware Diagnostics" }
       ]
     }
+
   ]
 }

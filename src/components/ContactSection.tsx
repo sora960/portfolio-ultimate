@@ -59,21 +59,13 @@ export const ContactSection: React.FC = () => {
           <Reveal className="lg:w-80 shrink-0 space-y-6 lg:sticky lg:top-28">
             <div className="space-y-2">
               <h2 className="text-display font-sans text-neutral-900 dark:text-neutral-50">
-                Let's Talk
+                Contact
               </h2>
             </div>
 
             <p className="text-descriptor max-w-[240px]">
-              I'm currently open for new projects, collaborations, and full-time opportunities.
+               Currently open for new projects, collaborations, and full-time opportunities.
             </p>
-
-            {/* Availability indicator */}
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-neutral-900 dark:bg-white animate-pulse" />
-              <span className="text-sm font-sans font-medium text-neutral-800 dark:text-neutral-200">
-                Available for work
-              </span>
-            </div>
 
             {/* Social links — individual glass buttons */}
             <div className="flex flex-col gap-2.5 pt-2">
@@ -104,7 +96,7 @@ export const ContactSection: React.FC = () => {
                   <Badge label="Message Sent" variant="active" />
                   <h3 className="text-headline font-sans text-neutral-900 dark:text-neutral-100">Thank You</h3>
                   <p className="text-sm font-sans text-neutral-500 dark:text-neutral-400">
-                    I'll respond to your message shortly.
+                     Respond to the message shortly.
                   </p>
                   <button
                     onClick={() => setStatus("IDLE")}

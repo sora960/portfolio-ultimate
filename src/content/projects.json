@@ -15,26 +15,13 @@
     "githubUrl": "https://github.com/sora960",
     "liveUrl": "https://gimeno-portfolio.onrender.com/"
   },
+
   {
     "id": "proj-02",
-    "title": "Zkript Solutions Developer Portal",
-    "category": "Backend & DevOps",
-    "status": "Live",
-    "summary": "Refactored REST API integrations and deployment pipelines for server-side operations during developer internship.",
-    "highlights": [
-      "Migrated and refactored REST API endpoints to align with new system architecture.",
-      "Integrated automated test coverages and code deployment pipelines using GitHub Workflows."
-    ],
-    "techStack": ["Node.js", "REST APIs", "GitHub Workflows", "CI/CD"],
-    "githubUrl": "https://github.com/sora960",
-    "liveUrl": null
-  },
-  {
-    "id": "proj-03",
-    "title": "Freelance Custom Web Applications",
+    "title": "KeyfiRoom",
     "category": "Full-Stack Web Dev",
     "status": "Live",
-    "summary": "Custom end-to-end web applications featuring secure user authentication, database logic, and API integrations.",
+    "summary": "Web applications featuring secure user authentication, database logic, and API integrations.",
     "highlights": [
       "Architected database schemas and built secure Firebase/REST API backend authentication.",
       "Integrated payment processing services and messaging APIs based on specific client needs."

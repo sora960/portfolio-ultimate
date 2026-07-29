@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { Badge } from "./Badge";
 import { Card } from "./Card";
 
 export const Hero: React.FC = () => {

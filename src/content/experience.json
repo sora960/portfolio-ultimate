@@ -1,18 +1,6 @@
 [
   {
-    "id": "exp-01",
-    "role": "Full Stack Developer (OJT) — Zkript Solutions OPC",
-    "period": "2025 – 2026",
-    "highlights": [
-      "Collaborated with the backend lead to debug server-side applications and optimize database performance.",
-      "Migrated and refactored REST API endpoints to align with the new system architecture.",
-      "Integrated frontend and backend data pipelines, ensuring consistent data validation and flow.",
-      "Managed code deployments and automated testing pipelines using GitHub Workflows."
-    ],
-    "skills": ["React", "Node.js", "REST APIs", "CI/CD", "GitHub Workflows"]
-  },
-  {
-    "id": "exp-02",
+    "id": "exp-0",
     "role": "Freelance Software Developer",
     "period": "2024 – Present",
     "highlights": [
@@ -24,7 +12,7 @@
     "skills": ["React", "Firebase", "REST APIs", "Database Design", "Web Development"]
   },
   {
-    "id": "exp-03",
+    "id": "exp-1",
     "role": "B.S. in Information Technology — LSPU",
     "period": "Graduated June 2026",
     "highlights": [
