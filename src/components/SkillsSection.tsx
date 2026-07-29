@@ -115,26 +115,30 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ selectedSkill, onS
             </p>
           </Reveal>
 
-          {/* Vertical category tabs */}
+          {/* Liquid Glass Segmented Control Tabs */}
           <Reveal delay={100}>
-            <div className="flex flex-row lg:flex-col gap-2 flex-wrap">
+            <div className="glass-card glass-thickness-regular rounded-[24px] p-1.5 flex flex-col gap-1 w-full shadow-md">
               {categories.map((cat, idx) => {
                 const isActive = activeCategoryIdx === idx;
                 return (
                   <button
                     key={idx}
                     onClick={() => handleCategorySwitch(idx)}
-                    className={`relative text-left px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-sans font-medium transition-all duration-300 cursor-pointer min-h-[44px] flex items-center ${
+                    className={`relative text-left px-4 py-2.5 rounded-[18px] text-xs sm:text-sm font-sans font-semibold transition-all duration-300 cursor-pointer min-h-[44px] flex items-center justify-between ${
                       isActive
-                        ? "bg-neutral-950 text-white dark:bg-white dark:text-neutral-950 shadow-md"
-                        : "text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200 hover:bg-black/5 dark:hover:bg-white/5"
+                        ? "bg-white/80 dark:bg-white/15 text-neutral-950 dark:text-white shadow-sm backdrop-blur-md border border-white/60 dark:border-white/20"
+                        : "text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200 hover:bg-white/30 dark:hover:bg-white/5"
                     }`}
                   >
-                    {/* Active bar indicator on left edge */}
-                    {isActive && (
-                      <span className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-5 rounded-full bg-violet-500 dark:bg-violet-400" />
-                    )}
-                    <span className="ml-1">{cat.name}</span>
+                    <span className="flex items-center gap-2">
+                      {isActive && (
+                        <span className="w-1.5 h-1.5 rounded-full bg-violet-500 dark:bg-violet-400 animate-pulse shrink-0" />
+                      )}
+                      <span>{cat.name}</span>
+                    </span>
+                    <span className="text-[10px] font-mono opacity-50 font-normal">
+                      {cat.skills.length}
+                    </span>
                   </button>
                 );
               })}

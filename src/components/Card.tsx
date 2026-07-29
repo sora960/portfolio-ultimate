@@ -73,7 +73,7 @@ export const Card: React.FC<CardProps> = ({
       {/* Internal Glass Color Flare (simulates refractive ambient color refraction) */}
       {glowColor && (
         <div 
-          className={`absolute w-44 h-44 rounded-full blur-[48px] opacity-[0.25] dark:opacity-[0.14] pointer-events-none z-0 ${
+          className={`absolute w-44 h-44 rounded-full blur-[52px] opacity-[0.14] dark:opacity-[0.08] pointer-events-none z-0 ${
             glowColor === "indigo" ? "bg-indigo-500 -top-12 -left-12" :
             glowColor === "emerald" ? "bg-emerald-500 -bottom-12 -right-12" :
             glowColor === "amber" ? "bg-amber-500 -top-12 -right-12" :

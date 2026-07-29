@@ -193,13 +193,10 @@ export const Hero: React.FC = () => {
           </div>
         </Card>
 
-        {/* Mobile bubble row */}
-        <div className="flex gap-3 w-full">
-          <Card thickness="regular" glowColor="emerald" className="flex-1 aspect-square rounded-full flex items-center justify-center p-4">
-            <GlassLabel title="Clean Code" subtitle="Type-Safe" titleColor="text-emerald-600 dark:text-emerald-400" glowRgb="5,150,105" />
-          </Card>
-          <Card thickness="regular" glowColor="pink" className="flex-1 aspect-square rounded-full flex items-center justify-center p-4">
-            <span className="font-black text-[20px] tracking-tight" style={{ color: "rgba(219,39,119,0.85)", textShadow: "0 0 18px rgba(219,39,119,0.4), 0 1px 3px rgba(255,255,255,0.5)" }}>
+        {/* Mobile Hire Me CTA Card */}
+        <div className="w-full">
+          <Card thickness="regular" glowColor="pink" className="w-full py-4 rounded-full flex items-center justify-center px-6">
+            <span className="font-black text-[18px] tracking-tight" style={{ color: "rgba(219,39,119,0.85)", textShadow: "0 0 18px rgba(219,39,119,0.4), 0 1px 3px rgba(255,255,255,0.5)" }}>
               Hire Me
             </span>
           </Card>
