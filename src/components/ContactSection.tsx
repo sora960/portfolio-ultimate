@@ -67,22 +67,22 @@ export const ContactSection: React.FC = () => {
                Currently open for new projects, collaborations, and full-time opportunities.
             </p>
 
-            {/* Social links — individual glass buttons */}
-            <div className="flex flex-col gap-2.5 pt-2">
+            {/* Social links — balanced 3-column glass buttons on mobile, column on desktop */}
+            <div className="grid grid-cols-3 lg:flex lg:flex-col gap-2 sm:gap-2.5 pt-2 w-full">
               {[
                 { label: "GitHub", href: "https://github.com/sora960", tag: "@sora960" },
-                { label: "LinkedIn", href: "https://linkedin.com/in/jairzon-gimeno", tag: "Jairzon Gimeno" },
-                { label: "Indeed", href: "https://indeed.com", tag: "Open Profile" },
+                { label: "LinkedIn", href: "https://linkedin.com/in/jairzon-gimeno", tag: "Jairzon" },
+                { label: "Indeed", href: "https://indeed.com", tag: "Profile" },
               ].map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="glass-card glass-thickness-thin bg-black/5 dark:bg-white/5 border border-neutral-200/50 dark:border-white/10 px-4 py-2.5 rounded-2xl flex items-center justify-between text-xs font-sans font-semibold text-neutral-800 dark:text-neutral-200 hover:bg-black/10 dark:hover:bg-white/15 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer shadow-sm min-h-[44px]"
+                  className="glass-card glass-thickness-thin bg-black/5 dark:bg-white/5 border border-neutral-200/50 dark:border-white/10 px-2.5 sm:px-4 py-2.5 rounded-2xl flex flex-col sm:flex-row items-center justify-center sm:justify-between text-center sm:text-left text-xs font-sans font-semibold text-neutral-800 dark:text-neutral-200 hover:bg-black/10 dark:hover:bg-white/15 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer shadow-sm min-h-[44px] gap-0.5 sm:gap-0"
                 >
                   <span>{link.label}</span>
-                  <span className="font-mono text-[11px] font-medium text-neutral-500 dark:text-neutral-400">{link.tag} ↗</span>
+                  <span className="font-mono text-[10px] sm:text-[11px] font-medium text-neutral-500 dark:text-neutral-400">{link.tag} ↗</span>
                 </a>
               ))}
             </div>

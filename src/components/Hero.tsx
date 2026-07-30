@@ -89,66 +89,35 @@ export const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* ── MOBILE LAYOUT (Volumetric Glass Bubble Composition) ─────── */}
-      <div className="md:hidden w-full max-w-sm mx-auto z-10 px-4 relative pt-6 pb-4">
-        {/* Top-Left Bubble Satellite */}
-        <div className="absolute -top-3 -left-1 w-[76px] h-[76px] z-0 animate-entrance-satellite-1 pointer-events-none">
-          <div className="w-full h-full animate-orbit-left">
-            <Card
-              thickness="thin"
-              className="w-full h-full rounded-full shadow-lg"
-            />
-          </div>
-        </div>
-
-        {/* Top-Right Bubble Satellite */}
-        <div className="absolute -top-5 -right-2 w-[90px] h-[90px] z-0 animate-entrance-satellite-2 pointer-events-none">
-          <div className="w-full h-full animate-orbit-right">
-            <Card
-              thickness="thin"
-              className="w-full h-full rounded-full shadow-lg"
-            />
-          </div>
-        </div>
-
-        {/* Bottom-Right Pill Satellite */}
-        <div className="absolute -bottom-3 -right-1 w-[130px] h-[42px] z-20 animate-entrance-satellite-3 pointer-events-none">
-          <div className="w-full h-full animate-orbit-pill">
-            <Card
-              thickness="thin"
-              className="w-full h-full rounded-full shadow-lg"
-            />
-          </div>
-        </div>
-
-        {/* Central Profile Card */}
-        <Card thickness="thick" className="p-8 flex flex-col justify-between items-center text-center gap-6 w-full rounded-[36px] min-h-[340px] shadow-xl relative z-10">
+      {/* ── MOBILE LAYOUT (Sleek Apple Glass Floating Profile) ─────── */}
+      <div className="md:hidden w-full max-w-sm mx-auto z-10 px-4 relative pt-2 pb-4">
+        <Card thickness="regular" className="p-7 flex flex-col justify-between items-center text-center gap-6 w-full rounded-[32px] shadow-xl relative z-10">
           <span className="text-[11px] font-mono tracking-widest uppercase text-neutral-400 dark:text-neutral-500 font-medium">
             software engineer
           </span>
-          <div className="space-y-3">
+          <div className="space-y-2.5">
             <h1
               className="text-display font-sans text-neutral-900 dark:text-neutral-50"
               style={{ textShadow: "0 2px 12px rgba(0,0,0,0.1), 0 1px 0 rgba(255,255,255,0.4)" }}
             >
               Jairzon
             </h1>
-            <p className="text-base text-neutral-700 dark:text-neutral-200 font-sans font-medium leading-relaxed">
+            <p className="text-sm sm:text-base text-neutral-700 dark:text-neutral-200 font-sans font-medium leading-relaxed max-w-xs">
               Building clean, reliable web applications and software systems.
             </p>
           </div>
-          <div className="flex flex-col gap-2.5 w-full">
+          <div className="flex flex-row gap-3 w-full pt-1">
             <a
               href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="glass-card glass-thickness-thin bg-black/5 dark:bg-white/10 border border-white/40 dark:border-white/20 backdrop-blur-md w-full py-3 rounded-full text-xs font-sans font-semibold text-center text-neutral-900 dark:text-neutral-100 hover:bg-black/10 dark:hover:bg-white/20 transition-all shadow-sm min-h-[44px] flex items-center justify-center"
+              className="glass-card glass-thickness-thin bg-black/5 dark:bg-white/10 border border-white/40 dark:border-white/20 backdrop-blur-md flex-1 py-3 rounded-full text-xs font-sans font-semibold text-center text-neutral-900 dark:text-neutral-100 hover:bg-black/10 dark:hover:bg-white/20 transition-all shadow-sm min-h-[44px] flex items-center justify-center cursor-pointer"
             >
               View Resume
             </a>
             <a
               href="#contact"
-              className="glass-card glass-thickness-thin bg-black/5 dark:bg-white/10 border border-white/40 dark:border-white/20 backdrop-blur-md w-full py-3 rounded-full text-xs font-sans font-semibold text-center text-neutral-900 dark:text-neutral-100 hover:bg-black/10 dark:hover:bg-white/20 transition-all shadow-sm min-h-[44px] flex items-center justify-center"
+              className="glass-card glass-thickness-thin bg-black/5 dark:bg-white/10 border border-white/40 dark:border-white/20 backdrop-blur-md flex-1 py-3 rounded-full text-xs font-sans font-semibold text-center text-neutral-900 dark:text-neutral-100 hover:bg-black/10 dark:hover:bg-white/20 transition-all shadow-sm min-h-[44px] flex items-center justify-center cursor-pointer"
             >
               Get in Touch
             </a>
