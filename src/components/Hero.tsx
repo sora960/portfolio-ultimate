@@ -5,7 +5,7 @@ import { Card } from "./Card";
 
 export const Hero: React.FC = () => {
   return (
-    <section id="hero" className="relative min-h-0 sm:min-h-screen flex flex-col items-center justify-start sm:justify-center pt-28 sm:pt-32 pb-8 sm:pb-12 overflow-hidden">
+    <section id="hero" className="relative min-h-0 sm:min-h-screen flex flex-col items-center justify-start sm:justify-center pt-16 sm:pt-28 pb-4 sm:pb-12 overflow-hidden">
       {/* Ambient lighting accents */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-white/20 dark:bg-indigo-500/5 blur-[140px] rounded-full pointer-events-none" />
 
@@ -90,7 +90,7 @@ export const Hero: React.FC = () => {
       </div>
 
       {/* ── MOBILE LAYOUT (Profile Card with 3 Floating Glass Satellites) ─────── */}
-      <div className="md:hidden w-full max-w-md mx-auto z-10 px-4 relative pt-5 pb-5">
+      <div className="md:hidden w-full max-w-md mx-auto z-10 px-4 relative pt-2 pb-2">
         {/* Top-Left Bubble Satellite */}
         <div className="absolute top-0 left-0 w-[76px] h-[76px] z-0 animate-entrance-satellite-1 pointer-events-none">
           <div className="w-full h-full animate-orbit-left">
