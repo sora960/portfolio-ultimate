@@ -52,7 +52,7 @@ export const Hero: React.FC = () => {
           >
             {/* Top Label */}
             <span className="text-[11px] font-mono tracking-widest uppercase text-neutral-400 dark:text-neutral-500 font-medium">
-              software engineer
+              software developer
             </span>
 
             {/* Brand + Description */}
@@ -126,7 +126,7 @@ export const Hero: React.FC = () => {
         {/* Central Profile Card */}
         <Card thickness="regular" className="p-6 flex flex-col justify-between items-center text-center gap-5 w-full rounded-[32px] shadow-xl relative z-10">
           <span className="text-[11px] font-mono tracking-widest uppercase text-neutral-400 dark:text-neutral-500 font-medium">
-            software engineer
+            software developer
           </span>
           <div className="space-y-2.5">
             <h1
