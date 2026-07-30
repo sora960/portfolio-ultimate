@@ -30,7 +30,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ selectedSkill, onS
   };
 
   return (
-    <section id="skills" ref={sectionRef} className="py-20">
+    <section id="skills" ref={sectionRef} className="py-12 sm:py-20">
       <div className="max-w-5xl mx-auto space-y-12">
 
         {/* Section header — aligned with Works layout */}
@@ -46,14 +46,14 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ selectedSkill, onS
             </div>
 
             {/* Filter control pill bar matching Works navigation */}
-            <div className="glass-card glass-thickness-thin p-1 rounded-full flex gap-1 self-start sm:self-auto shrink-0 flex-wrap">
+            <div className="glass-card glass-thickness-thin p-1 rounded-2xl sm:rounded-full flex gap-1.5 sm:gap-1 self-start sm:self-auto shrink-0 overflow-x-auto">
               {categories.map((cat, idx) => {
                 const isActive = activeCategoryIdx === idx;
                 return (
                   <button
                     key={idx}
                     onClick={() => handleCategorySwitch(idx)}
-                    className={`px-4 py-1.5 rounded-full text-[11px] font-sans font-medium transition-all duration-300 cursor-pointer ${
+                    className={`px-4 py-2 sm:py-1.5 min-h-[44px] sm:min-h-0 flex items-center justify-center rounded-full text-[11px] font-sans font-medium transition-all duration-300 cursor-pointer ${
                       isActive
                         ? "bg-neutral-950 text-white dark:bg-white dark:text-neutral-950 shadow-sm"
                         : "text-neutral-400 dark:text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-300"
@@ -82,7 +82,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ selectedSkill, onS
                   key={`${activeCategoryIdx}-${sIdx}`}
                   thickness="regular"
                   onClick={() => onSelectSkill(isSelected ? null : skill.name)}
-                  className={`rounded-full py-2.5 px-4 sm:py-3 sm:px-5 flex items-center gap-2 cursor-pointer select-none transition-all duration-300 ${
+                  className={`rounded-full py-2.5 px-4 sm:py-3 sm:px-5 min-h-[44px] flex items-center gap-2 cursor-pointer select-none transition-all duration-300 ${
                     isSelected
                       ? "ring-1 ring-neutral-900/40 dark:ring-white/40 shadow-sm scale-105"
                       : "hover:scale-[1.03]"

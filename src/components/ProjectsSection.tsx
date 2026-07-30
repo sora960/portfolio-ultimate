@@ -53,12 +53,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, selectedSkill, size 
           {project.title}
         </h3>
 
-        {/* Summary only on larger cards */}
-        {(size === "featured" || size === "wide" || size === "tall") && (
-          <p className="text-sm font-sans font-medium text-neutral-700 dark:text-neutral-200 leading-relaxed">
-            {project.summary}
-          </p>
-        )}
+        {/* Summary */}
+        <p className="text-sm font-sans font-medium text-neutral-700 dark:text-neutral-200 leading-relaxed">
+          {project.summary}
+        </p>
 
         {/* Top highlight bullet — always shown */}
         {project.highlights[0] && (
@@ -90,7 +88,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ selectedSkill 
   };
 
   return (
-    <section id="projects" className="py-20">
+    <section id="projects" className="py-12 sm:py-20">
       <div className="max-w-5xl mx-auto space-y-12">
 
         {/* Section header — asymmetric: left-aligned with filter on same row */}
@@ -114,7 +112,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ selectedSkill 
                   <button
                     key={opt}
                     onClick={() => setFilter(opt)}
-                    className={`px-4 py-1.5 rounded-full text-[11px] font-sans font-medium transition-all duration-300 cursor-pointer ${
+                    className={`px-4 py-2 sm:py-1.5 min-h-[44px] sm:min-h-0 flex items-center justify-center rounded-full text-[11px] font-sans font-medium transition-all duration-300 cursor-pointer ${
                       isActive
                         ? "bg-neutral-950 text-white dark:bg-white dark:text-neutral-950 shadow-sm"
                         : "text-neutral-400 dark:text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-300"

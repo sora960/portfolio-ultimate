@@ -15,7 +15,7 @@ export const Badge: React.FC<BadgeProps> = ({ label, variant = "default", classN
 
   return (
     <span
-      className={`inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-mono tracking-widest uppercase border backdrop-blur-md select-none ${variantStyles[variant]} ${className}`}
+      className={`inline-flex items-center px-2 py-0.5 rounded-full text-[11px] sm:text-[10px] font-mono tracking-widest uppercase border backdrop-blur-md select-none ${variantStyles[variant]} ${className}`}
     >
       {label}
     </span>

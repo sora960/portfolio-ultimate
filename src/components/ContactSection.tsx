@@ -50,7 +50,7 @@ export const ContactSection: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-20">
+    <section id="contact" className="py-12 sm:py-20">
       <div className="max-w-5xl mx-auto">
         {/* ── Split Invitation: left identity + right form ── */}
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
@@ -79,7 +79,7 @@ export const ContactSection: React.FC = () => {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="glass-card glass-thickness-thin bg-black/5 dark:bg-white/5 border border-neutral-200/50 dark:border-white/10 px-4 py-2.5 rounded-2xl flex items-center justify-between text-xs font-sans font-semibold text-neutral-800 dark:text-neutral-200 hover:bg-black/10 dark:hover:bg-white/15 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer shadow-sm"
+                  className="glass-card glass-thickness-thin bg-black/5 dark:bg-white/5 border border-neutral-200/50 dark:border-white/10 px-4 py-2.5 rounded-2xl flex items-center justify-between text-xs font-sans font-semibold text-neutral-800 dark:text-neutral-200 hover:bg-black/10 dark:hover:bg-white/15 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer shadow-sm min-h-[44px]"
                 >
                   <span>{link.label}</span>
                   <span className="font-mono text-[11px] font-medium text-neutral-500 dark:text-neutral-400">{link.tag} ↗</span>

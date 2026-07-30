@@ -5,7 +5,7 @@ import { Card } from "./Card";
 
 export const Hero: React.FC = () => {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center pt-28 pb-12 overflow-hidden">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center pt-20 sm:pt-28 pb-8 sm:pb-12 overflow-hidden">
       {/* Ambient lighting accents */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-white/20 dark:bg-indigo-500/5 blur-[140px] rounded-full pointer-events-none" />
 
@@ -74,13 +74,13 @@ export const Hero: React.FC = () => {
                 href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="glass-card glass-thickness-thin bg-black/5 dark:bg-white/10 border border-white/40 dark:border-white/20 backdrop-blur-md px-6 py-2.5 rounded-full text-xs font-sans font-semibold text-neutral-900 dark:text-neutral-100 hover:bg-black/10 dark:hover:bg-white/20 hover:scale-105 active:scale-95 transition-all shadow-sm cursor-pointer"
+                className="glass-card glass-thickness-thin bg-black/5 dark:bg-white/10 border border-white/40 dark:border-white/20 backdrop-blur-md px-6 py-2.5 rounded-full text-xs font-sans font-semibold text-neutral-900 dark:text-neutral-100 hover:bg-black/10 dark:hover:bg-white/20 hover:scale-105 active:scale-95 transition-all shadow-sm cursor-pointer min-h-[44px] flex items-center justify-center"
               >
                 View Resume
               </a>
               <a
                 href="#contact"
-                className="glass-card glass-thickness-thin bg-black/5 dark:bg-white/10 border border-white/40 dark:border-white/20 backdrop-blur-md px-6 py-2.5 rounded-full text-xs font-sans font-semibold text-neutral-900 dark:text-neutral-100 hover:bg-black/10 dark:hover:bg-white/20 hover:scale-105 active:scale-95 transition-all shadow-sm cursor-pointer"
+                className="glass-card glass-thickness-thin bg-black/5 dark:bg-white/10 border border-white/40 dark:border-white/20 backdrop-blur-md px-6 py-2.5 rounded-full text-xs font-sans font-semibold text-neutral-900 dark:text-neutral-100 hover:bg-black/10 dark:hover:bg-white/20 hover:scale-105 active:scale-95 transition-all shadow-sm cursor-pointer min-h-[44px] flex items-center justify-center"
               >
                 Get in Touch
               </a>
@@ -97,7 +97,7 @@ export const Hero: React.FC = () => {
           </span>
           <div className="space-y-3">
             <h1
-              className="text-4xl font-black tracking-tighter text-neutral-900 dark:text-neutral-50 leading-none"
+              className="text-display font-sans text-neutral-900 dark:text-neutral-50"
               style={{ textShadow: "0 2px 12px rgba(0,0,0,0.1), 0 1px 0 rgba(255,255,255,0.4)" }}
             >
               Jairzon
@@ -111,13 +111,13 @@ export const Hero: React.FC = () => {
               href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="glass-card glass-thickness-thin bg-black/5 dark:bg-white/10 border border-white/40 dark:border-white/20 backdrop-blur-md w-full py-3 rounded-full text-xs font-sans font-semibold text-center text-neutral-900 dark:text-neutral-100 hover:bg-black/10 dark:hover:bg-white/20 transition-all shadow-sm"
+              className="glass-card glass-thickness-thin bg-black/5 dark:bg-white/10 border border-white/40 dark:border-white/20 backdrop-blur-md w-full py-3 rounded-full text-xs font-sans font-semibold text-center text-neutral-900 dark:text-neutral-100 hover:bg-black/10 dark:hover:bg-white/20 transition-all shadow-sm min-h-[44px] flex items-center justify-center"
             >
               View Resume
             </a>
             <a
               href="#contact"
-              className="glass-card glass-thickness-thin bg-black/5 dark:bg-white/10 border border-white/40 dark:border-white/20 backdrop-blur-md w-full py-3 rounded-full text-xs font-sans font-semibold text-center text-neutral-900 dark:text-neutral-100 hover:bg-black/10 dark:hover:bg-white/20 transition-all shadow-sm"
+              className="glass-card glass-thickness-thin bg-black/5 dark:bg-white/10 border border-white/40 dark:border-white/20 backdrop-blur-md w-full py-3 rounded-full text-xs font-sans font-semibold text-center text-neutral-900 dark:text-neutral-100 hover:bg-black/10 dark:hover:bg-white/20 transition-all shadow-sm min-h-[44px] flex items-center justify-center"
             >
               Get in Touch
             </a>
