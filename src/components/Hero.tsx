@@ -5,7 +5,7 @@ import { Card } from "./Card";
 
 export const Hero: React.FC = () => {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center pt-20 sm:pt-28 pb-8 sm:pb-12 overflow-hidden">
+    <section id="hero" className="relative min-h-0 sm:min-h-screen flex flex-col items-center justify-start sm:justify-center pt-24 sm:pt-28 pb-4 sm:pb-12 overflow-hidden">
       {/* Ambient lighting accents */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-white/20 dark:bg-indigo-500/5 blur-[140px] rounded-full pointer-events-none" />
 
@@ -90,7 +90,7 @@ export const Hero: React.FC = () => {
       </div>
 
       {/* ── MOBILE LAYOUT (Profile Card with 3 Floating Glass Satellites) ─────── */}
-      <div className="md:hidden w-full max-w-sm mx-auto z-10 px-4 relative pt-6 pb-6">
+      <div className="md:hidden w-full max-w-md mx-auto z-10 px-4 relative pt-4 pb-4">
         {/* Top-Left Bubble Satellite */}
         <div className="absolute -top-3 -left-1 w-[76px] h-[76px] z-0 animate-entrance-satellite-1 pointer-events-none">
           <div className="w-full h-full animate-orbit-left">
@@ -122,7 +122,7 @@ export const Hero: React.FC = () => {
         </div>
 
         {/* Central Profile Card */}
-        <Card thickness="regular" className="p-7 flex flex-col justify-between items-center text-center gap-6 w-full rounded-[32px] shadow-xl relative z-10">
+        <Card thickness="regular" className="p-8 flex flex-col justify-between items-center text-center gap-6 w-full rounded-[36px] shadow-xl relative z-10">
           <span className="text-[11px] font-mono tracking-widest uppercase text-neutral-400 dark:text-neutral-500 font-medium">
             software engineer
           </span>

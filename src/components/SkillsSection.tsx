@@ -30,7 +30,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ selectedSkill, onS
   };
 
   return (
-    <section id="skills" ref={sectionRef} className="py-12 sm:py-20">
+    <section id="skills" ref={sectionRef} className="py-6 sm:py-20">
       <div className="max-w-5xl mx-auto space-y-12">
 
         {/* Section header — aligned with Works layout */}
@@ -46,14 +46,14 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ selectedSkill, onS
             </div>
 
             {/* Filter control pill bar matching Works navigation */}
-            <div className="w-full sm:w-auto glass-card glass-thickness-thin p-1 rounded-full flex items-center justify-between sm:justify-start gap-1 overflow-x-auto">
+            <div className="w-full sm:w-auto glass-card glass-thickness-thin p-1 rounded-full flex items-center justify-between sm:justify-start gap-1 overflow-x-auto no-scrollbar">
               {categories.map((cat, idx) => {
                 const isActive = activeCategoryIdx === idx;
                 return (
                   <button
                     key={idx}
                     onClick={() => handleCategorySwitch(idx)}
-                    className={`flex-1 sm:flex-initial text-center px-3 sm:px-4 py-2 sm:py-1.5 min-h-[44px] sm:min-h-0 flex items-center justify-center rounded-full text-[11px] font-sans transition-all duration-300 cursor-pointer ${
+                    className={`whitespace-nowrap flex-1 sm:flex-initial text-center px-3 sm:px-4 py-2 sm:py-1.5 min-h-[44px] sm:min-h-0 flex items-center justify-center rounded-full text-[11px] font-sans transition-all duration-300 cursor-pointer ${
                       isActive
                         ? "bg-neutral-900/90 text-white dark:bg-white/90 dark:text-neutral-950 font-semibold shadow-sm"
                         : "text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-200"
