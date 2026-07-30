@@ -5,7 +5,7 @@ import { Card } from "./Card";
 
 export const Hero: React.FC = () => {
   return (
-    <section id="hero" className="relative min-h-0 sm:min-h-screen flex flex-col items-center justify-start sm:justify-center pt-24 sm:pt-28 pb-4 sm:pb-12 overflow-hidden">
+    <section id="hero" className="relative min-h-0 sm:min-h-screen flex flex-col items-center justify-start sm:justify-center pt-28 sm:pt-32 pb-8 sm:pb-12 overflow-hidden">
       {/* Ambient lighting accents */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-white/20 dark:bg-indigo-500/5 blur-[140px] rounded-full pointer-events-none" />
 
@@ -90,9 +90,9 @@ export const Hero: React.FC = () => {
       </div>
 
       {/* ── MOBILE LAYOUT (Profile Card with 3 Floating Glass Satellites) ─────── */}
-      <div className="md:hidden w-full max-w-md mx-auto z-10 px-4 relative pt-4 pb-4">
+      <div className="md:hidden w-full max-w-md mx-auto z-10 px-4 relative pt-5 pb-5">
         {/* Top-Left Bubble Satellite */}
-        <div className="absolute -top-3 -left-1 w-[76px] h-[76px] z-0 animate-entrance-satellite-1 pointer-events-none">
+        <div className="absolute top-0 left-0 w-[76px] h-[76px] z-0 animate-entrance-satellite-1 pointer-events-none">
           <div className="w-full h-full animate-orbit-left">
             <Card
               thickness="thin"
@@ -102,7 +102,7 @@ export const Hero: React.FC = () => {
         </div>
 
         {/* Top-Right Bubble Satellite */}
-        <div className="absolute -top-5 -right-2 w-[90px] h-[90px] z-0 animate-entrance-satellite-2 pointer-events-none">
+        <div className="absolute top-0 right-0 w-[90px] h-[90px] z-0 animate-entrance-satellite-2 pointer-events-none">
           <div className="w-full h-full animate-orbit-right">
             <Card
               thickness="thin"
@@ -112,7 +112,7 @@ export const Hero: React.FC = () => {
         </div>
 
         {/* Bottom-Right Pill Satellite */}
-        <div className="absolute -bottom-3 -right-1 w-[130px] h-[42px] z-20 animate-entrance-satellite-3 pointer-events-none">
+        <div className="absolute bottom-0 right-0 w-[130px] h-[42px] z-20 animate-entrance-satellite-3 pointer-events-none">
           <div className="w-full h-full animate-orbit-pill">
             <Card
               thickness="thin"
