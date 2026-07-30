@@ -5,9 +5,11 @@ import { Card } from "./Card";
 
 export const Hero: React.FC = () => {
   return (
-    <section id="hero" className="relative flex flex-col items-center justify-start pt-[116px] sm:pt-28 pb-0 sm:pb-10 overflow-hidden">
-      {/* Ambient lighting accents */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-white/20 dark:bg-indigo-500/5 blur-[140px] rounded-full pointer-events-none" />
+    <section id="hero" className="relative flex flex-col items-center justify-start pt-28 sm:pt-32 pb-8 sm:pb-12 overflow-visible">
+      {/* Scoped Ambient lighting container (prevents flare overflow while letting satellites float unclipped) */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-white/20 dark:bg-indigo-500/5 blur-[140px] rounded-full" />
+      </div>
 
       {/* ── DESKTOP BUBBLE COMPOSITION (1:1 Crystal Glass - Pure Decorative Satellites) ── */}
       <div className="hidden md:block w-full max-w-4xl h-[650px] relative z-10 mx-auto">
@@ -90,9 +92,9 @@ export const Hero: React.FC = () => {
       </div>
 
       {/* ── MOBILE LAYOUT (Profile Card with 3 Floating Glass Satellites) ─────── */}
-      <div className="md:hidden w-full max-w-md mx-auto z-10 px-4 relative pt-2 pb-2">
-        {/* Top-Left Bubble Satellite */}
-        <div className="absolute top-[50px] left-[-20px] w-[100px] h-[100px] z-0 animate-entrance-satellite-1 pointer-events-none">
+      <div className="md:hidden w-full max-w-sm mx-auto z-10 px-4 relative pt-6 pb-6">
+        {/* Top-Left Bubble Satellite (Floating Outward Past Corner) */}
+        <div className="absolute -top-4 -left-3 w-[76px] h-[76px] z-0 animate-entrance-satellite-1 pointer-events-none">
           <div className="w-full h-full animate-orbit-left">
             <Card
               thickness="thin"
@@ -101,8 +103,8 @@ export const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Top-Right Bubble Satellite */}
-        <div className="absolute top-0 right-0 w-[90px] h-[90px] z-0 animate-entrance-satellite-2 pointer-events-none">
+        {/* Top-Right Bubble Satellite (Floating Outward Past Corner) */}
+        <div className="absolute -top-6 -right-3 w-[90px] h-[90px] z-0 animate-entrance-satellite-2 pointer-events-none">
           <div className="w-full h-full animate-orbit-right">
             <Card
               thickness="thin"
@@ -111,8 +113,8 @@ export const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom-Right Pill Satellite */}
-        <div className="absolute bottom-[-10px] right-0 w-[100px] h-[50px] z-20 animate-entrance-satellite-3 pointer-events-none">
+        {/* Bottom-Right Pill Satellite (Floating Outward Past Corner) */}
+        <div className="absolute -bottom-4 -right-2 w-[120px] h-[40px] z-20 animate-entrance-satellite-3 pointer-events-none">
           <div className="w-full h-full animate-orbit-pill">
             <Card
               thickness="thin"
@@ -122,7 +124,7 @@ export const Hero: React.FC = () => {
         </div>
 
         {/* Central Profile Card */}
-        <Card thickness="regular" className="p-8 flex flex-col justify-between items-center text-center gap-6 w-full rounded-[36px] shadow-xl relative z-10">
+        <Card thickness="regular" className="p-6 flex flex-col justify-between items-center text-center gap-5 w-full rounded-[32px] shadow-xl relative z-10">
           <span className="text-[11px] font-mono tracking-widest uppercase text-neutral-400 dark:text-neutral-500 font-medium">
             software engineer
           </span>

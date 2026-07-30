@@ -11,7 +11,7 @@ export const ExperienceSection: React.FC = () => {
   const experiences = experienceData as Experience[];
 
   return (
-    <section id="about" className="pt-[48px] pb-6 sm:py-20">
+    <section id="about" className="py-8 sm:py-20">
       <div className="max-w-5xl mx-auto space-y-12">
 
         {/* Section header — aligned with Skills & Works layout */}

@@ -38,7 +38,7 @@ export const Header: React.FC = () => {
       <nav className="glass-card glass-thickness-thin flex items-center justify-between gap-4 px-5 sm:px-6 py-2.5 rounded-full max-w-2xl w-full shadow-lg relative z-20">
         <a href="#hero" className="flex items-center gap-2 group cursor-pointer min-h-[44px]">
           <span className="font-mono text-sm font-bold tracking-tight text-neutral-900 dark:text-neutral-100 group-hover:text-neutral-500 dark:group-hover:text-neutral-400 transition-colors">
-            Jairzon
+            sora.dev
           </span>
         </a>
 

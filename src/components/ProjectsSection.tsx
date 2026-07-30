@@ -104,7 +104,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ selectedSkill 
             </div>
 
             {/* Filter control */}
-            <div className="w-full sm:w-auto glass-card glass-thickness-thin p-1.5 rounded-2xl sm:rounded-full flex items-center justify-between sm:justify-start gap-1.5">
+            <div className="glass-card glass-thickness-thin p-1 rounded-full flex items-center gap-1 self-start sm:self-auto shrink-0">
               {(["all", "software", "iot"] as const).map((opt) => {
                 const labels = { all: "All", software: "Software", iot: "IoT" };
                 const isActive = filter === opt;
@@ -112,7 +112,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ selectedSkill 
                   <button
                     key={opt}
                     onClick={() => setFilter(opt)}
-                    className={`flex-1 sm:flex-initial shrink-0 whitespace-nowrap px-4 py-2 sm:py-1.5 min-h-[44px] sm:min-h-0 flex items-center justify-center rounded-xl sm:rounded-full text-xs font-sans transition-all duration-300 cursor-pointer ${
+                    className={`shrink-0 whitespace-nowrap px-4 py-2 sm:py-1.5 min-h-[44px] sm:min-h-0 flex items-center justify-center rounded-full text-xs font-sans transition-all duration-300 cursor-pointer ${
                       isActive
                         ? "bg-neutral-900 text-white dark:bg-white dark:text-neutral-950 font-semibold shadow-sm"
                         : "text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-200"
