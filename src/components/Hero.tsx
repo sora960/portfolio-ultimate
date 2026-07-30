@@ -5,7 +5,7 @@ import { Card } from "./Card";
 
 export const Hero: React.FC = () => {
   return (
-    <section id="hero" className="relative flex flex-col items-center justify-start pt-24 sm:pt-28 pb-6 sm:pb-10 overflow-hidden">
+    <section id="hero" className="relative flex flex-col items-center justify-start pt-[116px] sm:pt-28 pb-0 sm:pb-10 overflow-hidden">
       {/* Ambient lighting accents */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-white/20 dark:bg-indigo-500/5 blur-[140px] rounded-full pointer-events-none" />
 

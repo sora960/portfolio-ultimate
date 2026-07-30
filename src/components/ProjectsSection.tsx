@@ -88,7 +88,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ selectedSkill 
   };
 
   return (
-    <section id="projects" className="py-6 sm:py-20">
+    <section id="projects" className="py-8 sm:py-20">
       <div className="max-w-5xl mx-auto space-y-12">
 
         {/* Section header — asymmetric: left-aligned with filter on same row */}

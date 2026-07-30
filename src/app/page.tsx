@@ -33,7 +33,7 @@ export default function Home() {
         <Header />
 
         {/* Main Content Container with Proper Centering and Padding */}
-        <main className="w-full max-w-5xl mx-auto px-4 sm:px-8 flex flex-col space-y-4 sm:space-y-16 pb-12 sm:pb-24 relative z-10">
+        <main className="w-full max-w-5xl mx-auto px-4 sm:px-8 flex flex-col space-y-0 sm:space-y-16 pb-12 sm:pb-24 relative z-10">
           <Hero />
           <ExperienceSection />
           <SkillsSection selectedSkill={selectedSkill} onSelectSkill={setSelectedSkill} />

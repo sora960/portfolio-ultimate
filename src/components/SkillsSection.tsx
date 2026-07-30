@@ -30,7 +30,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ selectedSkill, onS
   };
 
   return (
-    <section id="skills" ref={sectionRef} className="py-6 sm:py-20">
+    <section id="skills" ref={sectionRef} className="py-8 sm:py-20">
       <div className="max-w-5xl mx-auto space-y-12">
 
         {/* Section header — aligned with Works layout */}

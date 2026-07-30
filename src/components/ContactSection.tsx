@@ -50,7 +50,7 @@ export const ContactSection: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-6 sm:py-20">
+    <section id="contact" className="py-8 sm:py-20">
       <div className="max-w-5xl mx-auto">
         {/* ── Split Invitation: left identity + right form ── */}
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
