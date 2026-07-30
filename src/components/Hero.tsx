@@ -92,7 +92,7 @@ export const Hero: React.FC = () => {
       {/* ── MOBILE LAYOUT (Profile Card with 3 Floating Glass Satellites) ─────── */}
       <div className="md:hidden w-full max-w-md mx-auto z-10 px-4 relative pt-2 pb-2">
         {/* Top-Left Bubble Satellite */}
-        <div className="absolute top-0 left-0 w-[76px] h-[76px] z-0 animate-entrance-satellite-1 pointer-events-none">
+        <div className="absolute top-[50px] left-[-20px] w-[100px] h-[100px] z-0 animate-entrance-satellite-1 pointer-events-none">
           <div className="w-full h-full animate-orbit-left">
             <Card
               thickness="thin"
@@ -112,7 +112,7 @@ export const Hero: React.FC = () => {
         </div>
 
         {/* Bottom-Right Pill Satellite */}
-        <div className="absolute bottom-0 right-0 w-[130px] h-[42px] z-20 animate-entrance-satellite-3 pointer-events-none">
+        <div className="absolute bottom-[-10px] right-0 w-[100px] h-[50px] z-20 animate-entrance-satellite-3 pointer-events-none">
           <div className="w-full h-full animate-orbit-pill">
             <Card
               thickness="thin"
