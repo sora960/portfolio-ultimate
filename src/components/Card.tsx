@@ -60,19 +60,13 @@ export const Card: React.FC<CardProps> = ({
     thick: "glass-thickness-thick"
   }[thickness];
 
-  const specularClass = {
-    thin: "glass-specular-thin",
-    regular: "glass-specular-regular",
-    thick: "glass-specular-thick"
-  }[thickness];
-
   return (
     <div
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       onPointerDown={handlePointerDown}
-      className={`glass-card glass-card-hover group ${thicknessClass} glass-specular-edge ${specularClass} ${className}`}
+      className={`glass-card glass-card-hover group ${thicknessClass} ${className}`}
       {...props}
     >
       {/* Dynamic Specular Point-Light Cursor Highlight Overlay */}

@@ -34,7 +34,7 @@
     background-color: #0A0C10;
     background-image: var(--bg-mesh-dark);
     color: #F5F5F7;
-    --specular-spotlight: rgba(255, 255, 255, 0.18);
+    --specular-spotlight: rgba(255, 255, 255, 0.05);
   }
 }
 
@@ -52,7 +52,7 @@
   overflow: hidden;
 }
 
-/* Glass Thickness Presets — Shadow-First (shape defined by edge shadow, not fill) */
+/* Glass Thickness Presets — Authentic Apple Liquid Glass */
 .glass-thickness-thin {
   background-color: rgba(255, 255, 255, 0.02);
   backdrop-filter: blur(14px) saturate(180%);
@@ -60,8 +60,7 @@
   border: 1px solid rgba(255, 255, 255, 0.06);
   box-shadow: 
     0 1px 3px rgba(0, 0, 0, 0.04),
-    0 4px 12px -2px rgba(0, 0, 0, 0.06),
-    inset 1px 1px 2px rgba(255, 255, 255, 0.12);
+    0 4px 12px -2px rgba(0, 0, 0, 0.06);
 }
 
 .dark .glass-thickness-thin {
@@ -69,8 +68,7 @@
   border: 1px solid rgba(255, 255, 255, 0.06);
   box-shadow: 
     0 1px 4px rgba(0, 0, 0, 0.15),
-    0 6px 16px -3px rgba(0, 0, 0, 0.25),
-    inset 1px 1px 2px rgba(255, 255, 255, 0.06);
+    0 6px 16px -3px rgba(0, 0, 0, 0.25);
 }
 
 .glass-thickness-regular {
@@ -80,40 +78,36 @@
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 
     0 2px 6px rgba(0, 0, 0, 0.05),
-    0 8px 24px -4px rgba(0, 0, 0, 0.08),
-    inset 1.5px 1.5px 4px rgba(255, 255, 255, 0.18);
+    0 8px 24px -4px rgba(0, 0, 0, 0.08);
 }
 
 .dark .glass-thickness-regular {
   background-color: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.07);
   box-shadow: 
-    0 2px 6px rgba(0, 0, 0, 0.20),
-    0 10px 28px -5px rgba(0, 0, 0, 0.35),
-    inset 1.5px 1.5px 4px rgba(255, 255, 255, 0.10);
+    0 4px 12px rgba(0, 0, 0, 0.25),
+    0 10px 30px -4px rgba(0, 0, 0, 0.40);
 }
 
 .glass-thickness-thick {
   background-color: rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(24px) saturate(220%);
   -webkit-backdrop-filter: blur(24px) saturate(220%);
-  border: 1.5px solid rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.10);
   box-shadow: 
     0 2px 8px rgba(0, 0, 0, 0.06),
-    0 12px 32px -6px rgba(0, 0, 0, 0.10),
-    inset 2px 2px 6px rgba(255, 255, 255, 0.22);
+    0 12px 32px -6px rgba(0, 0, 0, 0.10);
 }
 
 .dark .glass-thickness-thick {
   background-color: rgba(255, 255, 255, 0.05);
-  border: 1.5px solid rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.09);
   box-shadow: 
-    0 3px 8px rgba(0, 0, 0, 0.25),
-    0 14px 36px -6px rgba(0, 0, 0, 0.40),
-    inset 2px 2px 6px rgba(255, 255, 255, 0.14);
+    0 4px 14px rgba(0, 0, 0, 0.30),
+    0 14px 36px -6px rgba(0, 0, 0, 0.45);
 }
 
-/* Premium Card hover effects — intensify shadow, don't refill */
+/* Premium Card hover effects — smooth elevation and deep soft ambient shadow */
 .glass-card-hover {
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -128,45 +122,39 @@
     background-color: rgba(255, 255, 255, 0.04);
     box-shadow: 
       0 2px 4px rgba(0, 0, 0, 0.05),
-      0 6px 16px -2px rgba(0, 0, 0, 0.08),
-      inset 1px 1px 3px rgba(255, 255, 255, 0.18);
+      0 8px 20px -2px rgba(0, 0, 0, 0.08);
   }
   .dark .glass-thickness-thin.glass-card-hover:hover {
     background-color: rgba(255, 255, 255, 0.03);
     box-shadow: 
-      0 2px 5px rgba(0, 0, 0, 0.25),
-      0 8px 20px -3px rgba(0, 0, 0, 0.35),
-      inset 1px 1px 3px rgba(255, 255, 255, 0.10);
+      0 3px 8px rgba(0, 0, 0, 0.25),
+      0 10px 24px -3px rgba(0, 0, 0, 0.40);
   }
 
   .glass-thickness-regular.glass-card-hover:hover {
     background-color: rgba(255, 255, 255, 0.06);
     box-shadow: 
-      0 3px 8px rgba(0, 0, 0, 0.07),
-      0 10px 28px -4px rgba(0, 0, 0, 0.10),
-      inset 2px 2px 5px rgba(255, 255, 255, 0.25);
+      0 4px 10px rgba(0, 0, 0, 0.07),
+      0 12px 32px -4px rgba(0, 0, 0, 0.12);
   }
   .dark .glass-thickness-regular.glass-card-hover:hover {
     background-color: rgba(255, 255, 255, 0.05);
     box-shadow: 
-      0 3px 8px rgba(0, 0, 0, 0.30),
-      0 12px 32px -5px rgba(0, 0, 0, 0.40),
-      inset 2px 2px 5px rgba(255, 255, 255, 0.14);
+      0 6px 14px rgba(0, 0, 0, 0.35),
+      0 16px 36px -5px rgba(0, 0, 0, 0.50);
   }
 
   .glass-thickness-thick.glass-card-hover:hover {
     background-color: rgba(255, 255, 255, 0.08);
     box-shadow: 
-      0 3px 10px rgba(0, 0, 0, 0.08),
-      0 14px 36px -6px rgba(0, 0, 0, 0.12),
-      inset 2px 2px 7px rgba(255, 255, 255, 0.30);
+      0 4px 12px rgba(0, 0, 0, 0.08),
+      0 16px 40px -6px rgba(0, 0, 0, 0.14);
   }
   .dark .glass-thickness-thick.glass-card-hover:hover {
     background-color: rgba(255, 255, 255, 0.06);
     box-shadow: 
-      0 4px 10px rgba(0, 0, 0, 0.35),
-      0 16px 40px -6px rgba(0, 0, 0, 0.45),
-      inset 2px 2px 7px rgba(255, 255, 255, 0.18);
+      0 6px 16px rgba(0, 0, 0, 0.40),
+      0 20px 44px -6px rgba(0, 0, 0, 0.55);
   }
 }
 
@@ -325,58 +313,4 @@
   }
 }
 
-/* ─── Specular Highlight Edge Sweep (Tiered by Thickness) ──────── */
-.glass-specular-edge {
-  position: relative;
-}
-.glass-specular-edge::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(
-    115deg,
-    rgba(255, 255, 255, 0.75) 0%,
-    rgba(255, 255, 255, 0.12) 30%,
-    rgba(255, 255, 255, 0.05) 60%,
-    rgba(255, 255, 255, 0.10) 100%
-  );
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
-}
 
-/* Thin tier: subtle, barely-there specular edge */
-.glass-specular-thin::after {
-  background: linear-gradient(
-    115deg,
-    rgba(255, 255, 255, 0.55) 0%,
-    rgba(255, 255, 255, 0.08) 30%,
-    rgba(255, 255, 255, 0.03) 60%,
-    rgba(255, 255, 255, 0.03) 100%
-  );
-}
-
-/* Regular tier: moderate specular edge */
-.glass-specular-regular::after {
-  background: linear-gradient(
-    115deg,
-    rgba(255, 255, 255, 0.75) 0%,
-    rgba(255, 255, 255, 0.12) 30%,
-    rgba(255, 255, 255, 0.05) 60%,
-    rgba(255, 255, 255, 0.10) 100%
-  );
-}
-
-/* Thick tier: strongest specular edge */
-.glass-specular-thick::after {
-  background: linear-gradient(
-    115deg,
-    rgba(255, 255, 255, 0.95) 0%,
-    rgba(255, 255, 255, 0.15) 30%,
-    rgba(255, 255, 255, 0.05) 60%,
-    rgba(255, 255, 255, 0.15) 100%
-  );
-}
