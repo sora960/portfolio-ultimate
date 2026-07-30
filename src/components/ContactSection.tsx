@@ -106,9 +106,9 @@ export const ContactSection: React.FC = () => {
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-5">
+                <form onSubmit={handleSubmit} className="space-y-5" suppressHydrationWarning>
                   {/* Name */}
-                  <div className="space-y-1.5">
+                  <div className="space-y-1.5" suppressHydrationWarning>
                     <label className="block text-[11px] font-mono uppercase tracking-widest text-neutral-400 dark:text-neutral-500 pl-1">
                       Name
                     </label>
@@ -119,12 +119,13 @@ export const ContactSection: React.FC = () => {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="e.g. Alex Mercer"
+                      suppressHydrationWarning
                       className="w-full px-4 sm:px-5 py-3 rounded-full text-sm font-sans bg-black/5 dark:bg-white/5 border border-neutral-200/50 dark:border-white/10 text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 dark:placeholder-neutral-600 focus:outline-none focus:border-neutral-400 dark:focus:border-white/30 focus:bg-white/60 dark:focus:bg-black/40 disabled:opacity-50 transition-all min-h-[44px]"
                     />
                   </div>
 
                   {/* Email */}
-                  <div className="space-y-1.5">
+                  <div className="space-y-1.5" suppressHydrationWarning>
                     <label className="block text-[11px] font-mono uppercase tracking-widest text-neutral-400 dark:text-neutral-500 pl-1">
                       Email
                     </label>
@@ -135,12 +136,13 @@ export const ContactSection: React.FC = () => {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="alex@company.com"
+                      suppressHydrationWarning
                       className="w-full px-4 sm:px-5 py-3 rounded-full text-sm font-sans bg-black/5 dark:bg-white/5 border border-neutral-200/50 dark:border-white/10 text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 dark:placeholder-neutral-600 focus:outline-none focus:border-neutral-400 dark:focus:border-white/30 focus:bg-white/60 dark:focus:bg-black/40 disabled:opacity-50 transition-all min-h-[44px]"
                     />
                   </div>
 
                   {/* Message */}
-                  <div className="space-y-1.5">
+                  <div className="space-y-1.5" suppressHydrationWarning>
                     <label className="block text-[11px] font-mono uppercase tracking-widest text-neutral-400 dark:text-neutral-500 pl-1">
                       Message
                     </label>
@@ -151,6 +153,7 @@ export const ContactSection: React.FC = () => {
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder="Describe your project, opportunity, or question..."
+                      suppressHydrationWarning
                       className="w-full px-4 sm:px-5 py-4 rounded-[20px] text-sm font-sans bg-black/5 dark:bg-white/5 border border-neutral-200/50 dark:border-white/10 text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 dark:placeholder-neutral-600 focus:outline-none focus:border-neutral-400 dark:focus:border-white/30 focus:bg-white/60 dark:focus:bg-black/40 disabled:opacity-50 transition-all resize-none min-h-[100px]"
                     />
                   </div>

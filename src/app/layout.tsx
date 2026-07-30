@@ -47,8 +47,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
+      <body
+        className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}
+      >
         <script
+          suppressHydrationWarning
           dangerouslySetInnerHTML={{
             __html: `
               try {
@@ -61,10 +64,6 @@ export default function RootLayout({
             `,
           }}
         />
-      </head>
-      <body
-        className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}
-      >
         <ThemeProvider>
           {children}
           {/* Global SVG Gooey Filter */}

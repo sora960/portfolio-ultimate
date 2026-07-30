@@ -89,9 +89,40 @@ export const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* ── MOBILE LAYOUT (Clean Focused Profile Hub) ──────────────── */}
-      <div className="md:hidden w-full max-w-sm mx-auto space-y-4 z-10 flex flex-col items-center px-4">
-        <Card thickness="thick" className="p-8 flex flex-col justify-between items-center text-center gap-6 w-full rounded-[36px] min-h-[340px] shadow-xl">
+      {/* ── MOBILE LAYOUT (Volumetric Glass Bubble Composition) ─────── */}
+      <div className="md:hidden w-full max-w-sm mx-auto z-10 px-4 relative pt-6 pb-4">
+        {/* Top-Left Bubble Satellite */}
+        <div className="absolute -top-3 -left-1 w-[76px] h-[76px] z-0 animate-entrance-satellite-1 pointer-events-none">
+          <div className="w-full h-full animate-orbit-left">
+            <Card
+              thickness="thin"
+              className="w-full h-full rounded-full shadow-lg"
+            />
+          </div>
+        </div>
+
+        {/* Top-Right Bubble Satellite */}
+        <div className="absolute -top-5 -right-2 w-[90px] h-[90px] z-0 animate-entrance-satellite-2 pointer-events-none">
+          <div className="w-full h-full animate-orbit-right">
+            <Card
+              thickness="thin"
+              className="w-full h-full rounded-full shadow-lg"
+            />
+          </div>
+        </div>
+
+        {/* Bottom-Right Pill Satellite */}
+        <div className="absolute -bottom-3 -right-1 w-[130px] h-[42px] z-20 animate-entrance-satellite-3 pointer-events-none">
+          <div className="w-full h-full animate-orbit-pill">
+            <Card
+              thickness="thin"
+              className="w-full h-full rounded-full shadow-lg"
+            />
+          </div>
+        </div>
+
+        {/* Central Profile Card */}
+        <Card thickness="thick" className="p-8 flex flex-col justify-between items-center text-center gap-6 w-full rounded-[36px] min-h-[340px] shadow-xl relative z-10">
           <span className="text-[11px] font-mono tracking-widest uppercase text-neutral-400 dark:text-neutral-500 font-medium">
             software engineer
           </span>
