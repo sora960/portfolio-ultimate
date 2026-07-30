@@ -69,14 +69,6 @@ export const Card: React.FC<CardProps> = ({
       className={`glass-card glass-card-hover group ${thicknessClass} ${className}`}
       {...props}
     >
-      {/* Dynamic Specular Point-Light Cursor Highlight Overlay */}
-      <div 
-        className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"
-        style={{
-          background: "radial-gradient(350px circle at var(--mouse-x, 0px) var(--mouse-y, 0px), var(--specular-spotlight, rgba(255, 255, 255, 0.12)), transparent 80%)",
-        }}
-      />
-
       {/* Content wrapper */}
       <div className="relative z-10 w-full h-full">
         {children}

@@ -107,7 +107,7 @@
     0 14px 36px -6px rgba(0, 0, 0, 0.45);
 }
 
-/* Premium Card hover effects — smooth elevation and deep soft ambient shadow */
+/* Premium Card hover effects — smooth elevation and deep soft ambient shadow, constant glass fill */
 .glass-card-hover {
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -119,39 +119,33 @@
   }
 
   .glass-thickness-thin.glass-card-hover:hover {
-    background-color: rgba(255, 255, 255, 0.04);
     box-shadow: 
       0 2px 4px rgba(0, 0, 0, 0.05),
       0 8px 20px -2px rgba(0, 0, 0, 0.08);
   }
   .dark .glass-thickness-thin.glass-card-hover:hover {
-    background-color: rgba(255, 255, 255, 0.03);
     box-shadow: 
       0 3px 8px rgba(0, 0, 0, 0.25),
       0 10px 24px -3px rgba(0, 0, 0, 0.40);
   }
 
   .glass-thickness-regular.glass-card-hover:hover {
-    background-color: rgba(255, 255, 255, 0.06);
     box-shadow: 
       0 4px 10px rgba(0, 0, 0, 0.07),
       0 12px 32px -4px rgba(0, 0, 0, 0.12);
   }
   .dark .glass-thickness-regular.glass-card-hover:hover {
-    background-color: rgba(255, 255, 255, 0.05);
     box-shadow: 
       0 6px 14px rgba(0, 0, 0, 0.35),
       0 16px 36px -5px rgba(0, 0, 0, 0.50);
   }
 
   .glass-thickness-thick.glass-card-hover:hover {
-    background-color: rgba(255, 255, 255, 0.08);
     box-shadow: 
       0 4px 12px rgba(0, 0, 0, 0.08),
       0 16px 40px -6px rgba(0, 0, 0, 0.14);
   }
   .dark .glass-thickness-thick.glass-card-hover:hover {
-    background-color: rgba(255, 255, 255, 0.06);
     box-shadow: 
       0 6px 16px rgba(0, 0, 0, 0.40),
       0 20px 44px -6px rgba(0, 0, 0, 0.55);
